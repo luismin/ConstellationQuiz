@@ -15,7 +15,7 @@
     button { margin: 15px 5px; padding: 10px 20px; }
     nav { margin-bottom: 20px; }
     nav button { margin-right: 10px; }
-    .disabled { opacity: 0.5; pointer-events: none; }
+    .completed { background-color: lightgray !important; color: darkgray; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -26,7 +26,7 @@
 
   <script>
     let allCategories = [];
-    let completedCategories = new Set();
+    let allCompleted = [];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -67,8 +67,9 @@
       nav.innerHTML = '';
       allCategories.forEach((cat, i) => {
         const btn = document.createElement('button');
-        btn.textContent = cat.completed ? `✅ ${cat.name}` : cat.name;
-        if (cat.completed) btn.classList.add('disabled');
+        btn.textContent = cat.completed ? `${cat.name} ✅` : cat.name;
+        btn.className = cat.completed ? 'completed' : '';
+        btn.disabled = cat.completed;
         btn.onclick = () => renderCategory(i);
         nav.appendChild(btn);
       });
@@ -77,19 +78,20 @@
     function renderCategory(index) {
       const cat = allCategories[index];
       let html = `<h2 class="category-title">Category: ${cat.name}</h2>`;
-      html += `<button onclick="submitCategory(${index})">Check Category</button>`;
+      html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" id="qblock-${idx}">
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
           const checked = cat.answers[idx] === opt.id ? 'checked' : '';
+          const debugMark = opt.id === q.correct ? ' *' : '';
           html += `<label class="option">
-            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}
+            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}${debugMark}
           </label>`;
         });
         html += `<div class="feedback" id="feedback-${idx}"></div></div>`;
       });
-      html += `<button onclick="submitCategory(${index})">Check Category</button>`;
+      html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       document.getElementById('quiz').innerHTML = html;
       document.getElementById('result').innerHTML = '';
     }
@@ -100,6 +102,7 @@
 
     function submitCategory(catIdx) {
       const cat = allCategories[catIdx];
+      if (cat.completed) return;
       let allCorrect = true;
       for (let i = 0; i < cat.questions.length; i++) {
         const selected = cat.answers[i];
@@ -121,22 +124,21 @@
       if (allCorrect) {
         cat.completed = true;
         renderNav();
-        checkAllCompleted();
+        document.getElementById('result').innerHTML = checkCompletion();
       } else {
         setTimeout(() => {
           const shuffled = shuffleArray(cat.fullSet);
           cat.questions = shuffled.slice(0, 10);
           cat.answers = Array(10).fill(null);
+          cat.feedback = Array(10).fill(null);
           renderCategory(catIdx);
         }, 2000);
       }
     }
 
-    function checkAllCompleted() {
+    function checkCompletion() {
       const allDone = allCategories.every(cat => cat.completed);
-      if (allDone) {
-        document.getElementById('result').innerHTML = '<h2>🎉 All categories completed correctly! 🎉</h2>';
-      }
+      return allDone ? '<h2>🎉 All categories completed! 🎉</h2>' : '';
     }
 
     function shuffleArray(array) {
