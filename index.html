@@ -149,9 +149,11 @@
       nav.innerHTML = '';
       allCategories.forEach((cat, i) => {
         const btn = document.createElement('button');
-        btn.textContent = cat.completed ? `${cat.name} ✅` : cat.name;
+        btn.innerHTML = `${categoryIcons[i % categoryIcons.length]} ${cat.completed ? cat.name + ' ✅' : cat.name}`;
         btn.className = cat.completed ? 'completed' : '';
         btn.disabled = cat.completed;
+        btn.style.backgroundColor = categoryColors[i % categoryColors.length];
+        btn.style.color = 'white';
         btn.style.borderTopColor = categoryColors[i % categoryColors.length];
         btn.onclick = () => renderCategory(i);
         nav.appendChild(btn);
