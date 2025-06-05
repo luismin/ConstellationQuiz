@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <title>Pega Constellation Quiz</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
-    .question { margin-bottom: 15px; font-weight: bold; }
+    body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    .category-title { font-size: 1.5em; margin-top: 20px; }
+    .question-block { border: 1px solid #ddd; padding: 10px; margin: 15px 0; border-radius: 8px; }
+    .question { font-weight: bold; }
     .option { margin: 5px 0; display: block; }
     .feedback { margin-top: 10px; font-weight: bold; }
     .correct { color: green; }
     .incorrect { color: red; }
-    button { margin-top: 10px; }
-    .hidden { display: none; }
+    button { margin-top: 20px; padding: 10px 20px; }
   </style>
 </head>
 <body>
@@ -21,8 +22,8 @@
   <script>
     let allCategories = [];
     let currentCategoryIndex = 0;
-    let currentQuestionIndex = 0;
     let currentQuestions = [];
+    let answersGiven = {};
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -57,48 +58,48 @@
       }
       const category = allCategories[currentCategoryIndex];
       currentQuestions = shuffleArray(category.questions).slice(0, 10);
-      currentQuestionIndex = 0;
-      showQuestion();
+      answersGiven = {}; // reset for this category
+      renderCategory(category.name, currentQuestions);
     }
 
-    function showQuestion() {
-      const q = currentQuestions[currentQuestionIndex];
-      let html = `<h2>Category: ${q.category}</h2>`;
-      html += `<div class="question">Q${currentQuestionIndex + 1}: ${q.text}</div>`;
-      q.options.forEach(opt => {
-        html += `<label class="option"><input type="radio" name="option" value="${opt.id}"> ${opt.id} ${opt.text}</label>`;
+    function renderCategory(categoryName, questions) {
+      let html = `<h2 class="category-title">Category: ${categoryName}</h2>`;
+      questions.forEach((q, idx) => {
+        html += `<div class="question-block" id="qblock-${idx}">
+          <div class="question">Q${idx + 1}: ${q.text}</div>`;
+        q.options.forEach(opt => {
+          html += `<label class="option">
+            <input type="radio" name="q${idx}" value="${opt.id}" onchange="storeAnswer(${idx}, '${opt.id}', '${q.correct}')"> ${opt.id} ${opt.text}
+          </label>`;
+        });
+        html += `<div class="feedback" id="feedback-${idx}"></div></div>`;
       });
-      html += '<button onclick="checkAnswer()">Submit</button><div id="feedback" class="feedback"></div>';
+      html += '<button onclick="submitCategory()">Submit Category</button>';
       document.getElementById('quiz').innerHTML = html;
     }
 
-    function checkAnswer() {
-      const q = currentQuestions[currentQuestionIndex];
-      const selected = document.querySelector('input[name="option"]:checked');
-      const feedback = document.getElementById('feedback');
-      if (!selected) {
-        feedback.textContent = 'Please select an option.';
-        feedback.className = 'feedback';
-        return;
-      }
-      if (selected.value === q.correct) {
-        feedback.textContent = '✅ Correct!';
+    function storeAnswer(qIndex, selected, correct) {
+      const feedback = document.getElementById(`feedback-${qIndex}`);
+      if (selected === correct) {
+        feedback.textContent = '✅ Correct';
         feedback.className = 'feedback correct';
-        setTimeout(() => {
-          currentQuestionIndex++;
-          if (currentQuestionIndex < currentQuestions.length) {
-            showQuestion();
-          } else {
-            currentCategoryIndex++;
-            startCategory();
-          }
-        }, 1000);
+        answersGiven[qIndex] = true;
       } else {
-        feedback.textContent = `❌ Incorrect. You must answer all questions in this category correctly to proceed.`;
+        feedback.textContent = `❌ Incorrect`;
         feedback.className = 'feedback incorrect';
-        setTimeout(() => {
-          startCategory();
-        }, 2000);
+        answersGiven[qIndex] = false;
+      }
+    }
+
+    function submitCategory() {
+      const total = currentQuestions.length;
+      const correctCount = Object.values(answersGiven).filter(v => v === true).length;
+      if (correctCount === total) {
+        currentCategoryIndex++;
+        startCategory();
+      } else {
+        alert(`You must answer all ${total} questions correctly to proceed. Try again.`);
+        startCategory();
       }
     }
 
