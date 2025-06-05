@@ -25,9 +25,7 @@
 
   <script>
     let allCategories = [];
-    let currentCategoryIndex = 0;
-    let currentQuestions = [];
-    let answersByCategory = {}; // stores answers for all categories
+    let allAnswers = {};
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -37,7 +35,7 @@
         const categories = xmlDoc.getElementsByTagName('category');
         allCategories = Array.from(categories).map((cat, idx) => {
           const name = cat.getAttribute('name');
-          const questions = shuffleArray(Array.from(cat.getElementsByTagName('question')).map(q => {
+          const questions = Array.from(cat.getElementsByTagName('question')).map(q => {
             const text = q.getElementsByTagName('text')[0].textContent;
             const options = Array.from(q.getElementsByTagName('option')).map(opt => ({
               id: opt.getAttribute('id'),
@@ -45,17 +43,22 @@
             }));
             const correct = q.getElementsByTagName('correct')[0].textContent.trim();
             return { text, options, correct, category: name };
-          })).slice(0, 10);
-          answersByCategory[idx] = Array(10).fill(null);
-          return { name, questions };
+          });
+          return { name, fullSet: questions, questions: [], answers: Array(10).fill(null), feedback: [] };
         });
         renderNav();
-        renderCategory(currentCategoryIndex);
-      })
-      .catch(error => {
-        document.getElementById('quiz').innerHTML = '<p>Error loading questions.</p>';
-        console.error(error);
+        regenerateAll();
+        renderCategory(0);
       });
+
+    function regenerateAll() {
+      allCategories.forEach(cat => {
+        const shuffled = shuffleArray(cat.fullSet);
+        cat.questions = shuffled.slice(0, 10);
+        cat.answers = Array(10).fill(null);
+        cat.feedback = Array(10).fill(null);
+      });
+    }
 
     function renderNav() {
       const nav = document.getElementById('nav');
@@ -73,39 +76,66 @@
     }
 
     function renderCategory(index) {
-      currentCategoryIndex = index;
-      currentQuestions = allCategories[index].questions;
-      let html = `<h2 class="category-title">Category: ${allCategories[index].name}</h2>`;
-      currentQuestions.forEach((q, idx) => {
+      const cat = allCategories[index];
+      let html = `<h2 class="category-title">Category: ${cat.name}</h2>`;
+      cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" id="qblock-${idx}">
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
-          const checked = answersByCategory[index][idx] === opt.id ? 'checked' : '';
+          const checked = cat.answers[idx] === opt.id ? 'checked' : '';
           html += `<label class="option">
             <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}
           </label>`;
         });
         html += `<div class="feedback" id="feedback-${idx}"></div></div>`;
       });
+      html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       document.getElementById('quiz').innerHTML = html;
       document.getElementById('result').innerHTML = '';
     }
 
     function storeAnswer(catIdx, qIdx, selectedId) {
-      answersByCategory[catIdx][qIdx] = selectedId;
+      allCategories[catIdx].answers[qIdx] = selectedId;
+    }
+
+    function submitCategory(catIdx) {
+      const cat = allCategories[catIdx];
+      let allCorrect = true;
+      for (let i = 0; i < cat.questions.length; i++) {
+        const selected = cat.answers[i];
+        const correct = cat.questions[i].correct;
+        const feedback = document.getElementById(`feedback-${i}`);
+        if (!selected) {
+          feedback.textContent = '⚠️ Please select an option.';
+          feedback.className = 'feedback incorrect';
+          allCorrect = false;
+        } else if (selected === correct) {
+          feedback.textContent = '✅ Correct';
+          feedback.className = 'feedback correct';
+        } else {
+          feedback.textContent = '❌ Incorrect';
+          feedback.className = 'feedback incorrect';
+          allCorrect = false;
+        }
+      }
+      if (!allCorrect) {
+        setTimeout(() => {
+          const shuffled = shuffleArray(cat.fullSet);
+          cat.questions = shuffled.slice(0, 10);
+          cat.answers = Array(10).fill(null);
+          renderCategory(catIdx);
+        }, 2000);
+      }
     }
 
     function checkAllCategories() {
       let allCorrect = true;
       let summary = '';
-      allCategories.forEach((cat, i) => {
-        const questions = cat.questions;
-        const answers = answersByCategory[i];
-        const incorrectIndices = answers.map((ans, idx) => ans !== questions[idx].correct);
-        const correct = incorrectIndices.every(v => v === false);
-        if (!correct) {
-          allCorrect = false;
+      allCategories.forEach(cat => {
+        const allCorrectCat = cat.questions.every((q, i) => cat.answers[i] === q.correct);
+        if (!allCorrectCat) {
           summary += `<p>❌ Category <strong>${cat.name}</strong>: Not all answers correct.</p>`;
+          allCorrect = false;
         } else {
           summary += `<p>✅ Category <strong>${cat.name}</strong>: All answers correct.</p>`;
         }
@@ -113,7 +143,7 @@
       if (allCorrect) {
         summary += '<h2>🎉 All categories completed correctly! 🎉</h2>';
       } else {
-        summary += '<p>Please review the incorrect categories.</p>';
+        summary += '<p>Please review and submit each category correctly.</p>';
       }
       document.getElementById('result').innerHTML = summary;
     }
