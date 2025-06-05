@@ -39,7 +39,7 @@
               text: opt.textContent
             }));
             const correct = q.getElementsByTagName('correct')[0].textContent.trim();
-            return { text, options, correct };
+            return { text, options, correct, category: name };
           });
           return { name, questions };
         });
@@ -58,18 +58,18 @@
       const category = allCategories[currentCategoryIndex];
       currentQuestions = shuffleArray(category.questions).slice(0, 10);
       currentQuestionIndex = 0;
-      document.getElementById('quiz').innerHTML = `<h2>Category: ${category.name}</h2>`;
       showQuestion();
     }
 
     function showQuestion() {
       const q = currentQuestions[currentQuestionIndex];
-      let html = `<div class="question">Q${currentQuestionIndex + 1}: ${q.text}</div>`;
+      let html = `<h2>Category: ${q.category}</h2>`;
+      html += `<div class="question">Q${currentQuestionIndex + 1}: ${q.text}</div>`;
       q.options.forEach(opt => {
         html += `<label class="option"><input type="radio" name="option" value="${opt.id}"> ${opt.id} ${opt.text}</label>`;
       });
       html += '<button onclick="checkAnswer()">Submit</button><div id="feedback" class="feedback"></div>';
-      document.getElementById('quiz').innerHTML += html;
+      document.getElementById('quiz').innerHTML = html;
     }
 
     function checkAnswer() {
@@ -87,7 +87,6 @@
         setTimeout(() => {
           currentQuestionIndex++;
           if (currentQuestionIndex < currentQuestions.length) {
-            document.getElementById('quiz').innerHTML = `<h2>Category: ${allCategories[currentCategoryIndex].name}</h2>`;
             showQuestion();
           } else {
             currentCategoryIndex++;
