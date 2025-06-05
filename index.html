@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Pega Constellation Quiz</title>
   <style>
     body {
@@ -146,7 +146,7 @@
       let html = `<h2 class="category-title" style="background-color:${color}">Category: ${cat.name}</h2>`;
       html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
-        html += `<div class="question-block" id="qblock-${idx}">
+        html += `<div class="question-block" style="border-left: 6px solid ${color}" id="qblock-${idx}">
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
           const checked = cat.answers[idx] === opt.id ? 'checked' : '';
