@@ -4,28 +4,28 @@
   <meta charset="UTF-8">
   <title>Pega Constellation Quiz</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; }
+    body { font-family: sans-serif; padding: 20px; max-width: 800px; margin: auto; }
     .question { margin-bottom: 15px; font-weight: bold; }
     .option { margin: 5px 0; display: block; }
     .feedback { margin-top: 10px; font-weight: bold; }
     .correct { color: green; }
     .incorrect { color: red; }
+    button { margin-top: 10px; }
   </style>
 </head>
 <body>
   <h1>Pega Constellation Quiz</h1>
-  <input type="file" id="xmlFile" accept=".xml">
-  <div id="quiz"></div>
+  <div id="quiz">Loading questions...</div>
+
   <script>
     let currentQuestion = 0;
     let allQuestions = [];
 
-    document.getElementById('xmlFile').addEventListener('change', function (e) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function (event) {
+    fetch('questions.xml')
+      .then(response => response.text())
+      .then(xmlText => {
         const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(event.target.result, 'text/xml');
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
         const questions = xmlDoc.getElementsByTagName('question');
         allQuestions = Array.from(questions).map(q => {
           const text = q.getElementsByTagName('text')[0].textContent;
@@ -36,11 +36,12 @@
           const correct = q.getElementsByTagName('correct')[0].textContent.trim();
           return { text, options, correct };
         });
-        currentQuestion = 0;
         showQuestion();
-      };
-      reader.readAsText(file);
-    });
+      })
+      .catch(error => {
+        document.getElementById('quiz').innerHTML = '<p>Error loading questions.</p>';
+        console.error(error);
+      });
 
     function showQuestion() {
       if (currentQuestion >= allQuestions.length) {
@@ -66,10 +67,10 @@
         return;
       }
       if (selected.value === q.correct) {
-        feedback.textContent = 'Correct!';
+        feedback.textContent = '✅ Correct!';
         feedback.className = 'feedback correct';
       } else {
-        feedback.textContent = `Incorrect. Correct answer is ${q.correct}`;
+        feedback.textContent = `❌ Incorrect. Correct answer is ${q.correct}`;
         feedback.className = 'feedback incorrect';
       }
       setTimeout(() => {
