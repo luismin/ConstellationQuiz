@@ -1,0 +1,1137 @@
+<?xml version="1.0" ?>
+<PegaConstellationQuiz>
+  <category name="App Studio &amp; Declarative Development">
+    <question id="1">
+      <text>In Pega Constellation, what replaces traditional 'Sections' for UI configuration?</text>
+      <option id="a)">Layouts</option>
+      <option id="b)">Views</option>
+      <option id="c)">Harnesses</option>
+      <option id="d)">Templates</option>
+      <correct>b)</correct>
+    </question>
+    <question id="2">
+      <text>What development approach does App Studio promote in Constellation?</text>
+      <option id="a)">Manual customization</option>
+      <option id="b)">Code-centric development</option>
+      <option id="c)">Declarative configuration</option>
+      <option id="d)">Script-based design</option>
+      <correct>c)</correct>
+    </question>
+    <question id="3">
+      <text>Which tool allows developers to inspect and debug applications in development mode within Constellation?</text>
+      <option id="a)">Live UI</option>
+      <option id="b)">Tracer</option>
+      <option id="c)">DevTools</option>
+      <option id="d)">Clipboard</option>
+      <correct>c)</correct>
+    </question>
+    <question id="4">
+      <text>What is the default top-level page in the Constellation UI?</text>
+      <option id="a)">pyStartCase</option>
+      <option id="b)">pyPortal</option>
+      <option id="c)">pyWorkPage</option>
+      <option id="d)">pyCaseMainPage</option>
+      <correct>c)</correct>
+    </question>
+    <question id="5">
+      <text>Which of the following is NOT a benefit of using App Studio in Constellation?</text>
+      <option id="a)">Simplified rule management</option>
+      <option id="b)">Automatic class and ruleset handling</option>
+      <option id="c)">Complex inheritance configurations</option>
+      <option id="d)">Faster development time</option>
+      <correct>c)</correct>
+    </question>
+    <question id="6">
+      <text>What type of architecture does Constellation utilize to enhance scalability and performance?</text>
+      <option id="a)">Monolithic</option>
+      <option id="b)">Stateful</option>
+      <option id="c)">Stateless</option>
+      <option id="d)">Client-server traditional</option>
+      <correct>c)</correct>
+    </question>
+    <question id="7">
+      <text>Which component in Constellation allows real-time communication between the browser and the backend?</text>
+      <option id="a)">PConnect</option>
+      <option id="b)">WebSocket</option>
+      <option id="c)">PCore</option>
+      <option id="d)">API Gateway</option>
+      <correct>c)</correct>
+    </question>
+    <question id="8">
+      <text>What is the purpose of the Constellation Design System?</text>
+      <option id="a)">Provide CSS styling</option>
+      <option id="b)">Offer reusable UI components</option>
+      <option id="c)">Manage databases</option>
+      <option id="d)">Implement business logic</option>
+      <correct>b)</correct>
+    </question>
+    <question id="9">
+      <text>Which tool is used to manage the relationship between an organization and Pega?</text>
+      <option id="a)">Pega Marketplace</option>
+      <option id="b)">My Pega</option>
+      <option id="c)">Pega Academy</option>
+      <option id="d)">Pega Community</option>
+      <correct>b)</correct>
+    </question>
+    <question id="10">
+      <text>Which service handles the delivery of static assets provided by Pega?</text>
+      <option id="a)">Application Static</option>
+      <option id="b)">Pega Static</option>
+      <option id="c)">Custom Static</option>
+      <option id="d)">User Static</option>
+      <correct>b)</correct>
+    </question>
+    <question id="11">
+      <text>In Constellation, what replaces 'Harnesses' for structuring the user interface?</text>
+      <option id="a)">Templates</option>
+      <option id="b)">Views</option>
+      <option id="c)">Layouts</option>
+      <option id="d)">Pages</option>
+      <correct>b)</correct>
+    </question>
+    <question id="12">
+      <text>Which feature in App Studio allows for the configuration of case types without writing code?</text>
+      <option id="a)">Case Designer</option>
+      <option id="b)">Workflow Builder</option>
+      <option id="c)">Process Modeler</option>
+      <option id="d)">Case Type Explorer</option>
+      <correct>a)</correct>
+    </question>
+    <question id="13">
+      <text>What is the role of 'Templates' in Constellation's UI architecture?</text>
+      <option id="a)">Define data models</option>
+      <option id="b)">Structure the layout of views</option>
+      <option id="c)">Manage case lifecycles</option>
+      <option id="d)">Configure security settings</option>
+      <correct>b)</correct>
+    </question>
+    <question id="14">
+      <text>Which component in App Studio facilitates the creation of reusable UI elements?</text>
+      <option id="a)">Widgets</option>
+      <option id="b)">Templates</option>
+      <option id="c)">Views</option>
+      <option id="d)">Sections</option>
+      <correct>c)</correct>
+    </question>
+    <question id="15">
+      <text>How does Constellation ensure consistency across different applications?</text>
+      <option id="a)">By enforcing strict coding standards</option>
+      <option id="b)">Through the use of a centralized design system</option>
+      <option id="c)">By limiting customization options</option>
+      <option id="d)">Through manual code reviews</option>
+      <correct>b)</correct>
+    </question>
+    <question id="16">
+      <text>Which feature in App Studio allows for the management of data objects and their relationships?</text>
+      <option id="a)">Data Designer</option>
+      <option id="b)">Data Modeler</option>
+      <option id="c)">Data Explorer</option>
+      <option id="d)">Data Mapper</option>
+      <correct>a)</correct>
+    </question>
+    <question id="17">
+      <text>What is the primary benefit of using declarative rules in Constellation?</text>
+      <option id="a)">Enhanced performance</option>
+      <option id="b)">Simplified debugging</option>
+      <option id="c)">Reduced need for procedural code</option>
+      <option id="d)">Improved security</option>
+      <correct>c)</correct>
+    </question>
+    <question id="18">
+      <text>In Constellation, how are user interfaces primarily configured?</text>
+      <option id="a)">Through XML files</option>
+      <option id="b)">Using JavaScript</option>
+      <option id="c)">Via declarative configurations in App Studio</option>
+      <option id="d)">By editing HTML templates</option>
+      <correct>c)</correct>
+    </question>
+    <question id="19">
+      <text>Which App Studio feature allows for the configuration of application branding and themes?</text>
+      <option id="a)">Theme Manager</option>
+      <option id="b)">Branding and Themes landing page</option>
+      <option id="c)">Style Editor</option>
+      <option id="d)">UI Customizer</option>
+      <correct>b)</correct>
+    </question>
+    <question id="20">
+      <text>What is the purpose of the 'Settings' tab in App Studio?</text>
+      <option id="a)">To manage user access</option>
+      <option id="b)">To configure application-wide settings</option>
+      <option id="c)">To edit data models</option>
+      <option id="d)">To design workflows</option>
+      <correct>b)</correct>
+    </question>
+  </category>
+  <category name="DX Components &amp; Customization">
+    <question id="1">
+      <text>What technology is used to build DX components in Pega Constellation?</text>
+      <option id="a)">Angular</option>
+      <option id="b)">Vue.js</option>
+      <option id="c)">React</option>
+      <option id="d)">Ember.js</option>
+      <correct>c)</correct>
+    </question>
+    <question id="2">
+      <text>Which API integrates custom UI components with Pega Constellation?</text>
+      <option id="a)">SOAP API</option>
+      <option id="b)">DX API</option>
+      <option id="c)">GraphQL API</option>
+      <option id="d)">REST API</option>
+      <correct>b)</correct>
+    </question>
+    <question id="3">
+      <text>Which tool is used to build and deploy DX components?</text>
+      <option id="a)">DX Component CLI</option>
+      <option id="b)">App Studio</option>
+      <option id="c)">Dev Studio</option>
+      <option id="d)">Design Studio</option>
+      <correct>a)</correct>
+    </question>
+    <question id="4">
+      <text>Which file holds authentication info when publishing DX components?</text>
+      <option id="a)">auth.json</option>
+      <option id="b)">dxconfig.json</option>
+      <option id="c)">package.json</option>
+      <option id="d)">manifest.json</option>
+      <correct>a)</correct>
+    </question>
+    <question id="5">
+      <text>What command authenticates with the Pega server for publishing?</text>
+      <option id="a)">dx-auth</option>
+      <option id="b)">dx-login</option>
+      <option id="c)">dx-publish-auth</option>
+      <option id="d)">dx-setup</option>
+      <correct>b)</correct>
+    </question>
+    <question id="6">
+      <text>Which file specifies tasks during DX component publishing?</text>
+      <option id="a)">tasks.json</option>
+      <option id="b)">dxconfig.json</option>
+      <option id="c)">package.json</option>
+      <option id="d)">manifest.json</option>
+      <correct>b)</correct>
+    </question>
+    <question id="7">
+      <text>What file defines styles for DX components?</text>
+      <option id="a)">style.css</option>
+      <option id="b)">component.css</option>
+      <option id="c)">dx-style.css</option>
+      <option id="d)">styles.json</option>
+      <correct>a)</correct>
+    </question>
+    <question id="8">
+      <text>What file defines the behavior of a DX component?</text>
+      <option id="a)">logic.js</option>
+      <option id="b)">component.js</option>
+      <option id="c)">dx-logic.js</option>
+      <option id="d)">script.js</option>
+      <correct>b)</correct>
+    </question>
+    <question id="9">
+      <text>How are DX components rendered in the Constellation engine?</text>
+      <option id="a)">As static HTML</option>
+      <option id="b)">Via JSON APIs</option>
+      <option id="c)">Via PCore + PConnect</option>
+      <option id="d)">Through App Studio</option>
+      <correct>c)</correct>
+    </question>
+    <question id="10">
+      <text>Which tag defines the root of a DX component in JSX?</text>
+      <option id="a)">&lt;dx-component&gt;</option>
+      <option id="b)">&lt;ComponentRoot&gt;</option>
+      <option id="c)">&lt;View&gt;</option>
+      <option id="d)">&lt;section&gt;</option>
+      <correct>a)</correct>
+    </question>
+    <question id="11">
+      <text>Which CLI command publishes all DX components to the server?</text>
+      <option id="a)">dx-deploy</option>
+      <option id="b)">dx-push</option>
+      <option id="c)">dx-publish-all</option>
+      <option id="d)">dx-upload</option>
+      <correct>c)</correct>
+    </question>
+    <question id="12">
+      <text>Where do you define the metadata for DX components?</text>
+      <option id="a)">manifest.json</option>
+      <option id="b)">metadata.xml</option>
+      <option id="c)">config.json</option>
+      <option id="d)">component.yml</option>
+      <correct>a)</correct>
+    </question>
+    <question id="13">
+      <text>Which library exposes the public API for Constellation in JavaScript?</text>
+      <option id="a)">ConstellationJS</option>
+      <option id="b)">PegaAPI</option>
+      <option id="c)">ReactPega</option>
+      <option id="d)">DXJS</option>
+      <correct>a)</correct>
+    </question>
+    <question id="14">
+      <text>How is data passed from Pega to a DX component?</text>
+      <option id="a)">Via HTML attributes</option>
+      <option id="b)">Via the DOM</option>
+      <option id="c)">Via PCore + props</option>
+      <option id="d)">Via WebSockets</option>
+      <correct>c)</correct>
+    </question>
+    <question id="15">
+      <text>What happens if a DX component fails to register?</text>
+      <option id="a)">App crashes</option>
+      <option id="b)">Fallback UI is rendered</option>
+      <option id="c)">Error log is generated</option>
+      <option id="d)">API call fails silently</option>
+      <correct>b)</correct>
+    </question>
+    <question id="16">
+      <text>Where should custom DX components be registered?</text>
+      <option id="a)">App Studio</option>
+      <option id="b)">DX registry</option>
+      <option id="c)">Component manifest</option>
+      <option id="d)">Pega Component Store</option>
+      <correct>c)</correct>
+    </question>
+    <question id="17">
+      <text>How do you include multiple DX components in a view?</text>
+      <option id="a)">Use separate templates</option>
+      <option id="b)">Import all in component.js</option>
+      <option id="c)">Reference in View JSON</option>
+      <option id="d)">Embed in section</option>
+      <correct>c)</correct>
+    </question>
+    <question id="18">
+      <text>What’s the benefit of using DX components over legacy UI rules?</text>
+      <option id="a)">More code reuse</option>
+      <option id="b)">Better performance &amp; modularity</option>
+      <option id="c)">Faster deployment</option>
+      <option id="d)">Built-in security</option>
+      <correct>b)</correct>
+    </question>
+    <question id="19">
+      <text>What is required in a DX component to support two-way data binding?</text>
+      <option id="a)">useEffect hook</option>
+      <option id="b)">bind() call</option>
+      <option id="c)">data-page config</option>
+      <option id="d)">usePConnect</option>
+      <correct>d)</correct>
+    </question>
+    <question id="20">
+      <text>How can you test a DX component locally before deployment?</text>
+      <option id="a)">Run 'npm test'</option>
+      <option id="b)">Use Pega Emulator</option>
+      <option id="c)">Serve via CLI and simulate props</option>
+      <option id="d)">Use App Studio preview</option>
+      <correct>c)</correct>
+    </question>
+  </category>
+  <category name="Architecture &amp; APIs">
+    <question id="1">
+      <text>Which API provides REST endpoints for default and custom user experiences in Constellation?</text>
+      <option id="a)">SOAP API</option>
+      <option id="b)">DX API</option>
+      <option id="c)">GraphQL API</option>
+      <option id="d)">RESTful API</option>
+      <correct>b)</correct>
+    </question>
+    <question id="2">
+      <text>What is the role of PConnect in custom DX components?</text>
+      <option id="a)">Provides styling rules</option>
+      <option id="b)">Connects component to Pega state and APIs</option>
+      <option id="c)">Handles network requests</option>
+      <option id="d)">Registers components to App Studio</option>
+      <correct>b)</correct>
+    </question>
+    <question id="3">
+      <text>Which object is required to interact with Pega state in Constellation DX components?</text>
+      <option id="a)">PCore</option>
+      <option id="b)">PConnect</option>
+      <option id="c)">StateManager</option>
+      <option id="d)">DataPage</option>
+      <correct>a)</correct>
+    </question>
+    <question id="4">
+      <text>What JavaScript library enables communication with the Pega Constellation framework?</text>
+      <option id="a)">ConstellationJS</option>
+      <option id="b)">ReactPega</option>
+      <option id="c)">PegaAPI</option>
+      <option id="d)">DXCore</option>
+      <correct>a)</correct>
+    </question>
+    <question id="5">
+      <text>What does PCore.getEnvironmentInfo() return?</text>
+      <option id="a)">Security settings</option>
+      <option id="b)">Theme metadata</option>
+      <option id="c)">User and environment metadata</option>
+      <option id="d)">Case data</option>
+      <correct>c)</correct>
+    </question>
+    <question id="6">
+      <text>Which layer in Constellation acts as the data delivery and metadata endpoint?</text>
+      <option id="a)">Pega App Server</option>
+      <option id="b)">Constellation Service</option>
+      <option id="c)">DX API Layer</option>
+      <option id="d)">PCore</option>
+      <correct>c)</correct>
+    </question>
+    <question id="7">
+      <text>What is required to initialize a DX component for communication?</text>
+      <option id="a)">A DOM ref</option>
+      <option id="b)">PCore.registerComponent()</option>
+      <option id="c)">Redux binding</option>
+      <option id="d)">Async loader</option>
+      <correct>b)</correct>
+    </question>
+    <question id="8">
+      <text>What protocol is used for communication between Pega and Constellation UI?</text>
+      <option id="a)">WebSocket</option>
+      <option id="b)">REST</option>
+      <option id="c)">gRPC</option>
+      <option id="d)">SOAP</option>
+      <correct>b)</correct>
+    </question>
+    <question id="9">
+      <text>What is the primary purpose of the DX API?</text>
+      <option id="a)">Render server-side UI</option>
+      <option id="b)">Provide server logs</option>
+      <option id="c)">Expose UI metadata and data over REST</option>
+      <option id="d)">Process background jobs</option>
+      <correct>c)</correct>
+    </question>
+    <question id="10">
+      <text>Which HTTP method is used to submit case actions in the DX API?</text>
+      <option id="a)">GET</option>
+      <option id="b)">PUT</option>
+      <option id="c)">POST</option>
+      <option id="d)">DELETE</option>
+      <correct>c)</correct>
+    </question>
+    <question id="11">
+      <text>What is the purpose of PCore.getConstants()?</text>
+      <option id="a)">Retrieve view configuration</option>
+      <option id="b)">Get static system-level values</option>
+      <option id="c)">Launch portals</option>
+      <option id="d)">Fetch live case data</option>
+      <correct>b)</correct>
+    </question>
+    <question id="12">
+      <text>Where does the DX API expose all case type and field definitions?</text>
+      <option id="a)">pyWorkPage</option>
+      <option id="b)">pyCaseView</option>
+      <option id="c)">API schema</option>
+      <option id="d)">Metadata model</option>
+      <correct>d)</correct>
+    </question>
+    <question id="13">
+      <text>How does Constellation enable external UI to render Pega data?</text>
+      <option id="a)">Via WebSocket events</option>
+      <option id="b)">DX API endpoints returning metadata + data</option>
+      <option id="c)">Iframe embedding</option>
+      <option id="d)">Widget injection</option>
+      <correct>b)</correct>
+    </question>
+    <question id="14">
+      <text>What is needed for a DX component to function inside the Constellation runtime?</text>
+      <option id="a)">Manual registration in App Studio</option>
+      <option id="b)">Proper props and context from PCore</option>
+      <option id="c)">Compiled Java source</option>
+      <option id="d)">Inline HTML</option>
+      <correct>b)</correct>
+    </question>
+    <question id="15">
+      <text>Which Constellation element manages orchestration of rendering logic?</text>
+      <option id="a)">DX Engine</option>
+      <option id="b)">PCore</option>
+      <option id="c)">View Builder</option>
+      <option id="d)">React Renderer</option>
+      <correct>a)</correct>
+    </question>
+    <question id="16">
+      <text>Which Pega version introduced the DX API v2?</text>
+      <option id="a)">7.4</option>
+      <option id="b)">8.1</option>
+      <option id="c)">8.4</option>
+      <option id="d)">8.6</option>
+      <correct>d)</correct>
+    </question>
+    <question id="17">
+      <text>Which PCore method retrieves the available View templates?</text>
+      <option id="a)">getTemplates()</option>
+      <option id="b)">getViewConfig()</option>
+      <option id="c)">getTemplateList()</option>
+      <option id="d)">getConstants()</option>
+      <correct>b)</correct>
+    </question>
+    <question id="18">
+      <text>To get case assignment data, which DX endpoint is used?</text>
+      <option id="a)">/cases</option>
+      <option id="b)">/assignments</option>
+      <option id="c)">/datapages</option>
+      <option id="d)">/views</option>
+      <correct>b)</correct>
+    </question>
+    <question id="19">
+      <text>Which layer converts case configuration into structured JSON for the UI?</text>
+      <option id="a)">Theme Layer</option>
+      <option id="b)">Design System</option>
+      <option id="c)">Metadata Generator</option>
+      <option id="d)">DX API</option>
+      <correct>d)</correct>
+    </question>
+    <question id="20">
+      <text>Which tool can validate DX API connectivity?</text>
+      <option id="a)">Dev Studio only</option>
+      <option id="b)">Postman or cURL</option>
+      <option id="c)">App Studio</option>
+      <option id="d)">Live UI</option>
+      <correct>b)</correct>
+    </question>
+  </category>
+  <category name="Debugging &amp; Developer Tools">
+    <question id="1">
+      <text>Which tool is primarily used to trace the execution of processes in Pega?</text>
+      <option id="a)">Live UI</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">Tracer</option>
+      <option id="d)">DevTools</option>
+      <correct>c)</correct>
+    </question>
+    <question id="2">
+      <text>Which browser extension is used to inspect React components in Constellation?</text>
+      <option id="a)">Redux DevTools</option>
+      <option id="b)">React Developer Tools</option>
+      <option id="c)">Pega Plugin</option>
+      <option id="d)">Chrome Inspector</option>
+      <correct>b)</correct>
+    </question>
+    <question id="3">
+      <text>What tool helps inspect the current state of UI components rendered in Constellation?</text>
+      <option id="a)">DevTools</option>
+      <option id="b)">Tracer</option>
+      <option id="c)">App Studio</option>
+      <option id="d)">Clipboard</option>
+      <correct>a)</correct>
+    </question>
+    <question id="4">
+      <text>What setting enables DX API call logging in DevTools?</text>
+      <option id="a)">DebugPegaAPI</option>
+      <option id="b)">DXTrace</option>
+      <option id="c)">LogRestCalls</option>
+      <option id="d)">APIInspector</option>
+      <correct>a)</correct>
+    </question>
+    <question id="5">
+      <text>Which panel in DevTools shows the data passed to DX components?</text>
+      <option id="a)">Components</option>
+      <option id="b)">Props Viewer</option>
+      <option id="c)">Constellation</option>
+      <option id="d)">Network</option>
+      <correct>c)</correct>
+    </question>
+    <question id="6">
+      <text>Which method is commonly used to debug data in Pega live sessions?</text>
+      <option id="a)">Tracepath</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">DataMapper</option>
+      <option id="d)">PageWatcher</option>
+      <correct>b)</correct>
+    </question>
+    <question id="7">
+      <text>What tool shows UI metadata sent from the server to Constellation?</text>
+      <option id="a)">App Studio</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">DevTools</option>
+      <option id="d)">Metadata Viewer</option>
+      <correct>c)</correct>
+    </question>
+    <question id="8">
+      <text>To inspect a user case structure, which feature should be used?</text>
+      <option id="a)">Data Explorer</option>
+      <option id="b)">Live UI</option>
+      <option id="c)">Case Inspector</option>
+      <option id="d)">UI Panel</option>
+      <correct>b)</correct>
+    </question>
+    <question id="9">
+      <text>What is the best way to monitor performance of a specific DX component?</text>
+      <option id="a)">DevTools timeline</option>
+      <option id="b)">Pega Logs</option>
+      <option id="c)">Tracer</option>
+      <option id="d)">Clipboard</option>
+      <correct>a)</correct>
+    </question>
+    <question id="10">
+      <text>What is the role of the Redux DevTools extension in Constellation debugging?</text>
+      <option id="a)">Theme switching</option>
+      <option id="b)">View styling</option>
+      <option id="c)">State inspection</option>
+      <option id="d)">API mocking</option>
+      <correct>c)</correct>
+    </question>
+    <question id="11">
+      <text>Which Pega tool shows when data pages are created and accessed?</text>
+      <option id="a)">Data Designer</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">Tracer</option>
+      <option id="d)">Data Pages Viewer</option>
+      <correct>c)</correct>
+    </question>
+    <question id="12">
+      <text>What does the Constellation tab in browser DevTools typically expose?</text>
+      <option id="a)">Security roles</option>
+      <option id="b)">Server logs</option>
+      <option id="c)">DX component trees and props</option>
+      <option id="d)">Database schemas</option>
+      <correct>c)</correct>
+    </question>
+    <question id="13">
+      <text>How can developers trace actions taken in UI steps?</text>
+      <option id="a)">Enable logs in App Studio</option>
+      <option id="b)">Use DevTools Timeline</option>
+      <option id="c)">Run Tracer with all events</option>
+      <option id="d)">Inspect theme XML</option>
+      <correct>c)</correct>
+    </question>
+    <question id="14">
+      <text>Which environment variable can expose DX API traces in the console?</text>
+      <option id="a)">DEBUG_MODE</option>
+      <option id="b)">TRACE_DX</option>
+      <option id="c)">DebugPegaAPI</option>
+      <option id="d)">VIEW_LOGS</option>
+      <correct>c)</correct>
+    </question>
+    <question id="15">
+      <text>Which feature helps developers understand which View is rendered?</text>
+      <option id="a)">Clipboard</option>
+      <option id="b)">Live UI</option>
+      <option id="c)">Case Tracker</option>
+      <option id="d)">Preview Panel</option>
+      <correct>b)</correct>
+    </question>
+    <question id="16">
+      <text>What tool allows inspection of request/response cycle for DX API?</text>
+      <option id="a)">Network tab in browser</option>
+      <option id="b)">Pega Logs</option>
+      <option id="c)">Data Pages Viewer</option>
+      <option id="d)">Tracer only</option>
+      <correct>a)</correct>
+    </question>
+    <question id="17">
+      <text>Which UI tool shows raw data and component mappings from Pega?</text>
+      <option id="a)">Live UI</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">Constellation DevTools</option>
+      <option id="d)">Page Viewer</option>
+      <correct>c)</correct>
+    </question>
+    <question id="18">
+      <text>What feature helps understand changes in client-side state over time?</text>
+      <option id="a)">Redux DevTools</option>
+      <option id="b)">Network Inspector</option>
+      <option id="c)">Console logs</option>
+      <option id="d)">Data Pages Viewer</option>
+      <correct>a)</correct>
+    </question>
+    <question id="19">
+      <text>How can one confirm that PCore has been initialized correctly in runtime?</text>
+      <option id="a)">App Studio logs</option>
+      <option id="b)">Tracer initialization</option>
+      <option id="c)">Check PCore in DevTools console</option>
+      <option id="d)">Live UI toggle</option>
+      <correct>c)</correct>
+    </question>
+    <question id="20">
+      <text>What method allows visual identification of current view structure?</text>
+      <option id="a)">React UI Analyzer</option>
+      <option id="b)">Constellation View Tree</option>
+      <option id="c)">Live UI</option>
+      <option id="d)">App Studio Hierarchy</option>
+      <correct>c)</correct>
+    </question>
+  </category>
+  <category name="Migration &amp; Comparison with Theme Cosmos">
+    <question id="1">
+      <text>What is a key reason to migrate from Theme Cosmos to Constellation?</text>
+      <option id="a)">More Java customization</option>
+      <option id="b)">Better support for section-based UI</option>
+      <option id="c)">Improved performance and client-side rendering</option>
+      <option id="d)">Backwards compatibility</option>
+      <correct>c)</correct>
+    </question>
+    <question id="2">
+      <text>In Constellation, what replaces the use of Section rules in Cosmos?</text>
+      <option id="a)">Templates</option>
+      <option id="b)">Fragments</option>
+      <option id="c)">Views</option>
+      <option id="d)">UI Pages</option>
+      <correct>c)</correct>
+    </question>
+    <question id="3">
+      <text>Which tool can help identify legacy rules incompatible with Constellation?</text>
+      <option id="a)">Rule Inspector</option>
+      <option id="b)">Live UI</option>
+      <option id="c)">Upgrade Assistant</option>
+      <option id="d)">DX Analyzer</option>
+      <correct>d)</correct>
+    </question>
+    <question id="4">
+      <text>How does Constellation improve UI consistency over Theme Cosmos?</text>
+      <option id="a)">By removing templates</option>
+      <option id="b)">Using hardcoded layouts</option>
+      <option id="c)">Enforcing design system components</option>
+      <option id="d)">Allowing inline HTML</option>
+      <correct>c)</correct>
+    </question>
+    <question id="5">
+      <text>What major architectural shift is introduced in Constellation over Theme Cosmos?</text>
+      <option id="a)">Monolithic backend</option>
+      <option id="b)">Server-side rendering</option>
+      <option id="c)">Client-side rendering with metadata-driven views</option>
+      <option id="d)">Full refresh forms</option>
+      <correct>c)</correct>
+    </question>
+    <question id="6">
+      <text>Which runtime library is deprecated when migrating from Theme Cosmos?</text>
+      <option id="a)">PCore</option>
+      <option id="b)">pyCaseMainSection</option>
+      <option id="c)">pyCaseMainPage</option>
+      <option id="d)">Theme-Cosmos ruleset</option>
+      <correct>d)</correct>
+    </question>
+    <question id="7">
+      <text>What Pega capability assists in migrating cases to Constellation?</text>
+      <option id="a)">Data Flow Converter</option>
+      <option id="b)">Case Conversion Wizard</option>
+      <option id="c)">UI Adapter Layer</option>
+      <option id="d)">Theme Switcher</option>
+      <correct>b)</correct>
+    </question>
+    <question id="8">
+      <text>Which version of Pega first introduced full support for Constellation architecture?</text>
+      <option id="a)">8.2</option>
+      <option id="b)">8.4</option>
+      <option id="c)">8.6</option>
+      <option id="d)">8.8</option>
+      <correct>c)</correct>
+    </question>
+    <question id="9">
+      <text>Which of the following is not required during a migration to Constellation?</text>
+      <option id="a)">Review of deprecated UI rules</option>
+      <option id="b)">Conversion of section-based layouts</option>
+      <option id="c)">JS API refactor</option>
+      <option id="d)">Portal configuration</option>
+      <correct>c)</correct>
+    </question>
+    <question id="10">
+      <text>What impact does switching to Constellation have on legacy UI tests?</text>
+      <option id="a)">They continue without changes</option>
+      <option id="b)">They need rewriting due to DOM changes</option>
+      <option id="c)">They run faster</option>
+      <option id="d)">They become read-only</option>
+      <correct>b)</correct>
+    </question>
+    <question id="11">
+      <text>What must be rebuilt when migrating to Constellation?</text>
+      <option id="a)">Case types</option>
+      <option id="b)">Process flows</option>
+      <option id="c)">Views and portals</option>
+      <option id="d)">Data transforms</option>
+      <correct>c)</correct>
+    </question>
+    <question id="12">
+      <text>What distinguishes Constellation views from Theme Cosmos sections?</text>
+      <option id="a)">Views use dynamic layouts</option>
+      <option id="b)">Views use metadata and design system only</option>
+      <option id="c)">Views include scripts</option>
+      <option id="d)">Views support only one column</option>
+      <correct>b)</correct>
+    </question>
+    <question id="13">
+      <text>Which design constraint is enforced in Constellation but not in Theme Cosmos?</text>
+      <option id="a)">Single-column layout</option>
+      <option id="b)">Strict UI layering</option>
+      <option id="c)">App Studio-only development</option>
+      <option id="d)">Use of declared data pages only</option>
+      <correct>b)</correct>
+    </question>
+    <question id="14">
+      <text>Can section-based UI rules be reused in Constellation?</text>
+      <option id="a)">Yes, without changes</option>
+      <option id="b)">Yes, if embedded in views</option>
+      <option id="c)">Only with wrappers</option>
+      <option id="d)">No, they must be redesigned</option>
+      <correct>d)</correct>
+    </question>
+    <question id="15">
+      <text>What is the supported method of branding in Constellation?</text>
+      <option id="a)">CSS override</option>
+      <option id="b)">Theme-Cosmos ruleset</option>
+      <option id="c)">Design tokens via Theme Assistant</option>
+      <option id="d)">Custom style tags</option>
+      <correct>c)</correct>
+    </question>
+    <question id="16">
+      <text>Which layer is responsible for generating metadata consumed by Constellation?</text>
+      <option id="a)">App Studio</option>
+      <option id="b)">DX API</option>
+      <option id="c)">Theme-Cosmos</option>
+      <option id="d)">PCore</option>
+      <correct>b)</correct>
+    </question>
+    <question id="17">
+      <text>What is a common blocker when migrating a portal to Constellation?</text>
+      <option id="a)">Non-auto-generated controls</option>
+      <option id="b)">Too many case types</option>
+      <option id="c)">Lack of data pages</option>
+      <option id="d)">Use of validation rules</option>
+      <correct>a)</correct>
+    </question>
+    <question id="18">
+      <text>Which statement best describes Constellation’s compatibility with legacy harnesses?</text>
+      <option id="a)">Fully compatible</option>
+      <option id="b)">Partially supported</option>
+      <option id="c)">Deprecated and unsupported</option>
+      <option id="d)">Recommended with patches</option>
+      <correct>c)</correct>
+    </question>
+    <question id="19">
+      <text>What is an essential first step before starting a migration?</text>
+      <option id="a)">Delete unused rules</option>
+      <option id="b)">Build DX components</option>
+      <option id="c)">Run Constellation compatibility check</option>
+      <option id="d)">Switch all users to new portal</option>
+      <correct>c)</correct>
+    </question>
+    <question id="20">
+      <text>What happens to custom JavaScript in a Theme Cosmos app after migrating to Constellation?</text>
+      <option id="a)">It is preserved</option>
+      <option id="b)">It is automatically rewritten</option>
+      <option id="c)">It must be removed or rewritten</option>
+      <option id="d)">It is sandboxed</option>
+      <correct>c)</correct>
+    </question>
+  </category>
+  <category name="SDKs &amp; Front-End Development">
+    <question id="1">
+      <text>What SDK is provided to develop custom UI in Pega Constellation?</text>
+      <option id="a)">DX SDK</option>
+      <option id="b)">Pega UI Kit</option>
+      <option id="c)">Constellation SDK</option>
+      <option id="d)">React SDK</option>
+      <correct>c)</correct>
+    </question>
+    <question id="2">
+      <text>Which language is primarily used for building Constellation components?</text>
+      <option id="a)">Java</option>
+      <option id="b)">HTML</option>
+      <option id="c)">React/JSX</option>
+      <option id="d)">Python</option>
+      <correct>c)</correct>
+    </question>
+    <question id="3">
+      <text>Where are custom DX components deployed in a Constellation setup?</text>
+      <option id="a)">Within App Studio</option>
+      <option id="b)">On Pega server</option>
+      <option id="c)">In a static content server</option>
+      <option id="d)">Directly into the ruleset</option>
+      <correct>c)</correct>
+    </question>
+    <question id="4">
+      <text>Which build tool is recommended for compiling DX component projects?</text>
+      <option id="a)">Webpack</option>
+      <option id="b)">Rollup</option>
+      <option id="c)">Gulp</option>
+      <option id="d)">Grunt</option>
+      <correct>a)</correct>
+    </question>
+    <question id="5">
+      <text>Which command is used to locally test a DX component?</text>
+      <option id="a)">npm test</option>
+      <option id="b)">dx-serve</option>
+      <option id="c)">dx-preview</option>
+      <option id="d)">npm run start</option>
+      <correct>d)</correct>
+    </question>
+    <question id="6">
+      <text>What data format does the DX API return for rendering in the front-end?</text>
+      <option id="a)">HTML</option>
+      <option id="b)">XML</option>
+      <option id="c)">JSON</option>
+      <option id="d)">JavaScript</option>
+      <correct>c)</correct>
+    </question>
+    <question id="7">
+      <text>How do you pass data from Pega to a DX component?</text>
+      <option id="a)">As inline JavaScript</option>
+      <option id="b)">Through DOM attributes</option>
+      <option id="c)">Via PCore props</option>
+      <option id="d)">By embedding HTML</option>
+      <correct>c)</correct>
+    </question>
+    <question id="8">
+      <text>What is the role of the manifest.json in a DX component project?</text>
+      <option id="a)">Defines database bindings</option>
+      <option id="b)">Declares component metadata</option>
+      <option id="c)">Registers users</option>
+      <option id="d)">Links styling files</option>
+      <correct>b)</correct>
+    </question>
+    <question id="9">
+      <text>What is the recommended structure for Constellation component folders?</text>
+      <option id="a)">One file per component</option>
+      <option id="b)">JS/CSS bundled in single folder</option>
+      <option id="c)">Separate modules per render</option>
+      <option id="d)">No enforced structure</option>
+      <correct>b)</correct>
+    </question>
+    <question id="10">
+      <text>How is a custom component registered with PCore?</text>
+      <option id="a)">By importing it into App Studio</option>
+      <option id="b)">Calling PCore.registerComponent</option>
+      <option id="c)">Adding it to pyRuleSet</option>
+      <option id="d)">Using Dev Studio wizard</option>
+      <correct>b)</correct>
+    </question>
+    <question id="11">
+      <text>Which command publishes DX components to Pega?</text>
+      <option id="a)">dx-push</option>
+      <option id="b)">dx-publish</option>
+      <option id="c)">dx-deploy</option>
+      <option id="d)">dx-publish-all</option>
+      <correct>d)</correct>
+    </question>
+    <question id="12">
+      <text>How can you debug the properties received by a component?</text>
+      <option id="a)">Print PCore</option>
+      <option id="b)">Log props in component</option>
+      <option id="c)">Trace clipboard</option>
+      <option id="d)">Use Tracer</option>
+      <correct>b)</correct>
+    </question>
+    <question id="13">
+      <text>What CLI tool is essential to build and manage Constellation components?</text>
+      <option id="a)">pega-cli</option>
+      <option id="b)">dx-cli</option>
+      <option id="c)">constellation-cli</option>
+      <option id="d)">create-react-app</option>
+      <correct>b)</correct>
+    </question>
+    <question id="14">
+      <text>How can a developer modify the default theme in Constellation?</text>
+      <option id="a)">By changing the base CSS</option>
+      <option id="b)">Using Theme Assistant</option>
+      <option id="c)">Overriding templates</option>
+      <option id="d)">Editing harness</option>
+      <correct>b)</correct>
+    </question>
+    <question id="15">
+      <text>What lifecycle method can be used in React to react to prop changes?</text>
+      <option id="a)">componentDidUpdate</option>
+      <option id="b)">useEffect</option>
+      <option id="c)">onChange</option>
+      <option id="d)">ngOnChanges</option>
+      <correct>b)</correct>
+    </question>
+    <question id="16">
+      <text>What method is used to notify the platform of a user interaction?</text>
+      <option id="a)">notifyInteraction()</option>
+      <option id="b)">PCore.sendEvent()</option>
+      <option id="c)">handleAction()</option>
+      <option id="d)">PConnect.triggerAction()</option>
+      <correct>d)</correct>
+    </question>
+    <question id="17">
+      <text>Which repository structure is recommended for enterprise-scale component sets?</text>
+      <option id="a)">Single repo flat files</option>
+      <option id="b)">Monorepo with workspaces</option>
+      <option id="c)">Multiple rule-sets</option>
+      <option id="d)">One component per repo</option>
+      <correct>b)</correct>
+    </question>
+    <question id="18">
+      <text>What advantage does JSX offer in component creation?</text>
+      <option id="a)">Faster performance</option>
+      <option id="b)">Direct HTML use</option>
+      <option id="c)">Declarative UI with JS logic</option>
+      <option id="d)">JSON rendering</option>
+      <correct>c)</correct>
+    </question>
+    <question id="19">
+      <text>How can you apply custom styles to a Constellation component?</text>
+      <option id="a)">Inline styles only</option>
+      <option id="b)">Scoped CSS modules</option>
+      <option id="c)">Theme rule override</option>
+      <option id="d)">External stylesheet import</option>
+      <correct>b)</correct>
+    </question>
+    <question id="20">
+      <text>Which Pega component helps preview how a new UI will behave before publishing?</text>
+      <option id="a)">Live UI</option>
+      <option id="b)">Preview Portal</option>
+      <option id="c)">Component Tester</option>
+      <option id="d)">App Studio simulation</option>
+      <correct>b)</correct>
+    </question>
+  </category>
+  <category name="Advanced Practices &amp; Performance">
+    <question id="1">
+      <text>What is a key performance benefit of Constellation over Theme Cosmos?</text>
+      <option id="a)">Server-side processing</option>
+      <option id="b)">Metadata-driven client rendering</option>
+      <option id="c)">Faster rule resolution</option>
+      <option id="d)">Static HTML UI</option>
+      <correct>b)</correct>
+    </question>
+    <question id="2">
+      <text>How does Constellation minimize client-server interactions?</text>
+      <option id="a)">Polling every 5s</option>
+      <option id="b)">WebSockets</option>
+      <option id="c)">Bundled metadata and data in each DX API response</option>
+      <option id="d)">AJAX only calls</option>
+      <correct>c)</correct>
+    </question>
+    <question id="3">
+      <text>Which tool is best for profiling component load times?</text>
+      <option id="a)">Pega Logs</option>
+      <option id="b)">DevTools Performance tab</option>
+      <option id="c)">App Studio</option>
+      <option id="d)">Tracer</option>
+      <correct>b)</correct>
+    </question>
+    <question id="4">
+      <text>What is the recommended way to lazy load non-critical components in Constellation?</text>
+      <option id="a)">Use case split</option>
+      <option id="b)">React.lazy + Suspense</option>
+      <option id="c)">New harness section</option>
+      <option id="d)">Secondary screen</option>
+      <correct>b)</correct>
+    </question>
+    <question id="5">
+      <text>What causes performance degradation in DX components?</text>
+      <option id="a)">Heavy use of data pages</option>
+      <option id="b)">Too many nested props</option>
+      <option id="c)">Unoptimized render logic or prop bloat</option>
+      <option id="d)">Overuse of App Studio</option>
+      <correct>c)</correct>
+    </question>
+    <question id="6">
+      <text>What mechanism in React helps reduce unnecessary re-rendering in Constellation?</text>
+      <option id="a)">State flushing</option>
+      <option id="b)">JSX recycling</option>
+      <option id="c)">Memoization via React.memo</option>
+      <option id="d)">View invalidation</option>
+      <correct>c)</correct>
+    </question>
+    <question id="7">
+      <text>Which of the following improves load time in Constellation portals?</text>
+      <option id="a)">Using nested sections</option>
+      <option id="b)">Pre-fetching metadata</option>
+      <option id="c)">Hiding tabs</option>
+      <option id="d)">Avoiding access groups</option>
+      <correct>b)</correct>
+    </question>
+    <question id="8">
+      <text>What tool allows viewing memory usage and component tree health?</text>
+      <option id="a)">React Profiler</option>
+      <option id="b)">Clipboard</option>
+      <option id="c)">Data Pages Viewer</option>
+      <option id="d)">Performance Analyzer</option>
+      <correct>a)</correct>
+    </question>
+    <question id="9">
+      <text>Why is prop drilling discouraged in DX components?</text>
+      <option id="a)">It increases payload size</option>
+      <option id="b)">Breaks encapsulation</option>
+      <option id="c)">Increases re-rendering depth</option>
+      <option id="d)">All of the above</option>
+      <correct>d)</correct>
+    </question>
+    <question id="10">
+      <text>What should developers avoid to ensure better FPS in complex forms?</text>
+      <option id="a)">useState</option>
+      <option id="b)">Multiple data sources</option>
+      <option id="c)">useEffect chaining with setState</option>
+      <option id="d)">Simple components</option>
+      <correct>c)</correct>
+    </question>
+    <question id="11">
+      <text>Which pattern is ideal for conditional rendering in DX components?</text>
+      <option id="a)">If-Else in JSX</option>
+      <option id="b)">Multiple returns</option>
+      <option id="c)">Ternary expressions and optional chaining</option>
+      <option id="d)">Switch case</option>
+      <correct>c)</correct>
+    </question>
+    <question id="12">
+      <text>What’s the best way to track interaction bottlenecks?</text>
+      <option id="a)">Log user input</option>
+      <option id="b)">Use DevTools Flamegraph</option>
+      <option id="c)">Check browser history</option>
+      <option id="d)">Review rule resolution</option>
+      <correct>b)</correct>
+    </question>
+    <question id="13">
+      <text>Which system rule controls the view refresh behavior after an assignment action?</text>
+      <option id="a)">pyOnAssignment</option>
+      <option id="b)">pyPostActionReload</option>
+      <option id="c)">pyViewRefresh</option>
+      <option id="d)">pyAssignmentView</option>
+      <correct>b)</correct>
+    </question>
+    <question id="14">
+      <text>How should error boundaries be implemented in Constellation React components?</text>
+      <option id="a)">Using try/catch</option>
+      <option id="b)">Using ErrorBoundary component and lifecycle methods</option>
+      <option id="c)">Global error handler</option>
+      <option id="d)">Component API onFail</option>
+      <correct>b)</correct>
+    </question>
+    <question id="15">
+      <text>Which of the following can lead to excessive bundle sizes in DX apps?</text>
+      <option id="a)">Large data pages</option>
+      <option id="b)">Multiple layout templates</option>
+      <option id="c)">Importing unused third-party libraries</option>
+      <option id="d)">Rule inheritance</option>
+      <correct>c)</correct>
+    </question>
+    <question id="16">
+      <text>What should be used to handle state within reusable child components?</text>
+      <option id="a)">Redux</option>
+      <option id="b)">Props only</option>
+      <option id="c)">useReducer or local useState</option>
+      <option id="d)">Global clipboard page</option>
+      <correct>c)</correct>
+    </question>
+    <question id="17">
+      <text>Which practice reduces TTI (Time to Interactive)?</text>
+      <option id="a)">Load entire view at once</option>
+      <option id="b)">Defer non-critical components</option>
+      <option id="c)">Use Dev Studio over App Studio</option>
+      <option id="d)">Enable verbose logging</option>
+      <correct>b)</correct>
+    </question>
+    <question id="18">
+      <text>Which element causes a full redraw of Constellation layout?</text>
+      <option id="a)">New view render</option>
+      <option id="b)">Action on case page</option>
+      <option id="c)">Component state change</option>
+      <option id="d)">Prop comparison miss</option>
+      <correct>d)</correct>
+    </question>
+    <question id="19">
+      <text>Why is it recommended to test DX components in isolation?</text>
+      <option id="a)">Faster feedback loop</option>
+      <option id="b)">Avoids Pega server dependency</option>
+      <option id="c)">Focus on logic and UI</option>
+      <option id="d)">All of the above</option>
+      <correct>d)</correct>
+    </question>
+    <question id="20">
+      <text>How is performance monitored in deployed Constellation apps?</text>
+      <option id="a)">Using PEGA001 alerts only</option>
+      <option id="b)">Client telemetry and browser profiling</option>
+      <option id="c)">Tracer logs</option>
+      <option id="d)">App Studio audit logs</option>
+      <correct>b)</correct>
+    </question>
+  </category>
+</PegaConstellationQuiz>
