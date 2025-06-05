@@ -101,14 +101,14 @@
     let allCategories = [];
     const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
     const categoryIcons = [
-      '📘', // App Studio
-      '🧩', // DX Components
-      '🏗️', // Architecture
-      '🔧', // Debugging
-      '🔄', // Migration
-      '💻', // SDK
-      '🚀'  // Advanced
-    ];
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><circle cx='12' cy='12' r='10'/></svg>`, // App Studio
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><rect x='4' y='4' width='16' height='16' rx='4'/></svg>`, // DX Components
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><polygon points='12,2 2,22 22,22'/></svg>`, // Architecture
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><path d='M12 2v20M2 12h20' stroke='white' stroke-width='2' fill='none'/></svg>`, // Debugging
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><path d='M4 4h16v16H4z'/></svg>`, // Migration
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><path d='M2 12h20M12 2v20' stroke='white' stroke-width='2' fill='none'/></svg>`, // SDK
+  `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24' height='24'><path d='M12 2l9 21H3z'/></svg>` // Advanced
+];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -162,7 +162,7 @@
       const cat = allCategories[index];
       const color = categoryColors[index % categoryColors.length];
       const icon = categoryIcons[index % categoryIcons.length];
-      let html = `<h2 class="category-title" style="background-color:${color}"><span class="category-icon">${icon}</span>${cat.name}</h2>`;
+      let html = `<h2 class="category-title" style="background-color:${color}"><span class="category-icon" style="display:inline-block">${icon}</span>${cat.name}</h2>`;
       html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" style="border-left: 6px solid ${color}" id="qblock-${idx}">
