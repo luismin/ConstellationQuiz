@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Pega Constellation Quiz</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 900px; margin: auto; }
+    body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
     .category-title { font-size: 1.5em; margin-top: 20px; }
     .question-block { border: 1px solid #ddd; padding: 10px; margin: 15px 0; border-radius: 8px; }
     .question { font-weight: bold; }
@@ -12,18 +12,22 @@
     .feedback { margin-top: 10px; font-weight: bold; }
     .correct { color: green; }
     .incorrect { color: red; }
-    button { margin-top: 20px; padding: 10px 20px; }
+    button { margin: 15px 5px; padding: 10px 20px; }
+    nav { margin-bottom: 20px; }
+    nav button { margin-right: 10px; }
   </style>
 </head>
 <body>
   <h1>Pega Constellation Quiz</h1>
+  <nav id="nav"></nav>
   <div id="quiz">Loading questions...</div>
+  <div id="result"></div>
 
   <script>
     let allCategories = [];
     let currentCategoryIndex = 0;
     let currentQuestions = [];
-    let answersGiven = {};
+    let answersByCategory = {}; // stores answers for all categories
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -31,9 +35,9 @@
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
         const categories = xmlDoc.getElementsByTagName('category');
-        allCategories = Array.from(categories).map(cat => {
+        allCategories = Array.from(categories).map((cat, idx) => {
           const name = cat.getAttribute('name');
-          const questions = Array.from(cat.getElementsByTagName('question')).map(q => {
+          const questions = shuffleArray(Array.from(cat.getElementsByTagName('question')).map(q => {
             const text = q.getElementsByTagName('text')[0].textContent;
             const options = Array.from(q.getElementsByTagName('option')).map(opt => ({
               id: opt.getAttribute('id'),
@@ -41,66 +45,77 @@
             }));
             const correct = q.getElementsByTagName('correct')[0].textContent.trim();
             return { text, options, correct, category: name };
-          });
+          })).slice(0, 10);
+          answersByCategory[idx] = Array(10).fill(null);
           return { name, questions };
         });
-        startCategory();
+        renderNav();
+        renderCategory(currentCategoryIndex);
       })
       .catch(error => {
         document.getElementById('quiz').innerHTML = '<p>Error loading questions.</p>';
         console.error(error);
       });
 
-    function startCategory() {
-      if (currentCategoryIndex >= allCategories.length) {
-        document.getElementById('quiz').innerHTML = '<h2>🎉 All categories completed! 🎉</h2>';
-        return;
-      }
-      const category = allCategories[currentCategoryIndex];
-      currentQuestions = shuffleArray(category.questions).slice(0, 10);
-      answersGiven = {}; // reset for this category
-      renderCategory(category.name, currentQuestions);
+    function renderNav() {
+      const nav = document.getElementById('nav');
+      nav.innerHTML = '';
+      allCategories.forEach((cat, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = cat.name;
+        btn.onclick = () => renderCategory(i);
+        nav.appendChild(btn);
+      });
+      const checkBtn = document.createElement('button');
+      checkBtn.textContent = 'Check Full Quiz';
+      checkBtn.onclick = checkAllCategories;
+      nav.appendChild(checkBtn);
     }
 
-    function renderCategory(categoryName, questions) {
-      let html = `<h2 class="category-title">Category: ${categoryName}</h2>`;
-      questions.forEach((q, idx) => {
+    function renderCategory(index) {
+      currentCategoryIndex = index;
+      currentQuestions = allCategories[index].questions;
+      let html = `<h2 class="category-title">Category: ${allCategories[index].name}</h2>`;
+      currentQuestions.forEach((q, idx) => {
         html += `<div class="question-block" id="qblock-${idx}">
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
+          const checked = answersByCategory[index][idx] === opt.id ? 'checked' : '';
           html += `<label class="option">
-            <input type="radio" name="q${idx}" value="${opt.id}" onchange="storeAnswer(${idx}, '${opt.id}', '${q.correct}')"> ${opt.id} ${opt.text}
+            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}
           </label>`;
         });
         html += `<div class="feedback" id="feedback-${idx}"></div></div>`;
       });
-      html += '<button onclick="submitCategory()">Submit Category</button>';
       document.getElementById('quiz').innerHTML = html;
+      document.getElementById('result').innerHTML = '';
     }
 
-    function storeAnswer(qIndex, selected, correct) {
-      const feedback = document.getElementById(`feedback-${qIndex}`);
-      if (selected === correct) {
-        feedback.textContent = '✅ Correct';
-        feedback.className = 'feedback correct';
-        answersGiven[qIndex] = true;
-      } else {
-        feedback.textContent = `❌ Incorrect`;
-        feedback.className = 'feedback incorrect';
-        answersGiven[qIndex] = false;
-      }
+    function storeAnswer(catIdx, qIdx, selectedId) {
+      answersByCategory[catIdx][qIdx] = selectedId;
     }
 
-    function submitCategory() {
-      const total = currentQuestions.length;
-      const correctCount = Object.values(answersGiven).filter(v => v === true).length;
-      if (correctCount === total) {
-        currentCategoryIndex++;
-        startCategory();
+    function checkAllCategories() {
+      let allCorrect = true;
+      let summary = '';
+      allCategories.forEach((cat, i) => {
+        const questions = cat.questions;
+        const answers = answersByCategory[i];
+        const incorrectIndices = answers.map((ans, idx) => ans !== questions[idx].correct);
+        const correct = incorrectIndices.every(v => v === false);
+        if (!correct) {
+          allCorrect = false;
+          summary += `<p>❌ Category <strong>${cat.name}</strong>: Not all answers correct.</p>`;
+        } else {
+          summary += `<p>✅ Category <strong>${cat.name}</strong>: All answers correct.</p>`;
+        }
+      });
+      if (allCorrect) {
+        summary += '<h2>🎉 All categories completed correctly! 🎉</h2>';
       } else {
-        alert(`You must answer all ${total} questions correctly to proceed. Try again.`);
-        startCategory();
+        summary += '<p>Please review the incorrect categories.</p>';
       }
+      document.getElementById('result').innerHTML = summary;
     }
 
     function shuffleArray(array) {
