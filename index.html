@@ -21,6 +21,13 @@
       padding: 10px;
       border-radius: 6px;
       color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .category-icon {
+      width: 32px;
+      height: 32px;
     }
     .question-block {
       border: 1px solid #ccc;
@@ -69,6 +76,7 @@
     }
     nav button {
       margin: 5px;
+      border-top: 4px solid transparent;
     }
     .completed {
       background-color: #bdc3c7 !important;
@@ -92,6 +100,15 @@
     const DEBUG = true;
     let allCategories = [];
     const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
+    const categoryIcons = [
+      '📘', // App Studio
+      '🧩', // DX Components
+      '🏗️', // Architecture
+      '🔧', // Debugging
+      '🔄', // Migration
+      '💻', // SDK
+      '🚀'  // Advanced
+    ];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -135,6 +152,7 @@
         btn.textContent = cat.completed ? `${cat.name} ✅` : cat.name;
         btn.className = cat.completed ? 'completed' : '';
         btn.disabled = cat.completed;
+        btn.style.borderTopColor = categoryColors[i % categoryColors.length];
         btn.onclick = () => renderCategory(i);
         nav.appendChild(btn);
       });
@@ -143,7 +161,8 @@
     function renderCategory(index) {
       const cat = allCategories[index];
       const color = categoryColors[index % categoryColors.length];
-      let html = `<h2 class="category-title" style="background-color:${color}">Category: ${cat.name}</h2>`;
+      const icon = categoryIcons[index % categoryIcons.length];
+      let html = `<h2 class="category-title" style="background-color:${color}"><span class="category-icon">${icon}</span>${cat.name}</h2>`;
       html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" style="border-left: 6px solid ${color}" id="qblock-${idx}">
