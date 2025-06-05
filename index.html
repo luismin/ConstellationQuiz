@@ -4,18 +4,82 @@
   <meta charset="UTF-8">
   <title>Pega Constellation Quiz</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; max-width: 1000px; margin: auto; }
-    .category-title { font-size: 1.5em; margin-top: 20px; }
-    .question-block { border: 1px solid #ddd; padding: 10px; margin: 15px 0; border-radius: 8px; }
-    .question { font-weight: bold; }
-    .option { margin: 5px 0; display: block; }
-    .feedback { margin-top: 10px; font-weight: bold; }
-    .correct { color: green; }
-    .incorrect { color: red; }
-    button { margin: 15px 5px; padding: 10px 20px; }
-    nav { margin-bottom: 20px; }
-    nav button { margin-right: 10px; }
-    .completed { background-color: lightgray !important; color: darkgray; cursor: not-allowed; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+      background: #f4f7f9;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .category-title {
+      font-size: 1.7em;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 6px;
+      color: #fff;
+    }
+    .question-block {
+      border: 1px solid #ccc;
+      padding: 12px;
+      margin: 15px 0;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .question {
+      font-weight: bold;
+      color: #333;
+    }
+    .option {
+      margin: 6px 0;
+      display: block;
+      color: #555;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+    button {
+      margin: 15px 5px;
+      padding: 10px 20px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover:not(.completed) {
+      background-color: #2980b9;
+    }
+    nav {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    nav button {
+      margin: 5px;
+    }
+    .completed {
+      background-color: #bdc3c7 !important;
+      color: #7f8c8d;
+      cursor: not-allowed;
+    }
+    #result {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
   </style>
 </head>
 <body>
@@ -27,7 +91,7 @@
   <script>
     const DEBUG = true;
     let allCategories = [];
-    let allCompleted = [];
+    const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -78,7 +142,8 @@
 
     function renderCategory(index) {
       const cat = allCategories[index];
-      let html = `<h2 class="category-title">Category: ${cat.name}</h2>`;
+      const color = categoryColors[index % categoryColors.length];
+      let html = `<h2 class="category-title" style="background-color:${color}">Category: ${cat.name}</h2>`;
       html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" id="qblock-${idx}">
