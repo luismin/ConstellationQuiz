@@ -25,6 +25,7 @@
   <div id="result"></div>
 
   <script>
+    const DEBUG = true;
     let allCategories = [];
     let allCompleted = [];
 
@@ -84,7 +85,7 @@
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
           const checked = cat.answers[idx] === opt.id ? 'checked' : '';
-          const debugMark = opt.id === q.correct ? ' *' : '';
+          const debugMark = (DEBUG && opt.id === q.correct) ? ' *' : '';
           html += `<label class="option">
             <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}${debugMark}
           </label>`;
