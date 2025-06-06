@@ -91,6 +91,7 @@
       border-top: 1px solid #e0e0e0;
       z-index: 1000;
       box-sizing: border-box;
+      display: none; /* Hidden initially */
     }
     .reset-category-btn.hidden {
       display: none; /* Hide reset button for completed categories */
@@ -124,6 +125,7 @@
       flex-wrap: wrap;
       gap: 1rem;
       justify-content: center; /* Center buttons */
+      display: none; /* Hidden initially */
     }
     .category-btn {
       display: flex;
@@ -161,7 +163,7 @@
       background: white;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       text-align: center;
       z-index: 2000;
     }
@@ -173,6 +175,48 @@
     #congratulations p {
       font-size: 1.2rem;
       color: #333;
+    }
+    #welcome-screen {
+      max-width: 600px;
+      margin: 10rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    #welcome-screen h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    #welcome-screen input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    #welcome-screen button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    #welcome-screen button:hover {
+      background-color: #0056b3;
+    }
+    #welcome-screen .error {
+      color: #dc3545;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
     }
     /* Responsive adjustments */
     @media (max-width: 600px) {
@@ -200,15 +244,31 @@
       #congratulations p {
         font-size: 1rem;
       }
+      #welcome-screen {
+        margin: 5rem auto;
+        padding: 1rem;
+        width: 90%;
+      }
+      #welcome-screen h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
+  <div id="welcome-screen">
+    <h1>Welcome to the Constellation Quiz</h1>
+    <p>Please enter your email to start the quiz:</p>
+    <input type="email" id="email-input" placeholder="Enter your email" />
+    <button id="start-quiz-btn">Start Quiz</button>
+    <p id="email-error" class="error">Please enter a valid email address.</p>
+  </div>
   <div id="category-nav"></div>
   <div id="category-container"></div>
   <div id="congratulations"></div>
   <script>
     const DEBUG = true;
+    let userEmail = '';
 
     async function loadXML() {
       const res = await fetch("questions.xml");
@@ -219,13 +279,46 @@
     }
 
     function createCategoryColor(index) {
-      const colors = ["#6f42c1", "#e83e8c", "#fd32f2", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
+      const colors = ["#6f42c1", "#e83e8c", "#fd7e14", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
       return colors[index % colors.length];
     }
 
     function createCategoryIcon(index) {
-      const icons = ["📘", "🪶", "🏗️", "🔧", "🔄", "💻", "🌟"];
+      const icons = ["📘", "🧩", "🏗️", "🔧", "🔄", "💻", "🚀"];
       return icons[index % icons.length];
+    }
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    function sendCompletionEmail() {
+      const completionDate = new Date().toLocaleString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+        timeZoneName: 'short'
+      });
+      const payload = {
+        to: 'luismin@gmail.com',
+        subject: 'Constellation Quiz Completion Notification',
+        text: `The Constellation Quiz has been completed.\n\nUser Email: ${userEmail}\nCompletion Date: ${completionDate}`
+      };
+
+      // Placeholder for server-side email sending
+      fetch('/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (!response.ok) console.error('Failed to send email');
+      })
+      .catch(error => console.error('Error sending email:', error));
     }
 
     function showCongratulations() {
@@ -238,6 +331,7 @@
       document.getElementById("category-nav").style.display = "none";
       document.getElementById("category-container").style.display = "none";
       document.querySelector(".submit-reset-container").style.display = "none";
+      sendCompletionEmail();
     }
 
     function renderQuiz(xml) {
@@ -385,7 +479,7 @@
               input.disabled = true;
             });
           });
-          resetBtn.classList.add("hidden"); // Hide reset button for completed category
+          resetBtn.classList.add("hidden"); // Hide reset button
           if (categoryData.every(cat => cat.isCompleted)) {
             showCongratulations();
           }
@@ -410,9 +504,24 @@
         categoryData.forEach(({ catDiv }, i) => {
           catDiv.classList.toggle("active", i === index);
         });
-        // Toggle reset button visibility
         resetBtn.classList.toggle("hidden", categoryData[index].isCompleted);
       }
+
+      // Initialize quiz
+      document.getElementById("start-quiz-btn").onclick = () => {
+        const emailInput = document.getElementById("email-input").value.trim();
+        const errorMsg = document.getElementById("email-error");
+        if (!validateEmail(emailInput)) {
+          errorMsg.style.display = "block";
+          return;
+        }
+        userEmail = emailInput;
+        document.getElementById("welcome-screen").style.display = "none";
+        document.getElementById("category-nav").style.display = "flex";
+        document.getElementById("category-container").style.display = "block";
+        document.querySelector(".submit-reset-container").style.display = "flex";
+        errorMsg.style.display = "none";
+      };
     }
 
     loadXML().then(renderQuiz);
