@@ -1,974 +1,974 @@
-<?xml version="1.0" ?>
+<?xml version='1.0' encoding='utf-8'?>
 <PegaConstellationQuiz>
   <category name="App Studio &amp; Declarative Development">
     <question id="1">
       <text>In Pega Constellation, what replaces traditional 'Sections' for UI configuration?</text>
-      <option id="a)">Layouts</option>
-      <option id="b)">Views</option>
-      <option id="c)">Harnesses</option>
-      <option id="d)">Templates</option>
+      <option id="a)">Layouts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Harnesses<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="2">
       <text>What development approach does App Studio promote in Constellation?</text>
-      <option id="a)">Manual customization</option>
-      <option id="b)">Code-centric development</option>
-      <option id="c)">Declarative configuration</option>
-      <option id="d)">Script-based design</option>
+      <option id="a)">Manual customization<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Code-centric development<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Declarative configuration<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Script-based design<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="3">
       <text>Which tool allows developers to inspect and debug applications in development mode within Constellation?</text>
-      <option id="a)">Live UI</option>
-      <option id="b)">Tracer</option>
-      <option id="c)">DevTools</option>
-      <option id="d)">Clipboard</option>
+      <option id="a)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Tracer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">DevTools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="4">
       <text>What is the default top-level page in the Constellation UI?</text>
-      <option id="a)">pyStartCase</option>
-      <option id="b)">pyPortal</option>
-      <option id="c)">pyWorkPage</option>
-      <option id="d)">pyCaseMainPage</option>
+      <option id="a)">pyStartCase<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">pyPortal<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">pyWorkPage<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">pyCaseMainPage<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="5">
       <text>Which of the following is NOT a benefit of using App Studio in Constellation?</text>
-      <option id="a)">Simplified rule management</option>
-      <option id="b)">Automatic class and ruleset handling</option>
-      <option id="c)">Complex inheritance configurations</option>
-      <option id="d)">Faster development time</option>
+      <option id="a)">Simplified rule management<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Automatic class and ruleset handling<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Complex inheritance configurations<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Faster development time<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="6">
       <text>What type of architecture does Constellation utilize to enhance scalability and performance?</text>
-      <option id="a)">Monolithic</option>
-      <option id="b)">Stateful</option>
-      <option id="c)">Stateless</option>
-      <option id="d)">Client-server traditional</option>
+      <option id="a)">Monolithic<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Stateful<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Stateless<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Client-server traditional<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="7">
       <text>Which component in Constellation allows real-time communication between the browser and the backend?</text>
-      <option id="a)">PConnect</option>
-      <option id="b)">WebSocket</option>
-      <option id="c)">PCore</option>
-      <option id="d)">API Gateway</option>
+      <option id="a)">PConnect<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">WebSocket<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">PCore<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">API Gateway<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="8">
       <text>What is the purpose of the Constellation Design System?</text>
-      <option id="a)">Provide CSS styling</option>
-      <option id="b)">Offer reusable UI components</option>
-      <option id="c)">Manage databases</option>
-      <option id="d)">Implement business logic</option>
+      <option id="a)">Provide CSS styling<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Offer reusable UI components<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Manage databases<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Implement business logic<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="9">
       <text>Which tool is used to manage the relationship between an organization and Pega?</text>
-      <option id="a)">Pega Marketplace</option>
-      <option id="b)">My Pega</option>
-      <option id="c)">Pega Academy</option>
-      <option id="d)">Pega Community</option>
+      <option id="a)">Pega Marketplace<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">My Pega<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Pega Academy<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Pega Community<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="10">
       <text>Which service handles the delivery of static assets provided by Pega?</text>
-      <option id="a)">Application Static</option>
-      <option id="b)">Pega Static</option>
-      <option id="c)">Custom Static</option>
-      <option id="d)">User Static</option>
+      <option id="a)">Application Static<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Pega Static<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Custom Static<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">User Static<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="11">
       <text>In Constellation, what replaces 'Harnesses' for structuring the user interface?</text>
-      <option id="a)">Templates</option>
-      <option id="b)">Views</option>
-      <option id="c)">Layouts</option>
-      <option id="d)">Pages</option>
+      <option id="a)">Templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Layouts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Pages<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="12">
       <text>Which feature in App Studio allows for the configuration of case types without writing code?</text>
-      <option id="a)">Case Designer</option>
-      <option id="b)">Workflow Builder</option>
-      <option id="c)">Process Modeler</option>
-      <option id="d)">Case Type Explorer</option>
+      <option id="a)">Case Designer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Workflow Builder<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Process Modeler<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Case Type Explorer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="13">
       <text>What is the role of 'Templates' in Constellation's UI architecture?</text>
-      <option id="a)">Define data models</option>
-      <option id="b)">Structure the layout of views</option>
-      <option id="c)">Manage case lifecycles</option>
-      <option id="d)">Configure security settings</option>
+      <option id="a)">Define data models<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Structure the layout of views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Manage case lifecycles<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Configure security settings<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="14">
       <text>Which component in App Studio facilitates the creation of reusable UI elements?</text>
-      <option id="a)">Widgets</option>
-      <option id="b)">Templates</option>
-      <option id="c)">Views</option>
-      <option id="d)">Sections</option>
+      <option id="a)">Widgets<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Sections<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="15">
       <text>How does Constellation ensure consistency across different applications?</text>
-      <option id="a)">By enforcing strict coding standards</option>
-      <option id="b)">Through the use of a centralized design system</option>
-      <option id="c)">By limiting customization options</option>
-      <option id="d)">Through manual code reviews</option>
+      <option id="a)">By enforcing strict coding standards<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Through the use of a centralized design system<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">By limiting customization options<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Through manual code reviews<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="16">
       <text>Which feature in App Studio allows for the management of data objects and their relationships?</text>
-      <option id="a)">Data Designer</option>
-      <option id="b)">Data Modeler</option>
-      <option id="c)">Data Explorer</option>
-      <option id="d)">Data Mapper</option>
+      <option id="a)">Data Designer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Data Modeler<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Data Explorer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Data Mapper<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="17">
       <text>What is the primary benefit of using declarative rules in Constellation?</text>
-      <option id="a)">Enhanced performance</option>
-      <option id="b)">Simplified debugging</option>
-      <option id="c)">Reduced need for procedural code</option>
-      <option id="d)">Improved security</option>
+      <option id="a)">Enhanced performance<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Simplified debugging<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Reduced need for procedural code<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Improved security<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="18">
       <text>In Constellation, how are user interfaces primarily configured?</text>
-      <option id="a)">Through XML files</option>
-      <option id="b)">Using JavaScript</option>
-      <option id="c)">Via declarative configurations in App Studio</option>
-      <option id="d)">By editing HTML templates</option>
+      <option id="a)">Through XML files<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Using JavaScript<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Via declarative configurations in App Studio<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">By editing HTML templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="19">
       <text>Which App Studio feature allows for the configuration of application branding and themes?</text>
-      <option id="a)">Theme Manager</option>
-      <option id="b)">Branding and Themes landing page</option>
-      <option id="c)">Style Editor</option>
-      <option id="d)">UI Customizer</option>
+      <option id="a)">Theme Manager<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Branding and Themes landing page<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Style Editor<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">UI Customizer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="20">
       <text>What is the purpose of the 'Settings' tab in App Studio?</text>
-      <option id="a)">To manage user access</option>
-      <option id="b)">To configure application-wide settings</option>
-      <option id="c)">To edit data models</option>
-      <option id="d)">To design workflows</option>
+      <option id="a)">To manage user access<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">To configure application-wide settings<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">To edit data models<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">To design workflows<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
   </category>
   <category name="DX Components &amp; Customization">
     <question id="1">
       <text>What technology is used to build DX components in Pega Constellation?</text>
-      <option id="a)">Angular</option>
-      <option id="b)">Vue.js</option>
-      <option id="c)">React</option>
-      <option id="d)">Ember.js</option>
+      <option id="a)">Angular<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Vue.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">React<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Ember.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="2">
       <text>Which API integrates custom UI components with Pega Constellation?</text>
-      <option id="a)">SOAP API</option>
-      <option id="b)">DX API</option>
-      <option id="c)">GraphQL API</option>
-      <option id="d)">REST API</option>
+      <option id="a)">SOAP API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">DX API<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">GraphQL API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">REST API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="3">
       <text>Which tool is used to build and deploy DX components?</text>
-      <option id="a)">DX Component CLI</option>
-      <option id="b)">App Studio</option>
-      <option id="c)">Dev Studio</option>
-      <option id="d)">Design Studio</option>
+      <option id="a)">DX Component CLI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Dev Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Design Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="4">
       <text>Which file holds authentication info when publishing DX components?</text>
-      <option id="a)">auth.json</option>
-      <option id="b)">dxconfig.json</option>
-      <option id="c)">package.json</option>
-      <option id="d)">manifest.json</option>
+      <option id="a)">auth.json<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">dxconfig.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">package.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">manifest.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="5">
       <text>What command authenticates with the Pega server for publishing?</text>
-      <option id="a)">dx-auth</option>
-      <option id="b)">dx-login</option>
-      <option id="c)">dx-publish-auth</option>
-      <option id="d)">dx-setup</option>
+      <option id="a)">dx-auth<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dx-login<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">dx-publish-auth<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">dx-setup<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="6">
       <text>Which file specifies tasks during DX component publishing?</text>
-      <option id="a)">tasks.json</option>
-      <option id="b)">dxconfig.json</option>
-      <option id="c)">package.json</option>
-      <option id="d)">manifest.json</option>
+      <option id="a)">tasks.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dxconfig.json<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">package.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">manifest.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="7">
       <text>What file defines styles for DX components?</text>
-      <option id="a)">style.css</option>
-      <option id="b)">component.css</option>
-      <option id="c)">dx-style.css</option>
-      <option id="d)">styles.json</option>
+      <option id="a)">style.css<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">component.css<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">dx-style.css<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">styles.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="8">
       <text>What file defines the behavior of a DX component?</text>
-      <option id="a)">logic.js</option>
-      <option id="b)">component.js</option>
-      <option id="c)">dx-logic.js</option>
-      <option id="d)">script.js</option>
+      <option id="a)">logic.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">component.js<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">dx-logic.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">script.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="9">
       <text>How are DX components rendered in the Constellation engine?</text>
-      <option id="a)">As static HTML</option>
-      <option id="b)">Via JSON APIs</option>
-      <option id="c)">Via PCore + PConnect</option>
-      <option id="d)">Through App Studio</option>
+      <option id="a)">As static HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Via JSON APIs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Via PCore + PConnect<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Through App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="10">
       <text>Which tag defines the root of a DX component in JSX?</text>
-      <option id="a)">&lt;dx-component&gt;</option>
-      <option id="b)">&lt;ComponentRoot&gt;</option>
-      <option id="c)">&lt;View&gt;</option>
-      <option id="d)">&lt;section&gt;</option>
+      <option id="a)">&lt;dx-component&gt;<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">&lt;ComponentRoot&gt;<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">&lt;View&gt;<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">&lt;section&gt;<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="11">
       <text>Which CLI command publishes all DX components to the server?</text>
-      <option id="a)">dx-deploy</option>
-      <option id="b)">dx-push</option>
-      <option id="c)">dx-publish-all</option>
-      <option id="d)">dx-upload</option>
+      <option id="a)">dx-deploy<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dx-push<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">dx-publish-all<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">dx-upload<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="12">
       <text>Where do you define the metadata for DX components?</text>
-      <option id="a)">manifest.json</option>
-      <option id="b)">metadata.xml</option>
-      <option id="c)">config.json</option>
-      <option id="d)">component.yml</option>
+      <option id="a)">manifest.json<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">metadata.xml<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">config.json<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">component.yml<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="13">
       <text>Which library exposes the public API for Constellation in JavaScript?</text>
-      <option id="a)">ConstellationJS</option>
-      <option id="b)">PegaAPI</option>
-      <option id="c)">ReactPega</option>
-      <option id="d)">DXJS</option>
+      <option id="a)">ConstellationJS<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">PegaAPI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">ReactPega<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">DXJS<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="14">
       <text>How is data passed from Pega to a DX component?</text>
-      <option id="a)">Via HTML attributes</option>
-      <option id="b)">Via the DOM</option>
-      <option id="c)">Via PCore + props</option>
-      <option id="d)">Via WebSockets</option>
+      <option id="a)">Via HTML attributes<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Via the DOM<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Via PCore + props<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Via WebSockets<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="15">
       <text>What happens if a DX component fails to register?</text>
-      <option id="a)">App crashes</option>
-      <option id="b)">Fallback UI is rendered</option>
-      <option id="c)">Error log is generated</option>
-      <option id="d)">API call fails silently</option>
+      <option id="a)">App crashes<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Fallback UI is rendered<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Error log is generated<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">API call fails silently<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="16">
       <text>Where should custom DX components be registered?</text>
-      <option id="a)">App Studio</option>
-      <option id="b)">DX registry</option>
-      <option id="c)">Component manifest</option>
-      <option id="d)">Pega Component Store</option>
+      <option id="a)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">DX registry<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Component manifest<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Pega Component Store<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="17">
       <text>How do you include multiple DX components in a view?</text>
-      <option id="a)">Use separate templates</option>
-      <option id="b)">Import all in component.js</option>
-      <option id="c)">Reference in View JSON</option>
-      <option id="d)">Embed in section</option>
+      <option id="a)">Use separate templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Import all in component.js<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Reference in View JSON<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Embed in section<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="18">
       <text>What’s the benefit of using DX components over legacy UI rules?</text>
-      <option id="a)">More code reuse</option>
-      <option id="b)">Better performance &amp; modularity</option>
-      <option id="c)">Faster deployment</option>
-      <option id="d)">Built-in security</option>
+      <option id="a)">More code reuse<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Better performance &amp; modularity<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Faster deployment<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Built-in security<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="19">
       <text>What is required in a DX component to support two-way data binding?</text>
-      <option id="a)">useEffect hook</option>
-      <option id="b)">bind() call</option>
-      <option id="c)">data-page config</option>
-      <option id="d)">usePConnect</option>
+      <option id="a)">useEffect hook<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">bind() call<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">data-page config<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">usePConnect<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="20">
       <text>How can you test a DX component locally before deployment?</text>
-      <option id="a)">Run 'npm test'</option>
-      <option id="b)">Use Pega Emulator</option>
-      <option id="c)">Serve via CLI and simulate props</option>
-      <option id="d)">Use App Studio preview</option>
+      <option id="a)">Run 'npm test'<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Use Pega Emulator<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Serve via CLI and simulate props<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Use App Studio preview<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
   </category>
   <category name="Architecture &amp; APIs">
     <question id="1">
       <text>Which API provides REST endpoints for default and custom user experiences in Constellation?</text>
-      <option id="a)">SOAP API</option>
-      <option id="b)">DX API</option>
-      <option id="c)">GraphQL API</option>
-      <option id="d)">RESTful API</option>
+      <option id="a)">SOAP API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">DX API<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">GraphQL API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">RESTful API<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="2">
       <text>What is the role of PConnect in custom DX components?</text>
-      <option id="a)">Provides styling rules</option>
-      <option id="b)">Connects component to Pega state and APIs</option>
-      <option id="c)">Handles network requests</option>
-      <option id="d)">Registers components to App Studio</option>
+      <option id="a)">Provides styling rules<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Connects component to Pega state and APIs<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Handles network requests<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Registers components to App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="3">
       <text>Which object is required to interact with Pega state in Constellation DX components?</text>
-      <option id="a)">PCore</option>
-      <option id="b)">PConnect</option>
-      <option id="c)">StateManager</option>
-      <option id="d)">DataPage</option>
+      <option id="a)">PCore<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">PConnect<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">StateManager<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">DataPage<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="4">
       <text>What JavaScript library enables communication with the Pega Constellation framework?</text>
-      <option id="a)">ConstellationJS</option>
-      <option id="b)">ReactPega</option>
-      <option id="c)">PegaAPI</option>
-      <option id="d)">DXCore</option>
+      <option id="a)">ConstellationJS<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">ReactPega<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">PegaAPI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">DXCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="5">
       <text>What does PCore.getEnvironmentInfo() return?</text>
-      <option id="a)">Security settings</option>
-      <option id="b)">Theme metadata</option>
-      <option id="c)">User and environment metadata</option>
-      <option id="d)">Case data</option>
+      <option id="a)">Security settings<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Theme metadata<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">User and environment metadata<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Case data<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="6">
       <text>Which layer in Constellation acts as the data delivery and metadata endpoint?</text>
-      <option id="a)">Pega App Server</option>
-      <option id="b)">Constellation Service</option>
-      <option id="c)">DX API Layer</option>
-      <option id="d)">PCore</option>
+      <option id="a)">Pega App Server<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Constellation Service<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">DX API Layer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">PCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="7">
       <text>What is required to initialize a DX component for communication?</text>
-      <option id="a)">A DOM ref</option>
-      <option id="b)">PCore.registerComponent()</option>
-      <option id="c)">Redux binding</option>
-      <option id="d)">Async loader</option>
+      <option id="a)">A DOM ref<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">PCore.registerComponent()<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Redux binding<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Async loader<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="8">
       <text>What protocol is used for communication between Pega and Constellation UI?</text>
-      <option id="a)">WebSocket</option>
-      <option id="b)">REST</option>
-      <option id="c)">gRPC</option>
-      <option id="d)">SOAP</option>
+      <option id="a)">WebSocket<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">REST<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">gRPC<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">SOAP<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="9">
       <text>What is the primary purpose of the DX API?</text>
-      <option id="a)">Render server-side UI</option>
-      <option id="b)">Provide server logs</option>
-      <option id="c)">Expose UI metadata and data over REST</option>
-      <option id="d)">Process background jobs</option>
+      <option id="a)">Render server-side UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Provide server logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Expose UI metadata and data over REST<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Process background jobs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="10">
       <text>Which HTTP method is used to submit case actions in the DX API?</text>
-      <option id="a)">GET</option>
-      <option id="b)">PUT</option>
-      <option id="c)">POST</option>
-      <option id="d)">DELETE</option>
+      <option id="a)">GET<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">PUT<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">POST<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">DELETE<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="11">
       <text>What is the purpose of PCore.getConstants()?</text>
-      <option id="a)">Retrieve view configuration</option>
-      <option id="b)">Get static system-level values</option>
-      <option id="c)">Launch portals</option>
-      <option id="d)">Fetch live case data</option>
+      <option id="a)">Retrieve view configuration<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Get static system-level values<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Launch portals<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Fetch live case data<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="12">
       <text>Where does the DX API expose all case type and field definitions?</text>
-      <option id="a)">pyWorkPage</option>
-      <option id="b)">pyCaseView</option>
-      <option id="c)">API schema</option>
-      <option id="d)">Metadata model</option>
+      <option id="a)">pyWorkPage<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">pyCaseView<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">API schema<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Metadata model<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="13">
       <text>How does Constellation enable external UI to render Pega data?</text>
-      <option id="a)">Via WebSocket events</option>
-      <option id="b)">DX API endpoints returning metadata + data</option>
-      <option id="c)">Iframe embedding</option>
-      <option id="d)">Widget injection</option>
+      <option id="a)">Via WebSocket events<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">DX API endpoints returning metadata + data<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Iframe embedding<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Widget injection<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="14">
       <text>What is needed for a DX component to function inside the Constellation runtime?</text>
-      <option id="a)">Manual registration in App Studio</option>
-      <option id="b)">Proper props and context from PCore</option>
-      <option id="c)">Compiled Java source</option>
-      <option id="d)">Inline HTML</option>
+      <option id="a)">Manual registration in App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Proper props and context from PCore<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Compiled Java source<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Inline HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="15">
       <text>Which Constellation element manages orchestration of rendering logic?</text>
-      <option id="a)">DX Engine</option>
-      <option id="b)">PCore</option>
-      <option id="c)">View Builder</option>
-      <option id="d)">React Renderer</option>
+      <option id="a)">DX Engine<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">PCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">View Builder<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">React Renderer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="16">
       <text>Which Pega version introduced the DX API v2?</text>
-      <option id="a)">7.4</option>
-      <option id="b)">8.1</option>
-      <option id="c)">8.4</option>
-      <option id="d)">8.6</option>
+      <option id="a)">7.4<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">8.1<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">8.4<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">8.6<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="17">
       <text>Which PCore method retrieves the available View templates?</text>
-      <option id="a)">getTemplates()</option>
-      <option id="b)">getViewConfig()</option>
-      <option id="c)">getTemplateList()</option>
-      <option id="d)">getConstants()</option>
+      <option id="a)">getTemplates()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">getViewConfig()<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">getTemplateList()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">getConstants()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="18">
       <text>To get case assignment data, which DX endpoint is used?</text>
-      <option id="a)">/cases</option>
-      <option id="b)">/assignments</option>
-      <option id="c)">/datapages</option>
-      <option id="d)">/views</option>
+      <option id="a)">/cases<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">/assignments<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">/datapages<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">/views<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="19">
       <text>Which layer converts case configuration into structured JSON for the UI?</text>
-      <option id="a)">Theme Layer</option>
-      <option id="b)">Design System</option>
-      <option id="c)">Metadata Generator</option>
-      <option id="d)">DX API</option>
+      <option id="a)">Theme Layer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Design System<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Metadata Generator<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">DX API<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="20">
       <text>Which tool can validate DX API connectivity?</text>
-      <option id="a)">Dev Studio only</option>
-      <option id="b)">Postman or cURL</option>
-      <option id="c)">App Studio</option>
-      <option id="d)">Live UI</option>
+      <option id="a)">Dev Studio only<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Postman or cURL<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
   </category>
   <category name="Debugging &amp; Developer Tools">
     <question id="1">
       <text>Which tool is primarily used to trace the execution of processes in Pega?</text>
-      <option id="a)">Live UI</option>
-      <option id="b)">Clipboard</option>
-      <option id="c)">Tracer</option>
-      <option id="d)">DevTools</option>
+      <option id="a)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Tracer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">DevTools<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="2">
       <text>Which browser extension is used to inspect React components in Constellation?</text>
-      <option id="a)">Redux DevTools</option>
-      <option id="b)">React Developer Tools</option>
-      <option id="c)">Pega Plugin</option>
-      <option id="d)">Chrome Inspector</option>
+      <option id="a)">Redux DevTools<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">React Developer Tools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Pega Plugin<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Chrome Inspector<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="3">
       <text>What tool helps inspect the current state of UI components rendered in Constellation?</text>
-      <option id="a)">DevTools</option>
-      <option id="b)">Tracer</option>
-      <option id="c)">App Studio</option>
-      <option id="d)">Clipboard</option>
+      <option id="a)">DevTools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Tracer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="4">
       <text>What setting enables DX API call logging in DevTools?</text>
-      <option id="a)">DebugPegaAPI</option>
-      <option id="b)">DXTrace</option>
-      <option id="c)">LogRestCalls</option>
-      <option id="d)">APIInspector</option>
+      <option id="a)">DebugPegaAPI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">DXTrace<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">LogRestCalls<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">APIInspector<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="5">
       <text>Which panel in DevTools shows the data passed to DX components?</text>
-      <option id="a)">Components</option>
-      <option id="b)">Props Viewer</option>
-      <option id="c)">Constellation</option>
-      <option id="d)">Network</option>
+      <option id="a)">Components<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Props Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Constellation<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Network<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="6">
       <text>Which method is commonly used to debug data in Pega live sessions?</text>
-      <option id="a)">Tracepath</option>
-      <option id="b)">Clipboard</option>
-      <option id="c)">DataMapper</option>
-      <option id="d)">PageWatcher</option>
+      <option id="a)">Tracepath<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Clipboard<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">DataMapper<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">PageWatcher<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="7">
       <text>What tool shows UI metadata sent from the server to Constellation?</text>
-      <option id="a)">App Studio</option>
-      <option id="b)">Clipboard</option>
-      <option id="c)">DevTools</option>
-      <option id="d)">Metadata Viewer</option>
+      <option id="a)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">DevTools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Metadata Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="8">
       <text>To inspect a user case structure, which feature should be used?</text>
-      <option id="a)">Data Explorer</option>
-      <option id="b)">Live UI</option>
-      <option id="c)">Case Inspector</option>
-      <option id="d)">UI Panel</option>
+      <option id="a)">Data Explorer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Live UI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Case Inspector<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">UI Panel<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="9">
       <text>What is the best way to monitor performance of a specific DX component?</text>
-      <option id="a)">DevTools timeline</option>
-      <option id="b)">Pega Logs</option>
-      <option id="c)">Tracer</option>
-      <option id="d)">Clipboard</option>
+      <option id="a)">DevTools timeline<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Pega Logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Tracer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="10">
       <text>What is the role of the Redux DevTools extension in Constellation debugging?</text>
-      <option id="a)">Theme switching</option>
-      <option id="b)">View styling</option>
-      <option id="c)">State inspection</option>
-      <option id="d)">API mocking</option>
+      <option id="a)">Theme switching<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">View styling<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">State inspection<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">API mocking<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="11">
       <text>Which Pega tool shows when data pages are created and accessed?</text>
-      <option id="a)">Data Designer</option>
-      <option id="b)">Clipboard</option>
-      <option id="c)">Tracer</option>
-      <option id="d)">Data Pages Viewer</option>
+      <option id="a)">Data Designer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Tracer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Data Pages Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="12">
       <text>What does the Constellation tab in browser DevTools typically expose?</text>
-      <option id="a)">Security roles</option>
-      <option id="b)">Server logs</option>
-      <option id="c)">DX component trees and props</option>
-      <option id="d)">Database schemas</option>
+      <option id="a)">Security roles<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Server logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">DX component trees and props<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Database schemas<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="13">
       <text>How can developers trace actions taken in UI steps?</text>
-      <option id="a)">Enable logs in App Studio</option>
-      <option id="b)">Use DevTools Timeline</option>
-      <option id="c)">Run Tracer with all events</option>
-      <option id="d)">Inspect theme XML</option>
+      <option id="a)">Enable logs in App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Use DevTools Timeline<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Run Tracer with all events<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Inspect theme XML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="14">
       <text>Which environment variable can expose DX API traces in the console?</text>
-      <option id="a)">DEBUG_MODE</option>
-      <option id="b)">TRACE_DX</option>
-      <option id="c)">DebugPegaAPI</option>
-      <option id="d)">VIEW_LOGS</option>
+      <option id="a)">DEBUG_MODE<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">TRACE_DX<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">DebugPegaAPI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">VIEW_LOGS<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="15">
       <text>Which feature helps developers understand which View is rendered?</text>
-      <option id="a)">Clipboard</option>
-      <option id="b)">Live UI</option>
-      <option id="c)">Case Tracker</option>
-      <option id="d)">Preview Panel</option>
+      <option id="a)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Live UI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Case Tracker<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Preview Panel<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="16">
       <text>What tool allows inspection of request/response cycle for DX API?</text>
-      <option id="a)">Network tab in browser</option>
-      <option id="b)">Pega Logs</option>
-      <option id="c)">Data Pages Viewer</option>
-      <option id="d)">Tracer only</option>
+      <option id="a)">Network tab in browser<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Pega Logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Data Pages Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Tracer only<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="17">
       <text>Which UI tool shows raw data and component mappings from Pega?</text>
-      <option id="a)">Live UI</option>
-      <option id="b)">Clipboard</option>
-      <option id="c)">Constellation DevTools</option>
-      <option id="d)">Page Viewer</option>
+      <option id="a)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Constellation DevTools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Page Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="18">
       <text>What feature helps understand changes in client-side state over time?</text>
-      <option id="a)">Redux DevTools</option>
-      <option id="b)">Network Inspector</option>
-      <option id="c)">Console logs</option>
-      <option id="d)">Data Pages Viewer</option>
+      <option id="a)">Redux DevTools<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Network Inspector<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Console logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Data Pages Viewer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="19">
       <text>How can one confirm that PCore has been initialized correctly in runtime?</text>
-      <option id="a)">App Studio logs</option>
-      <option id="b)">Tracer initialization</option>
-      <option id="c)">Check PCore in DevTools console</option>
-      <option id="d)">Live UI toggle</option>
+      <option id="a)">App Studio logs<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Tracer initialization<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Check PCore in DevTools console<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Live UI toggle<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="20">
       <text>What method allows visual identification of current view structure?</text>
-      <option id="a)">React UI Analyzer</option>
-      <option id="b)">Constellation View Tree</option>
-      <option id="c)">Live UI</option>
-      <option id="d)">App Studio Hierarchy</option>
+      <option id="a)">React UI Analyzer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Constellation View Tree<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Live UI<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">App Studio Hierarchy<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
   </category>
   <category name="Migration &amp; Comparison with Theme Cosmos">
     <question id="1">
       <text>What is a key reason to migrate from Theme Cosmos to Constellation?</text>
-      <option id="a)">More Java customization</option>
-      <option id="b)">Better support for section-based UI</option>
-      <option id="c)">Improved performance and client-side rendering</option>
-      <option id="d)">Backwards compatibility</option>
+      <option id="a)">More Java customization<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Better support for section-based UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Improved performance and client-side rendering<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Backwards compatibility<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="2">
       <text>In Constellation, what replaces the use of Section rules in Cosmos?</text>
-      <option id="a)">Templates</option>
-      <option id="b)">Fragments</option>
-      <option id="c)">Views</option>
-      <option id="d)">UI Pages</option>
+      <option id="a)">Templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Fragments<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">UI Pages<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="3">
       <text>Which tool can help identify legacy rules incompatible with Constellation?</text>
-      <option id="a)">Rule Inspector</option>
-      <option id="b)">Live UI</option>
-      <option id="c)">Upgrade Assistant</option>
-      <option id="d)">DX Analyzer</option>
+      <option id="a)">Rule Inspector<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Upgrade Assistant<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">DX Analyzer<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="4">
       <text>How does Constellation improve UI consistency over Theme Cosmos?</text>
-      <option id="a)">By removing templates</option>
-      <option id="b)">Using hardcoded layouts</option>
-      <option id="c)">Enforcing design system components</option>
-      <option id="d)">Allowing inline HTML</option>
+      <option id="a)">By removing templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Using hardcoded layouts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Enforcing design system components<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Allowing inline HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="5">
       <text>What major architectural shift is introduced in Constellation over Theme Cosmos?</text>
-      <option id="a)">Monolithic backend</option>
-      <option id="b)">Server-side rendering</option>
-      <option id="c)">Client-side rendering with metadata-driven views</option>
-      <option id="d)">Full refresh forms</option>
+      <option id="a)">Monolithic backend<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Server-side rendering<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Client-side rendering with metadata-driven views<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Full refresh forms<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="6">
       <text>Which runtime library is deprecated when migrating from Theme Cosmos?</text>
-      <option id="a)">PCore</option>
-      <option id="b)">pyCaseMainSection</option>
-      <option id="c)">pyCaseMainPage</option>
-      <option id="d)">Theme-Cosmos ruleset</option>
+      <option id="a)">PCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">pyCaseMainSection<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">pyCaseMainPage<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Theme-Cosmos ruleset<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="7">
       <text>What Pega capability assists in migrating cases to Constellation?</text>
-      <option id="a)">Data Flow Converter</option>
-      <option id="b)">Case Conversion Wizard</option>
-      <option id="c)">UI Adapter Layer</option>
-      <option id="d)">Theme Switcher</option>
+      <option id="a)">Data Flow Converter<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Case Conversion Wizard<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">UI Adapter Layer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Theme Switcher<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="8">
       <text>Which version of Pega first introduced full support for Constellation architecture?</text>
-      <option id="a)">8.2</option>
-      <option id="b)">8.4</option>
-      <option id="c)">8.6</option>
-      <option id="d)">8.8</option>
+      <option id="a)">8.2<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">8.4<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">8.6<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">8.8<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="9">
       <text>Which of the following is not required during a migration to Constellation?</text>
-      <option id="a)">Review of deprecated UI rules</option>
-      <option id="b)">Conversion of section-based layouts</option>
-      <option id="c)">JS API refactor</option>
-      <option id="d)">Portal configuration</option>
+      <option id="a)">Review of deprecated UI rules<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Conversion of section-based layouts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">JS API refactor<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Portal configuration<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="10">
       <text>What impact does switching to Constellation have on legacy UI tests?</text>
-      <option id="a)">They continue without changes</option>
-      <option id="b)">They need rewriting due to DOM changes</option>
-      <option id="c)">They run faster</option>
-      <option id="d)">They become read-only</option>
+      <option id="a)">They continue without changes<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">They need rewriting due to DOM changes<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">They run faster<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">They become read-only<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="11">
       <text>What must be rebuilt when migrating to Constellation?</text>
-      <option id="a)">Case types</option>
-      <option id="b)">Process flows</option>
-      <option id="c)">Views and portals</option>
-      <option id="d)">Data transforms</option>
+      <option id="a)">Case types<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Process flows<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Views and portals<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Data transforms<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="12">
       <text>What distinguishes Constellation views from Theme Cosmos sections?</text>
-      <option id="a)">Views use dynamic layouts</option>
-      <option id="b)">Views use metadata and design system only</option>
-      <option id="c)">Views include scripts</option>
-      <option id="d)">Views support only one column</option>
+      <option id="a)">Views use dynamic layouts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Views use metadata and design system only<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Views include scripts<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Views support only one column<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="13">
       <text>Which design constraint is enforced in Constellation but not in Theme Cosmos?</text>
-      <option id="a)">Single-column layout</option>
-      <option id="b)">Strict UI layering</option>
-      <option id="c)">App Studio-only development</option>
-      <option id="d)">Use of declared data pages only</option>
+      <option id="a)">Single-column layout<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Strict UI layering<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">App Studio-only development<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Use of declared data pages only<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="14">
       <text>Can section-based UI rules be reused in Constellation?</text>
-      <option id="a)">Yes, without changes</option>
-      <option id="b)">Yes, if embedded in views</option>
-      <option id="c)">Only with wrappers</option>
-      <option id="d)">No, they must be redesigned</option>
+      <option id="a)">Yes, without changes<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Yes, if embedded in views<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Only with wrappers<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">No, they must be redesigned<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="15">
       <text>What is the supported method of branding in Constellation?</text>
-      <option id="a)">CSS override</option>
-      <option id="b)">Theme-Cosmos ruleset</option>
-      <option id="c)">Design tokens via Theme Assistant</option>
-      <option id="d)">Custom style tags</option>
+      <option id="a)">CSS override<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Theme-Cosmos ruleset<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Design tokens via Theme Assistant<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Custom style tags<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="16">
       <text>Which layer is responsible for generating metadata consumed by Constellation?</text>
-      <option id="a)">App Studio</option>
-      <option id="b)">DX API</option>
-      <option id="c)">Theme-Cosmos</option>
-      <option id="d)">PCore</option>
+      <option id="a)">App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">DX API<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Theme-Cosmos<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">PCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="17">
       <text>What is a common blocker when migrating a portal to Constellation?</text>
-      <option id="a)">Non-auto-generated controls</option>
-      <option id="b)">Too many case types</option>
-      <option id="c)">Lack of data pages</option>
-      <option id="d)">Use of validation rules</option>
+      <option id="a)">Non-auto-generated controls<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Too many case types<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Lack of data pages<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Use of validation rules<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="18">
       <text>Which statement best describes Constellation’s compatibility with legacy harnesses?</text>
-      <option id="a)">Fully compatible</option>
-      <option id="b)">Partially supported</option>
-      <option id="c)">Deprecated and unsupported</option>
-      <option id="d)">Recommended with patches</option>
+      <option id="a)">Fully compatible<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Partially supported<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Deprecated and unsupported<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Recommended with patches<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="19">
       <text>What is an essential first step before starting a migration?</text>
-      <option id="a)">Delete unused rules</option>
-      <option id="b)">Build DX components</option>
-      <option id="c)">Run Constellation compatibility check</option>
-      <option id="d)">Switch all users to new portal</option>
+      <option id="a)">Delete unused rules<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Build DX components<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Run Constellation compatibility check<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Switch all users to new portal<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="20">
       <text>What happens to custom JavaScript in a Theme Cosmos app after migrating to Constellation?</text>
-      <option id="a)">It is preserved</option>
-      <option id="b)">It is automatically rewritten</option>
-      <option id="c)">It must be removed or rewritten</option>
-      <option id="d)">It is sandboxed</option>
+      <option id="a)">It is preserved<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">It is automatically rewritten<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">It must be removed or rewritten<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">It is sandboxed<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
   </category>
   <category name="SDKs &amp; Front-End Development">
     <question id="1">
       <text>What SDK is provided to develop custom UI in Pega Constellation?</text>
-      <option id="a)">DX SDK</option>
-      <option id="b)">Pega UI Kit</option>
-      <option id="c)">Constellation SDK</option>
-      <option id="d)">React SDK</option>
+      <option id="a)">DX SDK<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Pega UI Kit<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Constellation SDK<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">React SDK<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="2">
       <text>Which language is primarily used for building Constellation components?</text>
-      <option id="a)">Java</option>
-      <option id="b)">HTML</option>
-      <option id="c)">React/JSX</option>
-      <option id="d)">Python</option>
+      <option id="a)">Java<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">React/JSX<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Python<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="3">
       <text>Where are custom DX components deployed in a Constellation setup?</text>
-      <option id="a)">Within App Studio</option>
-      <option id="b)">On Pega server</option>
-      <option id="c)">In a static content server</option>
-      <option id="d)">Directly into the ruleset</option>
+      <option id="a)">Within App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">On Pega server<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">In a static content server<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">Directly into the ruleset<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="4">
       <text>Which build tool is recommended for compiling DX component projects?</text>
-      <option id="a)">Webpack</option>
-      <option id="b)">Rollup</option>
-      <option id="c)">Gulp</option>
-      <option id="d)">Grunt</option>
+      <option id="a)">Webpack<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="b)">Rollup<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Gulp<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Grunt<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>a)</correct>
     </question>
     <question id="5">
       <text>Which command is used to locally test a DX component?</text>
-      <option id="a)">npm test</option>
-      <option id="b)">dx-serve</option>
-      <option id="c)">dx-preview</option>
-      <option id="d)">npm run start</option>
+      <option id="a)">npm test<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dx-serve<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">dx-preview<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">npm run start<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="6">
       <text>What data format does the DX API return for rendering in the front-end?</text>
-      <option id="a)">HTML</option>
-      <option id="b)">XML</option>
-      <option id="c)">JSON</option>
-      <option id="d)">JavaScript</option>
+      <option id="a)">HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">XML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">JSON<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">JavaScript<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="7">
       <text>How do you pass data from Pega to a DX component?</text>
-      <option id="a)">As inline JavaScript</option>
-      <option id="b)">Through DOM attributes</option>
-      <option id="c)">Via PCore props</option>
-      <option id="d)">By embedding HTML</option>
+      <option id="a)">As inline JavaScript<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Through DOM attributes<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Via PCore props<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">By embedding HTML<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="8">
       <text>What is the role of the manifest.json in a DX component project?</text>
-      <option id="a)">Defines database bindings</option>
-      <option id="b)">Declares component metadata</option>
-      <option id="c)">Registers users</option>
-      <option id="d)">Links styling files</option>
+      <option id="a)">Defines database bindings<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Declares component metadata<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Registers users<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Links styling files<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="9">
       <text>What is the recommended structure for Constellation component folders?</text>
-      <option id="a)">One file per component</option>
-      <option id="b)">JS/CSS bundled in single folder</option>
-      <option id="c)">Separate modules per render</option>
-      <option id="d)">No enforced structure</option>
+      <option id="a)">One file per component<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">JS/CSS bundled in single folder<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Separate modules per render<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">No enforced structure<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="10">
       <text>How is a custom component registered with PCore?</text>
-      <option id="a)">By importing it into App Studio</option>
-      <option id="b)">Calling PCore.registerComponent</option>
-      <option id="c)">Adding it to pyRuleSet</option>
-      <option id="d)">Using Dev Studio wizard</option>
+      <option id="a)">By importing it into App Studio<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Calling PCore.registerComponent<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Adding it to pyRuleSet<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Using Dev Studio wizard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="11">
       <text>Which command publishes DX components to Pega?</text>
-      <option id="a)">dx-push</option>
-      <option id="b)">dx-publish</option>
-      <option id="c)">dx-deploy</option>
-      <option id="d)">dx-publish-all</option>
+      <option id="a)">dx-push<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dx-publish<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">dx-deploy<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">dx-publish-all<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="12">
       <text>How can you debug the properties received by a component?</text>
-      <option id="a)">Print PCore</option>
-      <option id="b)">Log props in component</option>
-      <option id="c)">Trace clipboard</option>
-      <option id="d)">Use Tracer</option>
+      <option id="a)">Print PCore<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Log props in component<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Trace clipboard<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Use Tracer<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="13">
       <text>What CLI tool is essential to build and manage Constellation components?</text>
-      <option id="a)">pega-cli</option>
-      <option id="b)">dx-cli</option>
-      <option id="c)">constellation-cli</option>
-      <option id="d)">create-react-app</option>
+      <option id="a)">pega-cli<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">dx-cli<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">constellation-cli<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">create-react-app<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="14">
       <text>How can a developer modify the default theme in Constellation?</text>
-      <option id="a)">By changing the base CSS</option>
-      <option id="b)">Using Theme Assistant</option>
-      <option id="c)">Overriding templates</option>
-      <option id="d)">Editing harness</option>
+      <option id="a)">By changing the base CSS<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Using Theme Assistant<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Overriding templates<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">Editing harness<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="15">
       <text>What lifecycle method can be used in React to react to prop changes?</text>
-      <option id="a)">componentDidUpdate</option>
-      <option id="b)">useEffect</option>
-      <option id="c)">onChange</option>
-      <option id="d)">ngOnChanges</option>
+      <option id="a)">componentDidUpdate<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">useEffect<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">onChange<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">ngOnChanges<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="16">
       <text>What method is used to notify the platform of a user interaction?</text>
-      <option id="a)">notifyInteraction()</option>
-      <option id="b)">PCore.sendEvent()</option>
-      <option id="c)">handleAction()</option>
-      <option id="d)">PConnect.triggerAction()</option>
+      <option id="a)">notifyInteraction()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">PCore.sendEvent()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">handleAction()<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">PConnect.triggerAction()<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
       <correct>d)</correct>
     </question>
     <question id="17">
       <text>Which repository structure is recommended for enterprise-scale component sets?</text>
-      <option id="a)">Single repo flat files</option>
-      <option id="b)">Monorepo with workspaces</option>
-      <option id="c)">Multiple rule-sets</option>
-      <option id="d)">One component per repo</option>
+      <option id="a)">Single repo flat files<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Monorepo with workspaces<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Multiple rule-sets<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">One component per repo<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="18">
       <text>What advantage does JSX offer in component creation?</text>
-      <option id="a)">Faster performance</option>
-      <option id="b)">Direct HTML use</option>
-      <option id="c)">Declarative UI with JS logic</option>
-      <option id="d)">JSON rendering</option>
+      <option id="a)">Faster performance<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Direct HTML use<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="c)">Declarative UI with JS logic<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="d)">JSON rendering<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>c)</correct>
     </question>
     <question id="19">
       <text>How can you apply custom styles to a Constellation component?</text>
-      <option id="a)">Inline styles only</option>
-      <option id="b)">Scoped CSS modules</option>
-      <option id="c)">Theme rule override</option>
-      <option id="d)">External stylesheet import</option>
+      <option id="a)">Inline styles only<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Scoped CSS modules<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Theme rule override<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">External stylesheet import<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
     <question id="20">
       <text>Which Pega component helps preview how a new UI will behave before publishing?</text>
-      <option id="a)">Live UI</option>
-      <option id="b)">Preview Portal</option>
-      <option id="c)">Component Tester</option>
-      <option id="d)">App Studio simulation</option>
+      <option id="a)">Live UI<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="b)">Preview Portal<explanation>This is the correct answer because it matches the intended concept.</explanation></option>
+      <option id="c)">Component Tester<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
+      <option id="d)">App Studio simulation<explanation>This is incorrect because it doesn't align with the correct definition or usage.</explanation></option>
       <correct>b)</correct>
     </question>
   </category>
