@@ -18,20 +18,16 @@
     .category-title {
       font-size: 1.7em;
       margin-top: 20px;
-      padding: 12px 16px;
+      padding: 10px;
       border-radius: 6px;
       color: #fff;
       display: flex;
       align-items: center;
-      gap: 12px;
-      line-height: 1.2;
+      gap: 10px;
     }
     .category-icon {
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 32px;
+      height: 32px;
     }
     .question-block {
       border: 1px solid #ccc;
@@ -56,9 +52,15 @@
     }
     .correct {
       color: green;
+      background: #e0f9e0;
+      padding: 5px;
+      border-radius: 4px;
     }
     .incorrect {
       color: red;
+      background: #fbe0e0;
+      padding: 5px;
+      border-radius: 4px;
     }
     button {
       margin: 15px 5px;
@@ -104,7 +106,7 @@
     const DEBUG = true;
     let allCategories = [];
     const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
-    const categoryIcons = ['📘', '🧩', '🏗️', '🔧', '🔄', '💻', '🚀'];
+    const categoryIcons = ['📘','🧩','🏗️','🔧','🔄','💻','🚀'];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -118,7 +120,8 @@
             const text = q.getElementsByTagName('text')[0].textContent;
             const options = Array.from(q.getElementsByTagName('option')).map(opt => ({
               id: opt.getAttribute('id'),
-              text: opt.textContent
+              text: opt.textContent,
+              explanation: opt.getAttribute('explanation') || ''
             }));
             const correct = q.getElementsByTagName('correct')[0].textContent.trim();
             return { text, options, correct, category: name };
@@ -128,10 +131,6 @@
         regenerateAll();
         renderNav();
         renderCategory(0);
-      })
-      .catch(err => {
-        document.getElementById('quiz').innerHTML = "❌ Failed to load questions.xml. Make sure it's correctly hosted.";
-        console.error(err);
       });
 
     function regenerateAll() {
@@ -149,11 +148,9 @@
       nav.innerHTML = '';
       allCategories.forEach((cat, i) => {
         const btn = document.createElement('button');
-        btn.innerHTML = `${categoryIcons[i % categoryIcons.length]} ${cat.completed ? cat.name + ' ✅' : cat.name}`;
+        btn.textContent = cat.completed ? `${categoryIcons[i % categoryIcons.length]} ${cat.name} ✅` : `${categoryIcons[i % categoryIcons.length]} ${cat.name}`;
         btn.className = cat.completed ? 'completed' : '';
         btn.disabled = cat.completed;
-        btn.style.backgroundColor = categoryColors[i % categoryColors.length];
-        btn.style.color = 'white';
         btn.style.borderTopColor = categoryColors[i % categoryColors.length];
         btn.onclick = () => renderCategory(i);
         nav.appendChild(btn);
@@ -195,15 +192,16 @@
         const selected = cat.answers[i];
         const correct = cat.questions[i].correct;
         const feedback = document.getElementById(`feedback-${i}`);
+        const explanation = cat.questions[i].options.find(o => o.id === selected)?.explanation || '';
         if (!selected) {
           feedback.textContent = '⚠️ Please select an option.';
           feedback.className = 'feedback incorrect';
           allCorrect = false;
         } else if (selected === correct) {
-          feedback.textContent = '✅ Correct';
+          feedback.innerHTML = `✅ Correct<br><span>${explanation}</span>`;
           feedback.className = 'feedback correct';
         } else {
-          feedback.textContent = '❌ Incorrect';
+          feedback.innerHTML = `❌ Incorrect<br><span>${explanation}</span>`;
           feedback.className = 'feedback incorrect';
           allCorrect = false;
         }
