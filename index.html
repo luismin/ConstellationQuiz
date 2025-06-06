@@ -51,20 +51,30 @@
       margin-top: 0.5rem;
       border-left: 5px solid #dc3545;
     }
+    .submit-reset-container {
+      position: sticky;
+      bottom: 0;
+      background: #f9f9f9;
+      padding: 1rem 0;
+      text-align: center;
+      border-top: 1px solid #ccc;
+    }
     .submit-category-btn, .reset-category-btn {
-      margin-top: 1rem;
       background-color: #007bff;
       color: white;
       border: none;
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
-      margin-right: 1rem;
+      margin: 0 0.5rem;
     }
     .category-header {
       display: flex;
       align-items: center;
       gap: 1rem;
+    }
+    .category-icon {
+      font-size: 1.5rem;
     }
     #category-nav {
       margin-bottom: 2rem;
@@ -104,14 +114,19 @@
       return colors[index % colors.length];
     }
 
+    function createCategoryIcon(index) {
+      const icons = ["📘", "🧩", "🏗️", "🔧", "🔄", "💻", "🚀"];
+      return icons[index % icons.length];
+    }
+
     function renderQuiz(xml) {
       const container = document.getElementById("quiz-container");
       const nav = document.getElementById("category-nav");
       const categories = Array.from(xml.getElementsByTagName("category"));
-      let currentCategoryIndex = 0;
 
       categories.forEach((category, idx) => {
         const color = createCategoryColor(idx);
+        const icon = createCategoryIcon(idx);
         const catName = category.getAttribute("name") === "App Studio & Declarative Development" ? "Low Code Development" : category.getAttribute("name");
 
         const catBtn = document.createElement("button");
@@ -128,19 +143,8 @@
         const catHeader = document.createElement("h2");
         catHeader.className = "category-header";
         catHeader.style.backgroundColor = color;
-        catHeader.textContent = catName;
+        catHeader.innerHTML = `<span class="category-icon">${icon}</span> ${catName}`;
         catDiv.appendChild(catHeader);
-
-        const topButtons = document.createElement("div");
-        const submitBtn = document.createElement("button");
-        submitBtn.textContent = "Submit Category";
-        submitBtn.className = "submit-category-btn";
-        const resetBtn = document.createElement("button");
-        resetBtn.textContent = "Reset Category";
-        resetBtn.className = "reset-category-btn";
-        topButtons.appendChild(submitBtn);
-        topButtons.appendChild(resetBtn);
-        catDiv.appendChild(topButtons);
 
         const questions = Array.from(category.getElementsByTagName("question"));
         const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
@@ -183,8 +187,20 @@
           catDiv.appendChild(qDiv);
         });
 
-        const bottomButtons = topButtons.cloneNode(true);
-        catDiv.appendChild(bottomButtons);
+        const stickyButtons = document.createElement("div");
+        stickyButtons.className = "submit-reset-container";
+
+        const submitBtn = document.createElement("button");
+        submitBtn.textContent = "Submit Category";
+        submitBtn.className = "submit-category-btn";
+
+        const resetBtn = document.createElement("button");
+        resetBtn.textContent = "Reset Category";
+        resetBtn.className = "reset-category-btn";
+
+        stickyButtons.appendChild(submitBtn);
+        stickyButtons.appendChild(resetBtn);
+        catDiv.appendChild(stickyButtons);
 
         function handleSubmit() {
           let allCorrect = true;
@@ -213,8 +229,6 @@
 
         submitBtn.onclick = handleSubmit;
         resetBtn.onclick = handleReset;
-        bottomButtons.querySelector(".submit-category-btn").onclick = handleSubmit;
-        bottomButtons.querySelector(".reset-category-btn").onclick = handleReset;
 
         container.appendChild(catDiv);
       });
