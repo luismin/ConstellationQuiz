@@ -222,10 +222,74 @@
         }
 
         function handleReset() {
-          container.innerHTML = "";
-          nav.innerHTML = "";
-          renderQuiz(xml);
-        }
+  const questions = Array.from(category.getElementsByTagName("question"));
+  const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+  catDiv.innerHTML = '';
+
+  const catHeader = document.createElement("h2");
+  catHeader.className = "category-header";
+  catHeader.style.backgroundColor = color;
+  catHeader.innerHTML = `<span class=\"category-icon\">${icon}</span> ${catName}`;
+  catDiv.appendChild(catHeader);
+
+  const stickyButtons = document.createElement("div");
+  stickyButtons.className = "submit-reset-container";
+
+  const submitBtn = document.createElement("button");
+  submitBtn.textContent = "Submit Category";
+  submitBtn.className = "submit-category-btn";
+
+  const resetBtn = document.createElement("button");
+  resetBtn.textContent = "Reset Category";
+  resetBtn.className = "reset-category-btn";
+
+  stickyButtons.appendChild(submitBtn);
+  stickyButtons.appendChild(resetBtn);
+
+  const questionForms = [];
+
+  selectedQuestions.forEach((question) => {
+    const qDiv = document.createElement("div");
+    qDiv.classList.add("question");
+
+    const qText = document.createElement("p");
+    qText.textContent = question.getElementsByTagName("text")[0].textContent;
+    qDiv.appendChild(qText);
+
+    const options = Array.from(question.getElementsByTagName("option"));
+    const correct = question.getElementsByTagName("correct")[0].textContent.trim();
+
+    const form = document.createElement("form");
+
+    options.forEach((opt) => {
+      const id = opt.getAttribute("id");
+      const label = document.createElement("label");
+      label.classList.add("option");
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `q${question.getAttribute("id")}`;
+      input.value = id;
+
+      label.appendChild(input);
+      label.append(" " + opt.childNodes[0].nodeValue);
+      form.appendChild(label);
+    });
+
+    const explanation = document.createElement("div");
+    explanation.style.display = "none";
+    form.appendChild(explanation);
+
+    qDiv.appendChild(form);
+    questionForms.push({ form, options, correct, explanation });
+    catDiv.appendChild(qDiv);
+  });
+
+  catDiv.appendChild(stickyButtons);
+
+  submitBtn.onclick = handleSubmit;
+  resetBtn.onclick = handleReset;
+}
 
         submitBtn.onclick = handleSubmit;
         resetBtn.onclick = handleReset;
@@ -244,4 +308,3 @@
   </script>
 </body>
 </html>
-
