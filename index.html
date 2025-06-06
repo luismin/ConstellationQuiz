@@ -101,6 +101,7 @@
   <div id="category-nav"></div>
   <div id="quiz-container"></div>
   <script>
+    const DEBUG = true;
     async function loadXML() {
       const res = await fetch("questions.xml");
       const text = await res.text();
@@ -176,7 +177,11 @@
               input.name = `q${question.getAttribute("id")}`;
               input.value = id;
 
+              const correct = question.getElementsByTagName("correct")[0].textContent.trim();
+              const debugMark = DEBUG && id === correct ? ' *' : '';
+
               label.appendChild(input);
+              label.append(" " + opt.childNodes[0].nodeValue + debugMark);
               label.append(" " + opt.childNodes[0].nodeValue);
               form.appendChild(label);
             });
