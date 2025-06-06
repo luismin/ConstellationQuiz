@@ -47,17 +47,15 @@
       margin-top: 0.5rem;
       border-left: 5px solid #dc3545;
     }
-    .submit-btn {
-      margin-top: 0.5rem;
-    }
-    .submit-category-btn {
-      margin-top: 1rem;
+    .submit-category-btn, .reset-category-btn {
+      margin: 1rem 0 0.5rem 0;
       background-color: #007bff;
       color: white;
       border: none;
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
+      margin-right: 1rem;
     }
     .category-header {
       display: flex;
@@ -68,7 +66,6 @@
 </head>
 <body>
   <div id="quiz-container"></div>
-
   <script>
     async function loadXML() {
       const res = await fetch("questions.xml");
@@ -100,8 +97,20 @@
         catHeader.textContent = catName;
         catDiv.appendChild(catHeader);
 
+        const submitTop = document.createElement("div");
+        const submitBtnTop = document.createElement("button");
+        submitBtnTop.textContent = "Submit Category";
+        submitBtnTop.className = "submit-category-btn";
+        submitTop.appendChild(submitBtnTop);
+        const resetBtnTop = document.createElement("button");
+        resetBtnTop.textContent = "Reset Category";
+        resetBtnTop.className = "reset-category-btn";
+        submitTop.appendChild(resetBtnTop);
+        catDiv.appendChild(submitTop);
+
         const questions = Array.from(category.getElementsByTagName("question"));
         const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+        const questionForms = [];
 
         selectedQuestions.forEach((question) => {
           const qDiv = document.createElement("div");
@@ -135,32 +144,43 @@
           explanation.style.display = "none";
           form.appendChild(explanation);
 
-          const btn = document.createElement("button");
-          btn.textContent = "Submit Answer";
-          btn.type = "button";
-          btn.classList.add("submit-btn");
-          btn.onclick = () => {
-            const selected = form.querySelector("input[type=radio]:checked");
-            if (!selected) return;
-
-            const chosen = selected.value;
-            const option = options.find((opt) => opt.getAttribute("id") === chosen);
-            const exp = option.getElementsByTagName("explanation")[0].textContent;
-
-            explanation.innerHTML = exp;
-            explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
-            explanation.style.display = "block";
-          };
-
-          form.appendChild(btn);
           qDiv.appendChild(form);
+          questionForms.push({ form, options, correct, explanation });
           catDiv.appendChild(qDiv);
         });
 
-        const submitCat = document.createElement("button");
-        submitCat.textContent = "Submit Category";
-        submitCat.className = "submit-category-btn";
-        catDiv.appendChild(submitCat);
+        const submitBottom = submitTop.cloneNode(true);
+        catDiv.appendChild(submitBottom);
+
+        function handleSubmit() {
+          let allCorrect = true;
+          questionForms.forEach(({ form, options, correct, explanation }) => {
+            const selected = form.querySelector("input[type=radio]:checked");
+            if (!selected) return;
+            const chosen = selected.value;
+            const option = options.find((opt) => opt.getAttribute("id") === chosen);
+            const exp = option.getElementsByTagName("explanation")[0].textContent;
+            explanation.innerHTML = exp;
+            explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
+            explanation.style.display = "block";
+            if (chosen !== correct) allCorrect = false;
+          });
+          if (allCorrect) {
+            catDiv.style.opacity = 0.6;
+            submitTop.style.display = "none";
+            submitBottom.style.display = "none";
+          }
+        }
+
+        function handleReset() {
+          container.innerHTML = "";
+          renderQuiz(xml);
+        }
+
+        submitBtnTop.onclick = handleSubmit;
+        submitBottom.querySelector(".submit-category-btn").onclick = handleSubmit;
+        resetBtnTop.onclick = handleReset;
+        submitBottom.querySelector(".reset-category-btn").onclick = handleReset;
 
         container.appendChild(catDiv);
       });
