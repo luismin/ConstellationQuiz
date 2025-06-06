@@ -3,170 +3,257 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constellation Quiz</title>
+  <title>Pega Constellation Quiz</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 2rem;
-      background-color: #f9f9f9;
+      padding: 0;
+      background-color: #f7f7f7;
     }
-    h2 {
-      padding: 1rem;
-      margin-bottom: 1rem;
+    header {
+      padding: 20px;
       color: white;
-    }
-    .category {
-      margin-bottom: 3rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      padding: 1rem;
-    }
-    .question {
-      background-color: white;
-      border-radius: 5px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ddd;
-    }
-    .option {
-      display: block;
-      margin: 0.5rem 0;
-    }
-    .correct-explanation {
-      background-color: #d4edda;
-      color: #155724;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-left: 5px solid #28a745;
-    }
-    .incorrect-explanation {
-      background-color: #f8d7da;
-      color: #721c24;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-left: 5px solid #dc3545;
-    }
-    .submit-btn {
-      margin-top: 0.5rem;
-    }
-    .submit-category-btn {
-      margin-top: 1rem;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
+      font-size: 1.5em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
     .category-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
     }
+    .category-header svg {
+      margin-right: 10px;
+    }
+    nav {
+      background-color: #eee;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+    }
+    nav button {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    nav button.completed {
+      background-color: #ccc;
+      color: #666;
+      cursor: default;
+    }
+    .container {
+      padding: 20px;
+    }
+    .question-block {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .question-text {
+      font-weight: bold;
+    }
+    .options label {
+      display: block;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    .correct {
+      background-color: #d4edda;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+    }
+    .explanation {
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .submit-category {
+      margin: 20px 0;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .reset-category {
+      margin-left: 10px;
+      padding: 10px 20px;
+      background-color: #ffdddd;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .category-container {
+      margin-bottom: 40px;
+      border-left: 10px solid var(--color);
+      padding-left: 15px;
+      background: #fff;
+    }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
-  <div id="quiz-container"></div>
+  <nav id="categoryNav"></nav>
+  <div class="container" id="quizContainer"></div>
 
   <script>
-    async function loadXML() {
-      const res = await fetch("questions.xml");
-      const text = await res.text();
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(text, "application/xml");
-      return xml;
-    }
+    const categoryColors = ["#4CAF50", "#2196F3", "#FF9800", "#9C27B0", "#009688", "#3F51B5"];
+    const categoryIcons = [
+      '<svg width="24" height="24"><circle cx="12" cy="12" r="10" fill="white" /></svg>',
+      '<svg width="24" height="24"><rect x="4" y="4" width="16" height="16" fill="white" /></svg>',
+      '<svg width="24" height="24"><polygon points="12,2 22,22 2,22" fill="white" /></svg>',
+      '<svg width="24" height="24"><path d="M12 2 L22 22 H2 Z" fill="white" /></svg>',
+      '<svg width="24" height="24"><ellipse cx="12" cy="12" rx="10" ry="6" fill="white" /></svg>',
+      '<svg width="24" height="24"><line x1="2" y1="2" x2="22" y2="22" stroke="white" stroke-width="2" /></svg>'
+    ];
 
-    function createCategoryColor(index) {
-      const colors = ["#6f42c1", "#e83e8c", "#fd7e14", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
-      return colors[index % colors.length];
-    }
+    let quizData = {};
+    let answers = {};
 
-    function renderQuiz(xml) {
-      const container = document.getElementById("quiz-container");
-      const categories = Array.from(xml.getElementsByTagName("category"));
+    fetch("questions.xml")
+      .then(res => res.text())
+      .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+      .then(xml => {
+        const categories = [...xml.querySelectorAll("category")];
+        const container = document.getElementById("quizContainer");
+        const nav = document.getElementById("categoryNav");
 
-      categories.forEach((category, idx) => {
-        const color = createCategoryColor(idx);
-        const catName = category.getAttribute("name") === "App Studio & Declarative Development" ? "Low Code Development" : category.getAttribute("name");
+        categories.forEach((cat, index) => {
+          const catName = cat.getAttribute("name").replace("App Studio & Declarative Development", "Low Code Development");
+          const color = categoryColors[index % categoryColors.length];
+          const icon = categoryIcons[index % categoryIcons.length];
 
-        const catDiv = document.createElement("div");
-        catDiv.classList.add("category");
+          const questions = [...cat.querySelectorAll("question")];
+          quizData[catName] = questions.map(q => ({
+            text: q.querySelector("text").textContent,
+            options: [...q.querySelectorAll("option")].map(opt => ({
+              id: opt.getAttribute("id"),
+              text: opt.childNodes[0].textContent,
+              explanation: opt.querySelector("explanation")?.textContent || ""
+            })),
+            correct: q.querySelector("correct").textContent.trim()
+          }));
 
-        const catHeader = document.createElement("h2");
-        catHeader.className = "category-header";
-        catHeader.style.backgroundColor = color;
-        catHeader.textContent = catName;
-        catDiv.appendChild(catHeader);
-
-        const questions = Array.from(category.getElementsByTagName("question"));
-        const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-
-        selectedQuestions.forEach((question) => {
-          const qDiv = document.createElement("div");
-          qDiv.classList.add("question");
-
-          const qText = document.createElement("p");
-          qText.textContent = question.getElementsByTagName("text")[0].textContent;
-          qDiv.appendChild(qText);
-
-          const options = Array.from(question.getElementsByTagName("option"));
-          const correct = question.getElementsByTagName("correct")[0].textContent.trim();
-
-          const form = document.createElement("form");
-
-          options.forEach((opt) => {
-            const id = opt.getAttribute("id");
-            const label = document.createElement("label");
-            label.classList.add("option");
-
-            const input = document.createElement("input");
-            input.type = "radio";
-            input.name = `q${question.getAttribute("id")}`;
-            input.value = id;
-
-            label.appendChild(input);
-            label.append(" " + opt.textContent);
-            form.appendChild(label);
-          });
-
-          const explanation = document.createElement("div");
-          explanation.style.display = "none";
-          form.appendChild(explanation);
-
-          const btn = document.createElement("button");
-          btn.textContent = "Submit Answer";
-          btn.type = "button";
-          btn.classList.add("submit-btn");
-          btn.onclick = () => {
-            const selected = form.querySelector("input[type=radio]:checked");
-            if (!selected) return;
-
-            const chosen = selected.value;
-            const option = options.find((opt) => opt.getAttribute("id") === chosen);
-            const exp = option.getElementsByTagName("explanation")[0].textContent;
-
-            explanation.innerHTML = exp;
-            explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
-            explanation.style.display = "block";
+          const navBtn = document.createElement("button");
+          navBtn.innerHTML = `${icon} ${catName}`;
+          navBtn.style.backgroundColor = color;
+          navBtn.onclick = () => {
+            document.querySelectorAll(".category-container").forEach(c => c.classList.add("hidden"));
+            document.getElementById(`cat-${index}`).classList.remove("hidden");
           };
+          nav.appendChild(navBtn);
 
-          form.appendChild(btn);
-          qDiv.appendChild(form);
-          catDiv.appendChild(qDiv);
+          const catDiv = document.createElement("div");
+          catDiv.className = "category-container";
+          catDiv.id = `cat-${index}`;
+          catDiv.style.setProperty('--color', color);
+          const header = document.createElement("header");
+          header.style.backgroundColor = color;
+          header.innerHTML = `<div class="category-header">${icon} ${catName}</div>`;
+          catDiv.appendChild(header);
+
+          const questionsDiv = document.createElement("div");
+          questionsDiv.id = `questions-${index}`;
+          catDiv.appendChild(questionsDiv);
+
+          const btnTop = document.createElement("button");
+          btnTop.textContent = "Submit Category";
+          btnTop.className = "submit-category";
+          btnTop.onclick = () => submitCategory(index);
+          catDiv.appendChild(btnTop);
+
+          const btnBottom = btnTop.cloneNode(true);
+          catDiv.appendChild(btnBottom);
+
+          container.appendChild(catDiv);
+
+          renderQuestions(index);
         });
 
-        const submitCat = document.createElement("button");
-        submitCat.textContent = "Submit Category";
-        submitCat.className = "submit-category-btn";
-        catDiv.appendChild(submitCat);
+        document.querySelectorAll(".category-container").forEach((c, i) => i !== 0 && c.classList.add("hidden"));
 
-        container.appendChild(catDiv);
+        function renderQuestions(index) {
+          const container = document.getElementById(`questions-${index}`);
+          container.innerHTML = "";
+          const questions = shuffle(quizData[Object.keys(quizData)[index]]).slice(0, 10);
+          answers[index] = { correct: 0, responses: new Array(10).fill(null) };
+
+          questions.forEach((q, qi) => {
+            const div = document.createElement("div");
+            div.className = "question-block";
+            div.innerHTML = `<div class="question-text">${q.text}</div>`;
+            q.options.forEach(opt => {
+              const id = `cat${index}-q${qi}-${opt.id}`;
+              const label = document.createElement("label");
+              label.innerHTML = `<input type="radio" name="cat${index}-q${qi}" id="${id}" value="${opt.id}"> ${opt.id} ${opt.text}`;
+              label.querySelector("input").addEventListener("change", () => {
+                answers[index].responses[qi] = { selected: opt.id, explanation: opt.explanation, correct: (opt.id === q.correct) };
+              });
+              div.appendChild(label);
+            });
+            container.appendChild(div);
+          });
+        }
+
+        function submitCategory(index) {
+          const resp = answers[index]?.responses;
+          const catDiv = document.getElementById(`questions-${index}`);
+          const color = categoryColors[index % categoryColors.length];
+
+          let allCorrect = true;
+          resp.forEach((r, i) => {
+            if (!r) return allCorrect = false;
+            const block = catDiv.children[i];
+            const opts = block.querySelectorAll("label");
+            opts.forEach(label => {
+              const input = label.querySelector("input");
+              if (input.checked) {
+                if (r.correct) {
+                  label.classList.add("correct");
+                  addExplanation(label, r.explanation, true);
+                } else {
+                  label.classList.add("incorrect");
+                  addExplanation(label, r.explanation, false);
+                  allCorrect = false;
+                }
+              }
+            });
+          });
+
+          const navBtn = document.querySelectorAll("nav button")[index];
+          if (allCorrect) {
+            navBtn.classList.add("completed");
+            navBtn.style.backgroundColor = "#ccc";
+            navBtn.disabled = true;
+          } else {
+            const resetBtn = document.createElement("button");
+            resetBtn.textContent = "Reset Category";
+            resetBtn.className = "reset-category";
+            resetBtn.onclick = () => renderQuestions(index);
+            catDiv.appendChild(resetBtn);
+          }
+        }
+
+        function addExplanation(label, text, isCorrect) {
+          let expl = document.createElement("div");
+          expl.className = "explanation";
+          expl.style.backgroundColor = isCorrect ? "#d4edda" : "#f8d7da";
+          expl.textContent = text;
+          label.appendChild(expl);
+        }
+
+        function shuffle(arr) {
+          return arr.map(a => [Math.random(), a]).sort((a,b) => a[0]-b[0]).map(a => a[1]);
+        }
       });
-    }
-
-    loadXML().then(renderQuiz);
   </script>
 </body>
 </html>
