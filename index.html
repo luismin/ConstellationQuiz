@@ -177,12 +177,10 @@
               input.name = `q${question.getAttribute("id")}`;
               input.value = id;
 
-              const correct = question.getElementsByTagName("correct")[0].textContent.trim();
               const debugMark = DEBUG && id === correct ? ' *' : '';
 
               label.appendChild(input);
               label.append(" " + opt.childNodes[0].nodeValue + debugMark);
-              label.append(" " + opt.childNodes[0].nodeValue);
               form.appendChild(label);
             });
 
@@ -196,8 +194,10 @@
           });
         }
 
+        // Initial render
         renderQuestions();
 
+        // Add sticky buttons only once
         const stickyButtons = document.createElement("div");
         stickyButtons.className = "submit-reset-container";
 
@@ -226,20 +226,14 @@
         resetBtn.textContent = "Reset Category";
         resetBtn.className = "reset-category-btn";
         resetBtn.onclick = () => {
-  selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-  const existingButtons = catDiv.querySelector('.submit-reset-container');
-  renderQuestions();
-  if (!catDiv.contains(existingButtons)) {
-    catDiv.appendChild(existingButtons);
-  }
-};
+          selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+          renderQuestions();
+        };
 
         stickyButtons.appendChild(submitBtn);
         stickyButtons.appendChild(resetBtn);
-        if (!catDiv.querySelector('.submit-reset-container')) {
-  catDiv.appendChild(stickyButtons);
-catDiv.appendChild(document.createElement('div')); // spacer to keep sticky buttons visible
-}
+        catDiv.appendChild(stickyButtons);
+
         container.appendChild(catDiv);
       });
 
