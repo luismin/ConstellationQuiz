@@ -132,6 +132,9 @@
       font-size: 1rem;
       font-weight: 500;
       transition: background-color 0.2s;
+      display: flex; /* Align icon and text */
+      align-items: center;
+      gap: 0.5rem;
     }
     .category-btn:hover:not(.completed) {
       background-color: #0056b3;
@@ -255,11 +258,11 @@
         const icon = createCategoryIcon(idx);
         const catName = category.getAttribute("name") === "App Studio & Declarative Development" ? "Low Code Development" : category.getAttribute("name");
 
-        // Category button
+        // Category button with icon
         const catBtn = document.createElement("button");
         catBtn.className = "category-btn";
         catBtn.style.backgroundColor = color;
-        catBtn.textContent = catName;
+        catBtn.innerHTML = `<span class="category-icon">${icon}</span> ${catName}`; // Add icon to nav button
         catBtn.onclick = () => {
           if (!catBtn.classList.contains("completed")) {
             showCategory(idx);
@@ -350,10 +353,11 @@
         const category = categoryData[activeCategoryIdx];
         if (category.isCompleted) return; // Skip if already completed
         let allCorrect = true;
+        let allAnswered = true; // Track if all questions are answered
         category.questionForms().forEach(({ form, options, correct, explanation }) => {
           const selected = form.querySelector("input[type=radio]:checked");
           if (!selected) {
-            allCorrect = false;
+            allAnswered = false;
             return;
           }
           const chosen = selected.value;
@@ -364,7 +368,7 @@
           explanation.style.display = "block";
           if (chosen !== correct) allCorrect = false;
         });
-        if (allCorrect) {
+        if (allAnswered && allCorrect) {
           category.catBtn.classList.add("completed");
           category.catBtn.disabled = true; // Disable category button
           category.catHeader.classList.add("completed"); // Add checkmark
