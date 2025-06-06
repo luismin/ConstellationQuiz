@@ -25,7 +25,7 @@
       gap: 0.5rem;
     }
     .category-header.completed::before {
-      content: "✓"; /* Checkmark for completed category */
+      content: "✓"; /* Checkmark for completed category header */
       font-size: 1.5rem;
       color: #4caf50;
     }
@@ -92,6 +92,9 @@
       z-index: 1000;
       box-sizing: border-box;
     }
+    .reset-category-btn.hidden {
+      display: none; /* Hide reset button for completed categories */
+    }
     .submit-category-btn, .reset-category-btn {
       background-color: #007bff;
       color: white;
@@ -103,7 +106,7 @@
       font-weight: 500;
       transition: background-color 0.2s, transform 0.1s;
     }
-    .submit-category-btn:hover, .reset-category-btn:hover {
+    .submit-category-btn:hover, .reset-category-btn:hover:not(.hidden) {
       background-color: #0056b3;
       transform: translateY(-2px);
     }
@@ -120,9 +123,12 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      justify-content: center; /* Center buttons within full-width container */
+      justify-content: center; /* Center buttons */
     }
     .category-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.75rem 1.5rem;
       background-color: #007bff;
       color: white;
@@ -132,9 +138,6 @@
       font-size: 1rem;
       font-weight: 500;
       transition: background-color 0.2s;
-      display: flex; /* Align icon and text */
-      align-items: center;
-      gap: 0.5rem;
     }
     .category-btn:hover:not(.completed) {
       background-color: #0056b3;
@@ -142,7 +145,12 @@
     .category-btn.completed {
       background-color: #6c757d;
       color: #fff;
-      cursor: default;
+    }
+    .category-btn.completed::after {
+      content: "✓"; /* Green checkmark for completed nav button */
+      color: #4caf50;
+      font-size: 1rem;
+      margin-left: 8px;
     }
     #congratulations {
       display: none;
@@ -153,7 +161,7 @@
       background: white;
       padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
       z-index: 2000;
     }
@@ -197,10 +205,11 @@
 </head>
 <body>
   <div id="category-nav"></div>
-  <div id="quiz-container"></div>
+  <div id="category-container"></div>
   <div id="congratulations"></div>
   <script>
     const DEBUG = true;
+
     async function loadXML() {
       const res = await fetch("questions.xml");
       const text = await res.text();
@@ -210,12 +219,12 @@
     }
 
     function createCategoryColor(index) {
-      const colors = ["#6f42c1", "#e83e8c", "#fd7e14", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
+      const colors = ["#6f42c1", "#e83e8c", "#fd32f2", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
       return colors[index % colors.length];
     }
 
     function createCategoryIcon(index) {
-      const icons = ["📘", "🧩", "🏗️", "🔧", "🔄", "💻", "🚀"];
+      const icons = ["📘", "🪶", "🏗️", "🔧", "🔄", "💻", "🌟"];
       return icons[index % icons.length];
     }
 
@@ -227,12 +236,12 @@
         <p>You have successfully completed all categories!</p>
       `;
       document.getElementById("category-nav").style.display = "none";
-      document.getElementById("quiz-container").style.display = "none";
+      document.getElementById("category-container").style.display = "none";
       document.querySelector(".submit-reset-container").style.display = "none";
     }
 
     function renderQuiz(xml) {
-      const container = document.getElementById("quiz-container");
+      const container = document.getElementById("category-container");
       const nav = document.getElementById("category-nav");
       const categories = Array.from(xml.getElementsByTagName("category"));
       let activeCategoryIdx = 0;
@@ -262,12 +271,10 @@
         const catBtn = document.createElement("button");
         catBtn.className = "category-btn";
         catBtn.style.backgroundColor = color;
-        catBtn.innerHTML = `<span class="category-icon">${icon}</span> ${catName}`; // Add icon to nav button
+        catBtn.innerHTML = `<span class="category-icon">${icon}</span> ${catName}`;
         catBtn.onclick = () => {
-          if (!catBtn.classList.contains("completed")) {
-            showCategory(idx);
-            activeCategoryIdx = idx;
-          }
+          showCategory(idx);
+          activeCategoryIdx = idx;
         };
         nav.appendChild(catBtn);
 
@@ -312,7 +319,7 @@
               input.type = "radio";
               input.name = `q${question.getAttribute("id")}`;
               input.value = id;
-              if (isCompleted) input.disabled = true; // Disable if category completed
+              if (isCompleted) input.disabled = true;
 
               const debugMark = DEBUG && id === correct ? ' *' : '';
 
@@ -351,9 +358,9 @@
       // Submit button logic
       submitBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
-        if (category.isCompleted) return; // Skip if already completed
+        if (category.isCompleted) return;
         let allCorrect = true;
-        let allAnswered = true; // Track if all questions are answered
+        let allAnswered = true;
         category.questionForms().forEach(({ form, options, correct, explanation }) => {
           const selected = form.querySelector("input[type=radio]:checked");
           if (!selected) {
@@ -370,16 +377,15 @@
         });
         if (allAnswered && allCorrect) {
           category.catBtn.classList.add("completed");
-          category.catBtn.disabled = true; // Disable category button
-          category.catHeader.classList.add("completed"); // Add checkmark
-          category.isCompleted = true; // Mark as completed
-          // Disable all radio buttons in the category
+          category.catBtn.disabled = false; // Keep enabled for read-only access
+          category.catHeader.classList.add("completed");
+          category.isCompleted = true;
           category.questionForms().forEach(({ form }) => {
             form.querySelectorAll("input[type=radio]").forEach(input => {
               input.disabled = true;
             });
           });
-          // Check if all categories are completed
+          resetBtn.classList.add("hidden"); // Hide reset button for completed category
           if (categoryData.every(cat => cat.isCompleted)) {
             showCongratulations();
           }
@@ -389,11 +395,10 @@
       // Reset button logic
       resetBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
-        if (category.isCompleted) return; // Skip if category is completed
+        if (category.isCompleted) return;
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
         category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.min(10, questions.length));
         category.renderQuestions();
-        // Clear radio buttons and hide explanations
         category.questionForms().forEach(({ form, explanation }) => {
           form.reset();
           explanation.style.display = "none";
@@ -401,9 +406,12 @@
       };
 
       function showCategory(index) {
+        activeCategoryIdx = index;
         categoryData.forEach(({ catDiv }, i) => {
           catDiv.classList.toggle("active", i === index);
         });
+        // Toggle reset button visibility
+        resetBtn.classList.toggle("hidden", categoryData[index].isCompleted);
       }
     }
 
