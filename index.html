@@ -229,7 +229,13 @@
 
         container.appendChild(catDiv);
 
-        return { catBtn, catDiv, renderQuestions, selectedQuestions: () => selectedQuestions, questionForms: () => questionForms };
+        return { 
+          catBtn, 
+          catDiv, 
+          renderQuestions, 
+          selectedQuestions, // Store as property
+          questionForms: () => questionForms 
+        };
       });
 
       // Submit button logic
@@ -254,10 +260,10 @@
 
       // Reset button logic
       resetBtn.onclick = () => {
-        const { renderQuestions, selectedQuestions } = categoryData[activeCategoryIdx];
+        const category = categoryData[activeCategoryIdx];
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
-        selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-        renderQuestions();
+        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10); // Update selectedQuestions
+        category.renderQuestions(); // Re-render questions
       };
 
       function showCategory(index) {
