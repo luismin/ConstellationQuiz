@@ -9,7 +9,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 2rem;
-      padding-bottom: 80px; /* Added to prevent content overlap with fixed buttons */
+      padding-left: 120px; /* Prevent content overlap with fixed buttons */
       background-color: #f9f9f9;
     }
     h2 {
@@ -53,15 +53,17 @@
       border-left: 5px solid #dc3545;
     }
     .submit-reset-container {
-      position: fixed; /* Changed to fixed to stay at bottom of viewport */
-      bottom: 0;
+      position: fixed; /* Fixed overlay on left */
       left: 0;
-      width: 100%;
+      top: 50%;
+      transform: translateY(-50%); /* Vertically center */
+      display: flex;
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 0.5rem;
       background: #f9f9f9;
-      padding: 1rem 0;
-      text-align: center;
-      border-top: 1px solid #ccc;
-      z-index: 1000; /* Ensure buttons stay above other content */
+      padding: 1rem;
+      border-right: 1px solid #ccc;
+      z-index: 1000; /* Stay above other content */
       box-sizing: border-box;
     }
     .submit-category-btn, .reset-category-btn {
@@ -71,7 +73,8 @@
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
-      margin: 0 0.5rem;
+      width: 100px; /* Fixed width for consistency */
+      text-align: center;
     }
     .category-header {
       display: flex;
@@ -134,7 +137,7 @@
       // Create single submit-reset container
       const stickyButtons = document.createElement("div");
       stickyButtons.className = "submit-reset-container";
-      document.body.appendChild(stickyButtons); // Append to body for fixed positioning
+      document.body.appendChild(stickyButtons); // Append to body for fixed overlay
 
       const submitBtn = document.createElement("button");
       submitBtn.textContent = "Submit Category";
