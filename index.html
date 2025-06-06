@@ -1,219 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Pega Constellation Quiz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constellation Quiz</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
-      background: #f4f7f9;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f9f9f9;
     }
-    h1 {
-      text-align: center;
-      color: #2c3e50;
+    h2 {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      color: white;
     }
-    .category-title {
-      font-size: 1.7em;
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 6px;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .question-block {
+    .category {
+      margin-bottom: 3rem;
       border: 1px solid #ccc;
-      padding: 12px;
-      margin: 15px 0;
       border-radius: 10px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 1rem;
     }
     .question {
-      font-weight: bold;
-      color: #333;
+      background-color: white;
+      border-radius: 5px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
     }
     .option {
-      margin: 6px 0;
       display: block;
-      color: #555;
+      margin: 0.5rem 0;
     }
-    .feedback {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-    .correct {
-      color: green;
-    }
-    .incorrect {
-      color: red;
-    }
-    .explanation-correct {
+    .correct-explanation {
       background-color: #d4edda;
       color: #155724;
-      padding: 8px;
-      border-radius: 5px;
-      margin-top: 6px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-left: 5px solid #28a745;
     }
-    .explanation-incorrect {
+    .incorrect-explanation {
       background-color: #f8d7da;
       color: #721c24;
-      padding: 8px;
-      border-radius: 5px;
-      margin-top: 6px;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-left: 5px solid #dc3545;
     }
-    button {
-      margin: 15px 5px;
-      padding: 10px 20px;
-      background-color: #3498db;
-      border: none;
-      border-radius: 5px;
+    .submit-btn {
+      margin-top: 0.5rem;
+    }
+    .submit-category-btn {
+      margin-top: 1rem;
+      background-color: #007bff;
       color: white;
-      font-size: 1em;
+      border: none;
+      padding: 0.5rem 1rem;
       cursor: pointer;
-      transition: background-color 0.3s;
+      border-radius: 5px;
     }
-    button:hover:not(.completed) {
-      background-color: #2980b9;
-    }
-    nav {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    nav button {
-      margin: 5px;
-      border-top: 4px solid transparent;
-    }
-    .completed {
-      background-color: #bdc3c7 !important;
-      color: #7f8c8d;
-      cursor: not-allowed;
-    }
-    #result {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1.2em;
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Pega Constellation Quiz</h1>
-  <nav id="nav"></nav>
-  <div id="quiz">Loading questions...</div>
-  <div id="result"></div>
+  <div id="quiz-container"></div>
+
   <script>
-    const DEBUG = false;
-    const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
-    const categoryIcons = ['📘', '🧩', '🏗️', '🔧', '🔄', '💻', '🚀'];
-    let allCategories = [];
+    async function loadXML() {
+      const res = await fetch("questions.xml");
+      const text = await res.text();
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(text, "application/xml");
+      return xml;
+    }
 
-    fetch('questions.xml')
-      .then(res => res.text())
-      .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-      .then(xml => {
-        const categories = xml.getElementsByTagName('category');
-        allCategories = Array.from(categories).map((cat, idx) => {
-          let name = cat.getAttribute('name');
-          if (name.includes("App Studio")) name = "Low Code Development";
-          const questions = Array.from(cat.getElementsByTagName('question')).map(q => {
-            const text = q.getElementsByTagName('text')[0].textContent;
-            const correct = q.getElementsByTagName('correct')[0].textContent.trim();
-            const options = Array.from(q.getElementsByTagName('option')).map(opt => ({
-              id: opt.getAttribute('id'),
-              text: opt.childNodes[0].textContent.trim(),
-              explanation: opt.getElementsByTagName('explanation')[0]?.textContent || ''
-            }));
-            return { text, correct, options };
+    function createCategoryColor(index) {
+      const colors = ["#6f42c1", "#e83e8c", "#fd7e14", "#20c997", "#17a2b8", "#ffc107", "#007bff"];
+      return colors[index % colors.length];
+    }
+
+    function renderQuiz(xml) {
+      const container = document.getElementById("quiz-container");
+      const categories = Array.from(xml.getElementsByTagName("category"));
+
+      categories.forEach((category, idx) => {
+        const color = createCategoryColor(idx);
+        const catName = category.getAttribute("name") === "App Studio & Declarative Development" ? "Low Code Development" : category.getAttribute("name");
+
+        const catDiv = document.createElement("div");
+        catDiv.classList.add("category");
+
+        const catHeader = document.createElement("h2");
+        catHeader.className = "category-header";
+        catHeader.style.backgroundColor = color;
+        catHeader.textContent = catName;
+        catDiv.appendChild(catHeader);
+
+        const questions = Array.from(category.getElementsByTagName("question"));
+        const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+
+        selectedQuestions.forEach((question) => {
+          const qDiv = document.createElement("div");
+          qDiv.classList.add("question");
+
+          const qText = document.createElement("p");
+          qText.textContent = question.getElementsByTagName("text")[0].textContent;
+          qDiv.appendChild(qText);
+
+          const options = Array.from(question.getElementsByTagName("option"));
+          const correct = question.getElementsByTagName("correct")[0].textContent.trim();
+
+          const form = document.createElement("form");
+
+          options.forEach((opt) => {
+            const id = opt.getAttribute("id");
+            const label = document.createElement("label");
+            label.classList.add("option");
+
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = `q${question.getAttribute("id")}`;
+            input.value = id;
+
+            label.appendChild(input);
+            label.append(" " + opt.textContent);
+            form.appendChild(label);
           });
-          return { name, fullSet: questions, questions: questions.slice(0, 10), answers: Array(10).fill(null), completed: false };
+
+          const explanation = document.createElement("div");
+          explanation.style.display = "none";
+          form.appendChild(explanation);
+
+          const btn = document.createElement("button");
+          btn.textContent = "Submit Answer";
+          btn.type = "button";
+          btn.classList.add("submit-btn");
+          btn.onclick = () => {
+            const selected = form.querySelector("input[type=radio]:checked");
+            if (!selected) return;
+
+            const chosen = selected.value;
+            const option = options.find((opt) => opt.getAttribute("id") === chosen);
+            const exp = option.getElementsByTagName("explanation")[0].textContent;
+
+            explanation.innerHTML = exp;
+            explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
+            explanation.style.display = "block";
+          };
+
+          form.appendChild(btn);
+          qDiv.appendChild(form);
+          catDiv.appendChild(qDiv);
         });
-        renderNav();
-        renderCategory(0);
-      });
 
-    function renderNav() {
-      const nav = document.getElementById('nav');
-      nav.innerHTML = '';
-      allCategories.forEach((cat, i) => {
-        const btn = document.createElement('button');
-        btn.textContent = cat.completed ? `${cat.name} ✅` : cat.name;
-        btn.className = cat.completed ? 'completed' : '';
-        btn.disabled = cat.completed;
-        btn.style.borderTopColor = categoryColors[i % categoryColors.length];
-        btn.onclick = () => renderCategory(i);
-        nav.appendChild(btn);
+        const submitCat = document.createElement("button");
+        submitCat.textContent = "Submit Category";
+        submitCat.className = "submit-category-btn";
+        catDiv.appendChild(submitCat);
+
+        container.appendChild(catDiv);
       });
     }
 
-    function renderCategory(index) {
-      const cat = allCategories[index];
-      const color = categoryColors[index % categoryColors.length];
-      const icon = categoryIcons[index % categoryIcons.length];
-      let html = `<h2 class="category-title" style="background-color:${color}"><span>${icon}</span>${cat.name}</h2>`;
-      cat.questions.forEach((q, idx) => {
-        html += `<div class="question-block" style="border-left:6px solid ${color}" id="qblock-${idx}">
-          <div class="question">Q${idx + 1}: ${q.text}</div>`;
-        q.options.forEach(opt => {
-          const checked = cat.answers[idx] === opt.id ? 'checked' : '';
-          html += `<label class="option">
-            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}
-          </label>`;
-        });
-        html += `<button onclick="submitQuestion(${index}, ${idx})">Submit Answer</button>
-          <div class="feedback" id="feedback-${idx}"></div>
-        </div>`;
-      });
-      html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
-      document.getElementById('quiz').innerHTML = html;
-      document.getElementById('result').innerHTML = '';
-    }
-
-    function storeAnswer(catIdx, qIdx, selectedId) {
-      allCategories[catIdx].answers[qIdx] = selectedId;
-    }
-
-    function submitQuestion(catIdx, qIdx) {
-      const cat = allCategories[catIdx];
-      const q = cat.questions[qIdx];
-      const selected = cat.answers[qIdx];
-      const feedback = document.getElementById(`feedback-${qIdx}`);
-      if (!selected) {
-        feedback.textContent = '⚠️ Please select an option.';
-        feedback.className = 'feedback incorrect';
-        return;
-      }
-      const option = q.options.find(opt => opt.id === selected);
-      const isCorrect = selected === q.correct;
-      feedback.innerHTML = `${isCorrect ? '✅ Correct' : '❌ Incorrect'}<div class='${isCorrect ? 'explanation-correct' : 'explanation-incorrect'}'>${option.explanation}</div>`;
-    }
-
-    function submitCategory(catIdx) {
-      const cat = allCategories[catIdx];
-      const allAnswered = cat.answers.every(a => a);
-      if (!allAnswered) {
-        alert('Please answer all questions first.');
-        return;
-      }
-      let allCorrect = true;
-      for (let i = 0; i < cat.questions.length; i++) {
-        submitQuestion(catIdx, i);
-        if (cat.answers[i] !== cat.questions[i].correct) allCorrect = false;
-      }
-      if (allCorrect) {
-        cat.completed = true;
-        renderNav();
-        document.getElementById('result').innerHTML = checkCompletion();
-      }
-    }
-
-    function checkCompletion() {
-      const allDone = allCategories.every(cat => cat.completed);
-      return allDone ? '<h2>🎉 All categories completed! 🎉</h2>' : '';
-    }
+    loadXML().then(renderQuiz);
   </script>
 </body>
 </html>
