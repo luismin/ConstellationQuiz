@@ -198,46 +198,44 @@
 
         renderQuestions();
 
-        const stickyButtons = document.createElement("div");
-        stickyButtons.className = "submit-reset-container";
+        let stickyButtons = catDiv.querySelector(".submit-reset-container");
+if (!stickyButtons) {
+  stickyButtons = document.createElement("div");
+  stickyButtons.className = "submit-reset-container";
 
-        const submitBtn = document.createElement("button");
-        submitBtn.textContent = "Submit Category";
-        submitBtn.className = "submit-category-btn";
-        submitBtn.onclick = () => {
-          let allCorrect = true;
-          questionForms.forEach(({ form, options, correct, explanation }) => {
-            const selected = form.querySelector("input[type=radio]:checked");
-            if (!selected) return;
-            const chosen = selected.value;
-            const option = options.find((opt) => opt.getAttribute("id") === chosen);
-            const exp = option.getElementsByTagName("explanation")[0]?.textContent || "";
-            explanation.innerHTML = exp;
-            explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
-            explanation.style.display = "block";
-            if (chosen !== correct) allCorrect = false;
-          });
-          if (allCorrect) {
-            catBtn.classList.add("completed");
-          }
-        };
+  const submitBtn = document.createElement("button");
+  submitBtn.textContent = "Submit Category";
+  submitBtn.className = "submit-category-btn";
+  submitBtn.onclick = () => {
+    let allCorrect = true;
+    questionForms.forEach(({ form, options, correct, explanation }) => {
+      const selected = form.querySelector("input[type=radio]:checked");
+      if (!selected) return;
+      const chosen = selected.value;
+      const option = options.find((opt) => opt.getAttribute("id") === chosen);
+      const exp = option.getElementsByTagName("explanation")[0]?.textContent || "";
+      explanation.innerHTML = exp;
+      explanation.className = chosen === correct ? "correct-explanation" : "incorrect-explanation";
+      explanation.style.display = "block";
+      if (chosen !== correct) allCorrect = false;
+    });
+    if (allCorrect) {
+      catBtn.classList.add("completed");
+    }
+  };
 
-        const resetBtn = document.createElement("button");
-        resetBtn.textContent = "Reset Category";
-        resetBtn.className = "reset-category-btn";
-        resetBtn.onclick = () => {
-  selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-  const existingButtons = catDiv.querySelector('.submit-reset-container');
-  renderQuestions();
-  if (!catDiv.contains(existingButtons)) {
-    catDiv.appendChild(existingButtons);
-  }
-};
+  const resetBtn = document.createElement("button");
+  resetBtn.textContent = "Reset Category";
+  resetBtn.className = "reset-category-btn";
+  resetBtn.onclick = () => {
+    selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+    renderQuestions();
+  };
 
-        stickyButtons.appendChild(submitBtn);
-        stickyButtons.appendChild(resetBtn);
-        if (!catDiv.querySelector('.submit-reset-container')) {
+  stickyButtons.appendChild(submitBtn);
+  stickyButtons.appendChild(resetBtn);
   catDiv.appendChild(stickyButtons);
+}
 catDiv.appendChild(document.createElement('div')); // spacer to keep sticky buttons visible
 }
         container.appendChild(catDiv);
