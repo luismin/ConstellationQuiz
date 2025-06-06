@@ -213,7 +213,6 @@
             if (chosen !== correct) allCorrect = false;
           });
           if (allCorrect) {
-            catDiv.style.opacity = 0.6;
             catBtn.classList.add("completed");
           }
         };
@@ -228,7 +227,9 @@
 
         stickyButtons.appendChild(submitBtn);
         stickyButtons.appendChild(resetBtn);
-        catDiv.appendChild(stickyButtons);
+        if (!catDiv.querySelector('.submit-reset-container')) {
+  catDiv.appendChild(stickyButtons);
+}
         container.appendChild(catDiv);
       });
 
