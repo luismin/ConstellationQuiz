@@ -222,7 +222,11 @@
         resetBtn.className = "reset-category-btn";
         resetBtn.onclick = () => {
   selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+  const existingButtons = catDiv.querySelector('.submit-reset-container');
   renderQuestions();
+  if (!catDiv.contains(existingButtons)) {
+    catDiv.appendChild(existingButtons);
+  }
 };
 
         stickyButtons.appendChild(submitBtn);
