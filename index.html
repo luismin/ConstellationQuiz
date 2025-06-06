@@ -21,6 +21,10 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 1rem;
+      display: none;
+    }
+    .category.active {
+      display: block;
     }
     .question {
       background-color: white;
@@ -62,9 +66,29 @@
       align-items: center;
       gap: 1rem;
     }
+    #category-nav {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .category-btn {
+      padding: 0.5rem 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .category-btn.completed {
+      background-color: #ccc;
+      color: #666;
+      cursor: default;
+    }
   </style>
 </head>
 <body>
+  <div id="category-nav"></div>
   <div id="quiz-container"></div>
   <script>
     async function loadXML() {
@@ -82,14 +106,24 @@
 
     function renderQuiz(xml) {
       const container = document.getElementById("quiz-container");
+      const nav = document.getElementById("category-nav");
       const categories = Array.from(xml.getElementsByTagName("category"));
+      let currentCategoryIndex = 0;
 
       categories.forEach((category, idx) => {
         const color = createCategoryColor(idx);
         const catName = category.getAttribute("name") === "App Studio & Declarative Development" ? "Low Code Development" : category.getAttribute("name");
 
+        const catBtn = document.createElement("button");
+        catBtn.className = "category-btn";
+        catBtn.style.backgroundColor = color;
+        catBtn.textContent = catName;
+        catBtn.onclick = () => showCategory(idx);
+        nav.appendChild(catBtn);
+
         const catDiv = document.createElement("div");
         catDiv.classList.add("category");
+        if (idx === 0) catDiv.classList.add("active");
 
         const catHeader = document.createElement("h2");
         catHeader.className = "category-header";
@@ -167,23 +201,29 @@
           });
           if (allCorrect) {
             catDiv.style.opacity = 0.6;
-            topButtons.style.display = "none";
-            bottomButtons.style.display = "none";
+            catBtn.classList.add("completed");
           }
         }
 
         function handleReset() {
           container.innerHTML = "";
+          nav.innerHTML = "";
           renderQuiz(xml);
         }
 
-        topButtons.querySelector(".submit-category-btn").onclick = handleSubmit;
-        topButtons.querySelector(".reset-category-btn").onclick = handleReset;
+        submitBtn.onclick = handleSubmit;
+        resetBtn.onclick = handleReset;
         bottomButtons.querySelector(".submit-category-btn").onclick = handleSubmit;
         bottomButtons.querySelector(".reset-category-btn").onclick = handleReset;
 
         container.appendChild(catDiv);
       });
+
+      function showCategory(index) {
+        const all = container.querySelectorAll(".category");
+        all.forEach(cat => cat.classList.remove("active"));
+        all[index].classList.add("active");
+      }
     }
 
     loadXML().then(renderQuiz);
