@@ -286,8 +286,8 @@
   stickyButtons.appendChild(resetBtn);
   catDiv.appendChild(stickyButtons);
 
-  submitBtn.onclick = handleSubmit;
-  resetBtn.onclick = handleReset;
+  submitBtn.onclick = () => handleSubmit();
+  resetBtn.onclick = () => handleReset();
 
   catDiv.classList.add("active");
 }</span> ${catName}`;
