@@ -225,7 +225,7 @@
         catDiv.appendChild(catHeader);
 
         const questions = Array.from(category.getElementsByTagName("question"));
-        let selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+        let selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.min(10, questions.length));
         let questionForms = [];
 
         function renderQuestions() {
@@ -279,7 +279,8 @@
           catBtn, 
           catDiv, 
           renderQuestions, 
-          selectedQuestions, 
+          get selectedQuestions() { return selectedQuestions; },
+          set selectedQuestions(newQuestions) { selectedQuestions = newQuestions; },
           questionForms: () => questionForms 
         };
       });
@@ -308,12 +309,13 @@
       resetBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
-        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10); // Select 10 new random questions
-        category.renderQuestions(); // Re-render questions
+        // Ensure we don't select more questions than available
+        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.min(10, questions.length));
+        category.renderQuestions();
         // Clear radio buttons and hide explanations
         category.questionForms().forEach(({ form, explanation }) => {
-          form.reset(); // Clear radio button selections
-          explanation.style.display = "none"; // Hide explanations
+          form.reset();
+          explanation.style.display = "none";
         });
       };
 
