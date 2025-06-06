@@ -7,214 +7,217 @@
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f5f7fa;
       margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
+      padding: 0 20px;
+      color: #333;
     }
-    h1 {
-      text-align: center;
-    }
-    .category {
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
+    h2 {
+      margin-top: 40px;
+      padding: 10px;
+      color: white;
+      border-radius: 5px;
     }
     .question {
-      background-color: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      padding: 15px;
-    }
-    .question p {
-      margin: 0 0 10px;
+      margin: 20px 0;
+      padding: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     .option {
-      margin: 5px 0;
-    }
-    .correct {
-      background-color: #d4edda;
-    }
-    .incorrect {
-      background-color: #f8d7da;
+      display: block;
+      margin: 8px 0;
     }
     .explanation {
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 4px;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
     }
-    .submit-category, .reset-category {
-      margin: 10px 0;
-      padding: 10px 15px;
+    .correct {
+      background: #d4edda;
+      border: 1px solid #c3e6cb;
+    }
+    .incorrect {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+    }
+    .category-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0 20px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
       border: none;
-      border-radius: 4px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .submit-btn {
       background-color: #007bff;
       color: white;
-      cursor: pointer;
     }
-    .category-header {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-    .nav button {
-      margin: 5px;
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
+    .reset-btn {
+      background-color: #dc3545;
       color: white;
-      cursor: pointer;
     }
-    .nav button.done {
-      background-color: gray !important;
-      cursor: default;
+    .category-container {
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ccc;
+    }
+    .completed h2 {
+      opacity: 0.5;
     }
   </style>
 </head>
 <body>
   <h1>Pega Constellation Quiz</h1>
-  <div class="nav" id="categoryNav"></div>
-  <div id="quizContainer"></div>
+  <div id="quiz-container"></div>
+
   <script>
-    let quizData;
-    const categoryColors = ["#5bc0de", "#5cb85c", "#f0ad4e", "#d9534f", "#0275d8", "#6610f2"];
-    const usedQuestions = {};
+    const categoryColors = [
+      "#4CAF50",
+      "#2196F3",
+      "#FF9800",
+      "#9C27B0",
+      "#009688",
+      "#E91E63"
+    ];
 
     async function loadXML() {
       const response = await fetch("questions.xml");
-      const xml = await response.text();
+      const text = await response.text();
       const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xml, "application/xml");
-      quizData = xmlDoc;
-      renderCategories();
+      const xml = parser.parseFromString(text, "application/xml");
+      return xml;
     }
 
-    function renderCategories() {
-      const categories = quizData.getElementsByTagName("category");
-      const nav = document.getElementById("categoryNav");
-      const container = document.getElementById("quizContainer");
-      nav.innerHTML = "";
-      container.innerHTML = "";
+    function getRandomElements(arr, count) {
+      const shuffled = arr.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
 
-      Array.from(categories).forEach((cat, index) => {
-        const catName = cat.getAttribute("name").replace("App Studio & Declarative Development", "Low Code Development");
-        const color = categoryColors[index % categoryColors.length];
+    function renderQuiz(xml) {
+      const quizContainer = document.getElementById("quiz-container");
+      quizContainer.innerHTML = "";
+      const categories = Array.from(xml.getElementsByTagName("category"));
 
-        const navBtn = document.createElement("button");
-        navBtn.textContent = catName;
-        navBtn.style.backgroundColor = color;
-        navBtn.onclick = () => {
-          document.getElementById(`category-${index}`).scrollIntoView({ behavior: "smooth" });
-        };
-        navBtn.id = `nav-${index}`;
-        nav.appendChild(navBtn);
+      categories.forEach((catElem, index) => {
+        const categoryName = catElem.getAttribute("name").replace("App Studio & Declarative Development", "Low Code Development");
+        const questions = Array.from(catElem.getElementsByTagName("question"));
+        const selectedQuestions = getRandomElements(questions, 10);
 
-        const section = document.createElement("div");
-        section.className = "category";
-        section.id = `category-${index}`;
-        section.style.backgroundColor = color + "20";
+        const container = document.createElement("div");
+        container.className = "category-container";
+        container.id = `category-${index}`;
+        container.dataset.completed = "false";
 
-        const header = document.createElement("div");
-        header.className = "category-header";
-        header.textContent = catName;
-        section.appendChild(header);
+        const header = document.createElement("h2");
+        header.textContent = categoryName;
+        header.style.backgroundColor = categoryColors[index % categoryColors.length];
+        container.appendChild(header);
 
-        const questions = Array.from(cat.getElementsByTagName("question"));
-        const selected = shuffleArray(questions).slice(0, 10);
-        usedQuestions[index] = selected;
-
-        selected.forEach((q, qi) => {
-          const qDiv = document.createElement("div");
-          qDiv.className = "question";
-          qDiv.dataset.index = qi;
-          const qText = q.getElementsByTagName("text")[0].textContent;
-          const qId = q.getAttribute("id");
-          const correct = q.getElementsByTagName("correct")[0].textContent;
-
-          qDiv.innerHTML += `<p>${qText}</p>`;
-
-          Array.from(q.getElementsByTagName("option")).forEach((opt, i) => {
-            const optId = opt.getAttribute("id");
-            const optText = opt.childNodes[0].textContent;
-            const explanation = opt.getElementsByTagName("explanation")[0].textContent;
-            qDiv.innerHTML += `
-              <div class="option">
-                <label>
-                  <input type="radio" name="q${index}-${qi}" value="${optId}" data-correct="${optId === correct}" data-explanation="${explanation}">
-                  ${optText}
-                </label>
-                <div class="explanation" style="display:none;"></div>
-              </div>`;
-          });
-          section.appendChild(qDiv);
-        });
+        const btnContainerTop = document.createElement("div");
+        btnContainerTop.className = "category-buttons";
 
         const submitBtnTop = document.createElement("button");
         submitBtnTop.textContent = "Submit Category";
-        submitBtnTop.className = "submit-category";
-        submitBtnTop.onclick = () => checkCategory(index);
-        section.insertBefore(submitBtnTop, section.children[1]);
+        submitBtnTop.className = "submit-btn";
+        submitBtnTop.onclick = () => submitCategory(container, selectedQuestions);
 
-        const submitBtnBottom = submitBtnTop.cloneNode(true);
-        section.appendChild(submitBtnBottom);
+        const resetBtnTop = document.createElement("button");
+        resetBtnTop.textContent = "Reset Category";
+        resetBtnTop.className = "reset-btn";
+        resetBtnTop.onclick = () => renderQuiz(xml);
 
-        const resetBtn = document.createElement("button");
-        resetBtn.textContent = "Reset Category";
-        resetBtn.className = "reset-category";
-        resetBtn.onclick = () => renderCategories();
-        section.appendChild(resetBtn);
+        btnContainerTop.appendChild(submitBtnTop);
+        btnContainerTop.appendChild(resetBtnTop);
+        container.appendChild(btnContainerTop);
 
-        container.appendChild(section);
+        selectedQuestions.forEach((qElem, qIndex) => {
+          const qText = qElem.getElementsByTagName("text")[0].textContent;
+          const correct = qElem.getElementsByTagName("correct")[0].textContent.trim();
+          const options = Array.from(qElem.getElementsByTagName("option"));
+
+          const qDiv = document.createElement("div");
+          qDiv.className = "question";
+          qDiv.dataset.correct = correct;
+
+          const qP = document.createElement("p");
+          qP.textContent = `${qIndex + 1}. ${qText}`;
+          qDiv.appendChild(qP);
+
+          options.forEach((opt) => {
+            const optId = opt.getAttribute("id");
+            const label = document.createElement("label");
+            label.className = "option";
+
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = `question-${index}-${qIndex}`;
+            radio.value = optId;
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(" " + opt.textContent.replace(/\n.*$/, "")));
+
+            const explanation = opt.getElementsByTagName("explanation")[0];
+            if (explanation) {
+              const expDiv = document.createElement("div");
+              expDiv.className = "explanation";
+              expDiv.textContent = explanation.textContent;
+              expDiv.style.display = "none";
+              label.appendChild(expDiv);
+            }
+            qDiv.appendChild(label);
+          });
+
+          container.appendChild(qDiv);
+        });
+
+        const btnContainerBottom = btnContainerTop.cloneNode(true);
+        container.appendChild(btnContainerBottom);
+        quizContainer.appendChild(container);
       });
     }
 
-    function checkCategory(catIndex) {
-      const section = document.getElementById(`category-${catIndex}`);
-      const questions = usedQuestions[catIndex];
+    function submitCategory(container, questions) {
+      const questionDivs = container.querySelectorAll(".question");
       let allCorrect = true;
 
-      questions.forEach((q, qi) => {
-        const qDiv = section.querySelector(`.question[data-index='${qi}']`);
-        const correct = q.getElementsByTagName("correct")[0].textContent;
-        const selected = qDiv.querySelector("input[type='radio']:checked");
+      questionDivs.forEach((qDiv) => {
+        const selected = qDiv.querySelector("input[type=radio]:checked");
         if (!selected) return;
+        const isCorrect = selected.value.trim() === qDiv.dataset.correct.trim();
 
         const options = qDiv.querySelectorAll(".option");
-        options.forEach(opt => {
-          const input = opt.querySelector("input");
-          const exp = opt.querySelector(".explanation");
-          if (input.checked) {
-            if (input.getAttribute("data-correct") === "true") {
-              opt.classList.add("correct");
-              exp.style.display = "block";
-              exp.style.backgroundColor = "#d4edda";
-              exp.textContent = input.getAttribute("data-explanation");
+        options.forEach((opt) => {
+          const radio = opt.querySelector("input[type=radio]");
+          const explanation = opt.querySelector(".explanation");
+          if (!explanation) return;
+
+          if (radio.checked) {
+            if (radio.value.trim() === qDiv.dataset.correct.trim()) {
+              explanation.className = "explanation correct";
             } else {
-              opt.classList.add("incorrect");
-              exp.style.display = "block";
-              exp.style.backgroundColor = "#f8d7da";
-              exp.textContent = input.getAttribute("data-explanation");
+              explanation.className = "explanation incorrect";
               allCorrect = false;
             }
+            explanation.style.display = "block";
+          } else {
+            explanation.style.display = "none";
           }
         });
       });
 
       if (allCorrect) {
-        document.getElementById(`nav-${catIndex}`).classList.add("done");
+        container.classList.add("completed");
+        container.querySelectorAll("button").forEach(btn => btn.disabled = true);
       }
     }
 
-    function shuffleArray(array) {
-      return array.sort(() => Math.random() - 0.5);
-    }
-
-    loadXML();
+    loadXML().then(renderQuiz);
   </script>
 </body>
 </html>
