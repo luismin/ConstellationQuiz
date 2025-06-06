@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<PegaConstellationQuiz>
+<quiz>
   <category name="App Studio &amp; Declarative Development">
     <question id="1">
       <text>In Pega Constellation, what replaces traditional 'Sections' for UI configuration?</text>
@@ -972,4 +972,4 @@
       <correct>b)</correct>
     </question>
   </category>
-</PegaConstellationQuiz>
+</quiz>
