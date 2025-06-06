@@ -308,8 +308,13 @@
       resetBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
-        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
-        category.renderQuestions();
+        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10); // Select 10 new random questions
+        category.renderQuestions(); // Re-render questions
+        // Clear radio buttons and hide explanations
+        category.questionForms().forEach(({ form, explanation }) => {
+          form.reset(); // Clear radio button selections
+          explanation.style.display = "none"; // Hide explanations
+        });
       };
 
       function showCategory(index) {
