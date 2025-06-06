@@ -6,75 +6,99 @@
   <title>Constellation Quiz</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
       padding: 2rem;
-      padding-left: 120px; /* Prevent content overlap with fixed buttons */
-      background-color: #f9f9f9;
+      padding-bottom: 80px; /* Space for fixed buttons at bottom */
+      background-color: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
     }
     h2 {
       padding: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
     .category {
-      margin-bottom: 3rem;
-      border: 1px solid #ccc;
+      margin: 0 auto 3rem auto;
+      max-width: 800px; /* Center content */
+      border: 1px solid #e0e0e0;
       border-radius: 10px;
-      padding: 1rem;
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
       display: none;
     }
     .category.active {
       display: block;
     }
     .question {
-      background-color: white;
-      border-radius: 5px;
-      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #e9ecef;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .question p {
+      font-weight: bold; /* Questions in bold */
       margin-bottom: 1rem;
-      border: 1px solid #ddd;
+      font-size: 1.1rem;
     }
     .option {
       display: block;
-      margin: 0.5rem 0;
+      margin: 0.75rem 0;
+      font-size: 1rem;
+    }
+    .option input {
+      margin-right: 0.5rem;
     }
     .correct-explanation {
-      background-color: #d4edda;
-      color: #155724;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-left: 5px solid #28a745;
+      background-color: #e6f4ea;
+      color: #2e7d32;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 5px solid #4caf50;
+      border-radius: 4px;
     }
     .incorrect-explanation {
-      background-color: #f8d7da;
-      color: #721c24;
-      padding: 0.5rem;
-      margin-top: 0.5rem;
-      border-left: 5px solid #dc3545;
+      background-color: #fce4e4;
+      color: #c62828;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 5px solid #d32f2f;
+      border-radius: 4px;
     }
     .submit-reset-container {
-      position: fixed; /* Fixed overlay on left */
+      position: fixed; /* Fixed overlay at bottom */
+      bottom: 0;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%); /* Vertically center */
+      width: 100%;
       display: flex;
-      flex-direction: column; /* Stack buttons vertically */
-      gap: 0.5rem;
-      background: #f9f9f9;
+      justify-content: center; /* Center buttons */
+      gap: 1rem;
+      background: #f4f7fa;
       padding: 1rem;
-      border-right: 1px solid #ccc;
-      z-index: 1000; /* Stay above other content */
+      border-top: 1px solid #e0e0e0;
+      z-index: 1000;
       box-sizing: border-box;
     }
     .submit-category-btn, .reset-category-btn {
       background-color: #007bff;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.5rem;
       cursor: pointer;
-      border-radius: 5px;
-      width: 100px; /* Fixed width for consistency */
-      text-align: center;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.2s, transform 0.1s;
+    }
+    .submit-category-btn:hover, .reset-category-btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
     }
     .category-header {
       display: flex;
@@ -85,23 +109,48 @@
       font-size: 1.5rem;
     }
     #category-nav {
-      margin-bottom: 2rem;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
+      justify-content: center;
     }
     .category-btn {
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1.5rem;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+    .category-btn:hover {
+      background-color: #0056b3;
     }
     .category-btn.completed {
-      background-color: #ccc;
-      color: #666;
+      background-color: #6c757d;
+      color: #fff;
       cursor: default;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+        padding-bottom: 80px;
+      }
+      .category {
+        padding: 1rem;
+      }
+      .question {
+        padding: 1rem;
+      }
+      .submit-category-btn, .reset-category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -132,12 +181,12 @@
       const container = document.getElementById("quiz-container");
       const nav = document.getElementById("category-nav");
       const categories = Array.from(xml.getElementsByTagName("category"));
-      let activeCategoryIdx = 0; // Track active category
+      let activeCategoryIdx = 0;
 
-      // Create single submit-reset container
+      // Create submit-reset container
       const stickyButtons = document.createElement("div");
       stickyButtons.className = "submit-reset-container";
-      document.body.appendChild(stickyButtons); // Append to body for fixed overlay
+      document.body.appendChild(stickyButtons);
 
       const submitBtn = document.createElement("button");
       submitBtn.textContent = "Submit Category";
@@ -162,7 +211,7 @@
         catBtn.textContent = catName;
         catBtn.onclick = () => {
           showCategory(idx);
-          activeCategoryIdx = idx; // Update active category
+          activeCategoryIdx = idx;
         };
         nav.appendChild(catBtn);
 
@@ -224,7 +273,6 @@
           });
         }
 
-        // Initial render
         renderQuestions();
 
         container.appendChild(catDiv);
@@ -233,7 +281,7 @@
           catBtn, 
           catDiv, 
           renderQuestions, 
-          selectedQuestions, // Store as property
+          selectedQuestions, 
           questionForms: () => questionForms 
         };
       });
@@ -262,8 +310,8 @@
       resetBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
-        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10); // Update selectedQuestions
-        category.renderQuestions(); // Re-render questions
+        category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+        category.renderQuestions();
       };
 
       function showCategory(index) {
