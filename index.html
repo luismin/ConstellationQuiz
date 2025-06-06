@@ -20,6 +20,14 @@
       color: white;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .category-header.completed::before {
+      content: "✓"; /* Checkmark for completed category */
+      font-size: 1.5rem;
+      color: #4caf50;
     }
     .category {
       margin-bottom: 3rem;
@@ -125,13 +133,35 @@
       font-weight: 500;
       transition: background-color 0.2s;
     }
-    .category-btn:hover {
+    .category-btn:hover:not(.completed) {
       background-color: #0056b3;
     }
     .category-btn.completed {
       background-color: #6c757d;
       color: #fff;
       cursor: default;
+    }
+    #congratulations {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      z-index: 2000;
+    }
+    #congratulations h1 {
+      color: #4caf50;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    #congratulations p {
+      font-size: 1.2rem;
+      color: #333;
     }
     /* Responsive adjustments */
     @media (max-width: 600px) {
@@ -149,12 +179,23 @@
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
       }
+      #congratulations {
+        padding: 1rem;
+        width: 80%;
+      }
+      #congratulations h1 {
+        font-size: 1.5rem;
+      }
+      #congratulations p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
   <div id="category-nav"></div>
   <div id="quiz-container"></div>
+  <div id="congratulations"></div>
   <script>
     const DEBUG = true;
     async function loadXML() {
@@ -173,6 +214,18 @@
     function createCategoryIcon(index) {
       const icons = ["📘", "🧩", "🏗️", "🔧", "🔄", "💻", "🚀"];
       return icons[index % icons.length];
+    }
+
+    function showCongratulations() {
+      const congratsDiv = document.getElementById("congratulations");
+      congratsDiv.style.display = "block";
+      congratsDiv.innerHTML = `
+        <h1>Congratulations!</h1>
+        <p>You have successfully completed all categories!</p>
+      `;
+      document.getElementById("category-nav").style.display = "none";
+      document.getElementById("quiz-container").style.display = "none";
+      document.querySelector(".submit-reset-container").style.display = "none";
     }
 
     function renderQuiz(xml) {
@@ -208,8 +261,10 @@
         catBtn.style.backgroundColor = color;
         catBtn.textContent = catName;
         catBtn.onclick = () => {
-          showCategory(idx);
-          activeCategoryIdx = idx;
+          if (!catBtn.classList.contains("completed")) {
+            showCategory(idx);
+            activeCategoryIdx = idx;
+          }
         };
         nav.appendChild(catBtn);
 
@@ -227,6 +282,7 @@
         const questions = Array.from(category.getElementsByTagName("question"));
         let selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.min(10, questions.length));
         let questionForms = [];
+        let isCompleted = false;
 
         function renderQuestions() {
           questionForms = [];
@@ -253,6 +309,7 @@
               input.type = "radio";
               input.name = `q${question.getAttribute("id")}`;
               input.value = id;
+              if (isCompleted) input.disabled = true; // Disable if category completed
 
               const debugMark = DEBUG && id === correct ? ' *' : '';
 
@@ -278,20 +335,27 @@
         return { 
           catBtn, 
           catDiv, 
+          catHeader,
           renderQuestions, 
           get selectedQuestions() { return selectedQuestions; },
           set selectedQuestions(newQuestions) { selectedQuestions = newQuestions; },
-          questionForms: () => questionForms 
+          questionForms: () => questionForms,
+          get isCompleted() { return isCompleted; },
+          set isCompleted(value) { isCompleted = value; }
         };
       });
 
       // Submit button logic
       submitBtn.onclick = () => {
-        const { catBtn, questionForms } = categoryData[activeCategoryIdx];
+        const category = categoryData[activeCategoryIdx];
+        if (category.isCompleted) return; // Skip if already completed
         let allCorrect = true;
-        questionForms().forEach(({ form, options, correct, explanation }) => {
+        category.questionForms().forEach(({ form, options, correct, explanation }) => {
           const selected = form.querySelector("input[type=radio]:checked");
-          if (!selected) return;
+          if (!selected) {
+            allCorrect = false;
+            return;
+          }
           const chosen = selected.value;
           const option = options.find((opt) => opt.getAttribute("id") === chosen);
           const exp = option.getElementsByTagName("explanation")[0]?.textContent || "";
@@ -301,15 +365,28 @@
           if (chosen !== correct) allCorrect = false;
         });
         if (allCorrect) {
-          catBtn.classList.add("completed");
+          category.catBtn.classList.add("completed");
+          category.catBtn.disabled = true; // Disable category button
+          category.catHeader.classList.add("completed"); // Add checkmark
+          category.isCompleted = true; // Mark as completed
+          // Disable all radio buttons in the category
+          category.questionForms().forEach(({ form }) => {
+            form.querySelectorAll("input[type=radio]").forEach(input => {
+              input.disabled = true;
+            });
+          });
+          // Check if all categories are completed
+          if (categoryData.every(cat => cat.isCompleted)) {
+            showCongratulations();
+          }
         }
       };
 
       // Reset button logic
       resetBtn.onclick = () => {
         const category = categoryData[activeCategoryIdx];
+        if (category.isCompleted) return; // Skip if category is completed
         const questions = Array.from(categories[activeCategoryIdx].getElementsByTagName("question"));
-        // Ensure we don't select more questions than available
         category.selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, Math.min(10, questions.length));
         category.renderQuestions();
         // Clear radio buttons and hide explanations
