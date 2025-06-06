@@ -57,7 +57,7 @@
       color: red;
     }
     .explanation {
-      margin-top: 5px;
+      margin-top: 6px;
       padding: 6px;
       border-radius: 6px;
     }
@@ -70,8 +70,8 @@
       color: #721c24;
     }
     button {
-      margin: 15px 5px;
-      padding: 10px 20px;
+      margin: 10px 5px;
+      padding: 8px 16px;
       background-color: #3498db;
       border: none;
       border-radius: 5px;
@@ -110,10 +110,10 @@
   <div id="result"></div>
 
   <script>
-    const DEBUG = false;
+    const DEBUG = true;
     let allCategories = [];
     const categoryColors = ['#e67e22', '#1abc9c', '#9b59b6', '#3498db', '#f39c12', '#2ecc71', '#e74c3c'];
-    const categoryIcons = ['📐', '💡', '🏛️', '🧪', '🔄', '🖥️', '🚀'];
+    const categoryIcons = ['📘', '🧩', '🏗️', '🔧', '🔄', '💻', '🚀'];
 
     fetch('questions.xml')
       .then(response => response.text())
@@ -122,13 +122,13 @@
         const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
         const categories = xmlDoc.getElementsByTagName('category');
         allCategories = Array.from(categories).map((cat, idx) => {
-          const name = cat.getAttribute('name').replace('App Studio & Declarative Development', 'Low Code Development');
+          const name = cat.getAttribute('name') === 'App Studio & Declarative Development' ? 'Low Code Development' : cat.getAttribute('name');
           const questions = Array.from(cat.getElementsByTagName('question')).map(q => {
             const text = q.getElementsByTagName('text')[0].textContent;
             const options = Array.from(q.getElementsByTagName('option')).map(opt => ({
               id: opt.getAttribute('id'),
               text: opt.textContent,
-              explanation: opt.getAttribute('explanation') || 'Explanation: TBD'
+              explanation: opt.getAttribute('explanation') || 'Explanation: Y'
             }));
             const correct = q.getElementsByTagName('correct')[0].textContent.trim();
             return { text, options, correct, category: name };
@@ -155,7 +155,7 @@
       nav.innerHTML = '';
       allCategories.forEach((cat, i) => {
         const btn = document.createElement('button');
-        btn.textContent = cat.completed ? `${cat.name} ✅` : `${categoryIcons[i % categoryIcons.length]} ${cat.name}`;
+        btn.textContent = cat.completed ? `${cat.name} ✅` : cat.name;
         btn.className = cat.completed ? 'completed' : '';
         btn.disabled = cat.completed;
         btn.style.borderTopColor = categoryColors[i % categoryColors.length];
@@ -169,18 +169,18 @@
       const color = categoryColors[index % categoryColors.length];
       const icon = categoryIcons[index % categoryIcons.length];
       let html = `<h2 class="category-title" style="background-color:${color}"><span class="category-icon">${icon}</span>${cat.name}</h2>`;
-      html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
       cat.questions.forEach((q, idx) => {
         html += `<div class="question-block" style="border-left: 6px solid ${color}" id="qblock-${idx}">
           <div class="question">Q${idx + 1}: ${q.text}</div>`;
         q.options.forEach(opt => {
           const checked = cat.answers[idx] === opt.id ? 'checked' : '';
+          const debugMark = (DEBUG && opt.id === q.correct) ? ' *' : '';
           html += `<label class="option">
-            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}
+            <input type="radio" name="q${idx}" value="${opt.id}" ${checked} onchange="storeAnswer(${index}, ${idx}, '${opt.id}')"> ${opt.id} ${opt.text}${debugMark}
           </label>`;
         });
         html += `<div class="feedback" id="feedback-${idx}"></div>
-                 <button onclick="submitAnswer(${index}, ${idx})">Submit Answer</button>
+        <button onclick="submitAnswer(${index}, ${idx})">Submit Answer</button>
         </div>`;
       });
       html += `<button onclick="submitCategory(${index})">Submit Category</button>`;
@@ -194,23 +194,22 @@
 
     function submitAnswer(catIdx, qIdx) {
       const cat = allCategories[catIdx];
-      const q = cat.questions[qIdx];
       const selected = cat.answers[qIdx];
+      const correct = cat.questions[qIdx].correct;
       const feedback = document.getElementById(`feedback-${qIdx}`);
-      const correct = q.correct;
-      const explanation = q.options.find(opt => opt.id === selected)?.explanation || '';
+      const optionData = cat.questions[qIdx].options.find(opt => opt.id === selected);
       if (!selected) {
         feedback.textContent = '⚠️ Please select an option.';
         feedback.className = 'feedback incorrect';
         return;
       }
       if (selected === correct) {
-        feedback.innerHTML = `✅ Correct<div class="explanation correct">${explanation}</div>`;
-        feedback.className = 'feedback';
+        feedback.innerHTML = '✅ Correct<div class="explanation correct">' + optionData.explanation + '</div>';
+        feedback.className = 'feedback correct';
       } else {
-        const correctExplanation = q.options.find(opt => opt.id === correct)?.explanation || '';
-        feedback.innerHTML = `❌ Incorrect<div class="explanation incorrect">${correctExplanation}</div>`;
-        feedback.className = 'feedback';
+        const correctExplanation = cat.questions[qIdx].options.find(opt => opt.id === correct)?.explanation;
+        feedback.innerHTML = '❌ Incorrect<div class="explanation incorrect">' + optionData.explanation + '<br><strong>Correct:</strong> ' + correct + ' - ' + correctExplanation + '</div>';
+        feedback.className = 'feedback incorrect';
       }
     }
 
@@ -222,7 +221,6 @@
         const selected = cat.answers[i];
         if (!selected || selected !== cat.questions[i].correct) {
           allCorrect = false;
-          break;
         }
       }
       if (allCorrect) {
@@ -256,4 +254,3 @@
   </script>
 </body>
 </html>
-
